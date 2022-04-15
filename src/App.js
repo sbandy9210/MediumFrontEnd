@@ -5,6 +5,8 @@ import './styles/app.css'
 import Home from './pages/Home'
 import MyPage from './pages/MyPage'
 import { Route, Routes } from 'react-router-dom'
+import SignIn from './pages/SignIn'
+
 
 
 function App() {
@@ -28,12 +30,12 @@ function App() {
           
         
           <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<SignIn />} />
               <Route path='/home' element={<Home />}/>
               <Route path='/my-page' element={<MyPage />}/>
           </Routes>
 
-          Working
+          Working!
        
   
         </div>
