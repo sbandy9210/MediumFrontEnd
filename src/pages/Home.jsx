@@ -1,5 +1,7 @@
+
 import Nav from '../components/Nav'
 import ArticleCard from '../components/ArticleCard'
+import React from 'react'
 
 const Home = () => {
     return(
@@ -15,4 +17,5 @@ const Home = () => {
     )
 }
 
-export default Home
+
+export default Home;
