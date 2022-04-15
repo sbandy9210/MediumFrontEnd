@@ -1,7 +1,15 @@
+
+import Nav from '../components/Nav'
+
 const MyPage = () => {
     return(
         <div>
-            <h1>Welcome this is my page </h1>
+            <div>
+                <Nav />
+            </div>
+            <div>
+                
+            </div>
         </div>
     )
 }
