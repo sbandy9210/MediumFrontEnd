@@ -27,8 +27,8 @@ function App() {
         
         <Routes>
             <Route path="/" element={< />} />
-            <Route path='/' element={< />}/>
-            <Route path='/' element={< />}/>  
+            <Route path='/home' element={< />}/>
+            <Route path='/my-page' element={< />}/>  
             
         </Routes> 
         </main> 
