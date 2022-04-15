@@ -6,7 +6,11 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import MyPage from './pages/MyPage'
 import SignIn from './pages/SignIn'
+
+import Register from './pages/Register'
+
 import Article from './pages/Article'
+
 
 
 
@@ -35,7 +39,11 @@ function App() {
               <Route path="/" element={<SignIn />} />
               <Route path='/home' element={<Home />}/>
               <Route path='/my-page' element={<MyPage />}/>
+
+              <Route path='/register' element={<Register />}/>
+
               <Route path='/article' element={<Article />}/>
+
           </Routes>
 
        
