@@ -1,7 +1,7 @@
 # MyLieu
 ### Date: 4/14/22
-## ***Backend:*** Austin Haubenschild, Piero Caceres
-## ***Frontend:*** Michelle Yang, Shubhro Bandyopadhyay
+## ***Backend:*** Austin Haubenschild [LinkedIn](https://www.linkedin.com/in/austin-haubenschild-211472169/) [Github](https://github.com/Haubaustin), Piero Caceres [LinkedIn](https://www.linkedin.com/in/pcace/) [Github](https://github.com/pierocaceres)
+## ***Frontend:*** Michelle Yang [LinkedIn](https://www.linkedin.com/in/myang292/) [Github](https://github.com/myang292), Shubhro Bandyopadhyay[LinkedIn](https://www.linkedin.com/in/shubhro-bandyopadhyay-8420a321b/)   [Github](https://github.com/sbandy9210) 
 - - -
 ## ***Desprciption***
 
