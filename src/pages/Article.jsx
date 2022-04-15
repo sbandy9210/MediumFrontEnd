@@ -1,8 +1,21 @@
+
+import Nav from '../components/Nav'
 import React from 'react'
 
 
-const Article = () => {
 
+const Article = () => {
+    return(
+        <div>
+            <div>
+                <Nav />
+            </div>
+            <div>
+                
+            </div>
+
+        </div>
+    )
 }
 
 export default Article
