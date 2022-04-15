@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import MyPage from './pages/MyPage'
 import { Route, Routes } from 'react-router-dom'
 import SignIn from './pages/SignIn'
+import Register from './pages/Register'
 
 
 
@@ -33,6 +34,7 @@ function App() {
               <Route path="/" element={<SignIn />} />
               <Route path='/home' element={<Home />}/>
               <Route path='/my-page' element={<MyPage />}/>
+              <Route path='/register' element={<Register />}/>
           </Routes>
 
           Working!
