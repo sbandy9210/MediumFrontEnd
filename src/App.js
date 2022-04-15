@@ -2,11 +2,15 @@ import React from 'react'
 // import axios from 'axios'
 // import DataContext from './components/DataContext'
 import './styles/app.css'
+import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import MyPage from './pages/MyPage'
-import { Route, Routes } from 'react-router-dom'
 import SignIn from './pages/SignIn'
+
 import Register from './pages/Register'
+
+import Article from './pages/Article'
+
 
 
 
@@ -25,6 +29,7 @@ function App() {
 
     return (
       <div className="App">
+        
           {/* <DataContext.Provider value={{
 
           }} /> */}
@@ -34,10 +39,13 @@ function App() {
               <Route path="/" element={<SignIn />} />
               <Route path='/home' element={<Home />}/>
               <Route path='/my-page' element={<MyPage />}/>
+
               <Route path='/register' element={<Register />}/>
+
+              <Route path='/article' element={<Article />}/>
+
           </Routes>
 
-          Working!
        
   
         </div>
