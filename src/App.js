@@ -2,6 +2,10 @@ import React from 'react'
 // import axios from 'axios'
 // import DataContext from './components/DataContext'
 import './styles/app.css'
+import Home from './pages/Home'
+import MyPage from './pages/MyPage'
+import { Route, Routes } from 'react-router-dom'
+
 
 function App() {
 
@@ -22,18 +26,12 @@ function App() {
 
           }} /> */}
           
-       
-  
-        <main>
         
-        {/* <Routes> */}
-            {/* <Route path="/" element={< />} />
-            <Route path='/home' element={< />}/>
-            <Route path='/my-page' element={< />}/>   */}
-            
-        {/* </Routes>  */}
-        </main> 
-      
+          <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path='/home' element={<Home />}/>
+              <Route path='/my-page' element={<MyPage />}/>
+          </Routes>
 
           Working
        
