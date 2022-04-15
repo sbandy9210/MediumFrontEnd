@@ -8,39 +8,40 @@ const SignIn = () => {
 
     const [form, setForm] = useState({
         userName: '',
-        passWord: '',
+        passWord: ''
 
 
     })
 
-    const handleForm = async (e) => {
-        await setForm({...form, [e.target.name]: e.target.value})
+    const handleForm = (e) => {
+        setForm({...form, [e.target.name]: e.target.value})
         
     }
 
     const handleCreate = async (e) => {
-        await axios.post(`${BASE_URL}/signin`, form)
+        await axios.post(`${BASE_URL}/SignIn`, form)
         e.preventDefault()
     }
 
     useEffect(() => {
 
-    }, [form])
+    }, [])
 
 
 
     return(
-        <div className='signIn'>
+        <div className='SignIn'>
+            
             <h1>Please Sign in!</h1>
 
             
             <form>
             
-            <label for='userName'> Enter your user name! : </label><br/>
-            <input type='text' id='userName' name='userName' value={form.userName} />
+            <label for='userName'> Enter your user name! : </label>
+            <input type='text' id='userName' placeholder='Enter user name here' name='userName' onChange={handleForm} value={form.userName} /><br/>
             
-            <label for='passWord'> Enter your password! : </label><br/>
-            <input type='text' id='passWord' name='passWord' value={form.passWord}/>
+            <label for='passWord'> Enter your password! : </label>
+            <input type='text' id='passWord' placeholder='Enter password here' name='passWord' onChange={handleForm} value={form.passWord}/><br/>
 
             <button onClick={() => handleCreate()}> Sign In! </button>
 
