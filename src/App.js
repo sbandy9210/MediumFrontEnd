@@ -2,9 +2,9 @@ import React from 'react'
 // import axios from 'axios'
 // import DataContext from './components/DataContext'
 import './styles/app.css'
+import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import MyPage from './pages/MyPage'
-import { Route, Routes } from 'react-router-dom'
 import SignIn from './pages/SignIn'
 
 
@@ -24,6 +24,7 @@ function App() {
 
     return (
       <div className="App">
+        
           {/* <DataContext.Provider value={{
 
           }} /> */}
@@ -35,7 +36,6 @@ function App() {
               <Route path='/my-page' element={<MyPage />}/>
           </Routes>
 
-          Working!
        
   
         </div>

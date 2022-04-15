@@ -1,7 +1,18 @@
+import Nav from '../components/Nav'
+import ArticleCard from '../components/ArticleCard'
+
 const Home = () => {
-    <div>
-        MyLieu
-    </div>
+    return(
+        <div>
+            <div>
+                <h1>MyLieu</h1>
+                <Nav />
+            </div>
+            <div>
+                <ArticleCard />
+            </div>
+        </div>
+    )
 }
 
 export default Home
