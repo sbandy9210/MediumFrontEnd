@@ -41,3 +41,5 @@
 
 
 [Figma](https://www.figma.com/file/pESfXpcMigEUmsyMkLv8no/P3-Milieu?node-id=0%3A1)
+
+[Google Slides](https://docs.google.com/presentation/d/1e5hPQGSh_qkH83grIi-yDLJ1wwJsiVBWJzHhvYnmBX0/edit?usp=sharing)
