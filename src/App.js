@@ -1,7 +1,19 @@
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import DataContext from './component/DataContext'
 
 function App() {
-  
+
+  const [articles, setArticles] = useState([])
+
+  const getArticles = async() => {
+    const articles = await axios.get('')
+    setArticles(articles.data)
+  }
+
+  useEffect(() => {
+    getArticles()
+  }, [])
 
     return (
       <div className="App">
