@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import ReactDom from 'react-dom'
 import axios from 'axios'
 
 
@@ -9,15 +8,16 @@ const BASE_URL = 'http://localhost:3000'
 
 
 const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
+    
+    email: '',
     userName: '',
-    email: ''
+    passWord: '',
+    confirmPassWord: ''
 })
 
-const handleForm = async (e) => {
-    await setForm({...form, [e.target.firstName]: e.target.value})
-    console.log(form)
+const handleForm = (e) => {
+    setForm({...form, [e.target.name]: e.target.value})
+    
 }
 
 const handleCreate = async (e) => {
@@ -29,27 +29,34 @@ const handleCreate = async (e) => {
 
 useEffect(() => {
 
-}, [form])
+}, [])
 
 
 return(
     <div className='Register'>
 
-        <h1>Register Here! </h1>
+        <h1>Register Here!</h1>
 
         <form>
         
-        <label for='firstName'> Enter your first name! : </label><br/>
-        <input type='text' id='firstName' name='firstName' value={form.firstName} />
         
-        <label for='lastName'> Enter your last name! : </label><br/>
-        <input type='text' id='lastName' name='lastName' value={form.lastName}/>
+        <label htmlFor='email'> Enter your email!: </label>
+        <input type='text' placeholder='Enter email here' onChange={handleForm} id='email' name='email' value={form.email}/><br/>
 
-        <label for='userName'> Choose a username!: </label><br/>
-        <input type='text' id='userName' name='userName' value={form.userName}/>
+        <label htmlFor='userName'> Create a username!: </label>
+        <input type='text' placeholder='Enter user name here' id='userName' name='userName' onChange={handleForm} value={form.userName}/><br/>
 
-        <label for='email'> Enter your email!: </label><br/>
-        <input type='text' id='email' name='email' value={form.email}/>
+        <label htmlFor='passWord'> Create a password!: </label>
+        <input type='text' placeholder='Enter password here' id='passWord' name='passWord' onChange={handleForm} value={form.passWord}/><br/>
+
+        <label htmlFor='confirmPassWord'> Confirm password!: </label>
+        <input type='text' placeholder='Confirm password here' id='confirmPassWord' name='confirmPassWord' onChange={handleForm} value={form.confirmPassWord}/><br/>
+
+
+
+        <button onClick={() => handleCreate()}> Register </button>
+
+      
     
         </form>
 
