@@ -1,8 +1,28 @@
 {
   "dependencies": {
     "axios": "^0.26.1",
-    "react-router-dom": "^6.3.0",
-    "start": "node backEnd/server.js",
-    "dev": "nodemon server.js"
-  }
+
+    "react-router-dom": "^6.3.0"
+  },
+  "name": "mylieu",
+  "description": "- - -\r ## ***Desprciption***",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbandy9210/MediumFrontEnd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sbandy9210/MediumFrontEnd/issues"
+  },
+  "homepage": "https://github.com/sbandy9210/MediumFrontEnd#readme"
+
+
 }
