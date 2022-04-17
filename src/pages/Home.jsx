@@ -4,13 +4,14 @@ import ArticleCard from '../components/ArticleCard'
 import React from 'react'
 
 const Home = () => {
+
+
     return(
         <div>
-            <div>
-                <h1>MyLieu</h1>
+            <div className = 'navDiv'>
                 <Nav />
             </div>
-            <div>
+            <div className = 'articlesDiv'>
                 <ArticleCard />
             </div>
         </div>

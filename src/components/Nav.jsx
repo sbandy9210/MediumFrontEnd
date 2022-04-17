@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 
 const Nav = () => {
+    
+
     return(
         <div>
             <h3>Welcome, User</h3>
@@ -9,7 +11,7 @@ const Nav = () => {
                 <br/>
                 <Link to ='/my-page'>My Page</Link>
                 <br/>
-                <Link to ='/'>Notifications</Link>
+                <Link to ='/home'>Notifications</Link>
                 <br/>
                 <Link to ='/'>Logout</Link>
             </nav>

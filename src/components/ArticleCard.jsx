@@ -33,6 +33,18 @@ const ArticleCard = (props) => {
                 src = 'https://www.elsevier.com/__data/assets/image/0009/899451/RA-review-articles-banner-1200-x-600.jpg'  
                 alt =''
                 onClick = {article}
+                style = {{width:'150px'}}
+                />
+            
+            <br />
+            This is article 1
+
+            <br />
+            <img 
+                src = 'https://www.elsevier.com/__data/assets/image/0009/899451/RA-review-articles-banner-1200-x-600.jpg'  
+                alt =''
+                onClick = {article}
+                style = {{width:'150px'}}
                 />
             
             <br />
