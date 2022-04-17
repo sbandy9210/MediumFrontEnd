@@ -1,3 +1,54 @@
-nav {
-    display: block
+
+
+.articleContent {
+    height: 300px;
+    width: 700px;
 }
+
+.articleDiv {
+    float: left;
+}
+
+.articlePostButton {
+    text-align: center;
+}
+
+.articleTitle {
+    width: 700px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.articlesDiv {
+    float: left;
+}
+
+.button {
+    text-align: center;
+}
+
+.commentDiv {
+    text-align: center;
+}
+
+.commentTextBox {
+    width: 700px;
+    height: 100px;
+}
+
+.myPageLeftDiv {
+    float: left;
+    height: 100%;
+    width: 25%;
+}
+
+.myPageRightDiv {
+    float: left;
+}
+
+.navDiv {
+    float: left;
+    height: 100%;
+    width: 25%;
+}
+
