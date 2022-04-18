@@ -39,7 +39,7 @@ function App() {
         
           <Routes>
 
-              <Route path="/" element={<SignIn />} />
+              <Route path="/login" element={<SignIn />} />
               <Route path='/blog/all' element={<Home />}/>
               <Route path='/blog/create' element={<MyPage />}/>
               <Route path='/blog/:blog_id' element={<Article />}/>
