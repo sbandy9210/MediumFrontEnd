@@ -27,10 +27,10 @@ const SignIn = (props) => {
             username: '',
             password: ''
         })
-
+        console.log(payload)
         props.setUser(payload)
         props.setAuthenticated(true)
-        navigate('/blog/all')
+        navigate('/blog/create')
     }
 
     return(
