@@ -16,36 +16,37 @@ import Article from './pages/Article'
 function App() {
 
 
-  const [authenticated, setAuthenticated] = useState (false)
-  const [user, setUser] = useState(null)
+    const [authenticated, setAuthenticated] = useState (false)
+    const [user, setUser] = useState(null)
 
-  const checkToken = async() => {
-    const user = await CheckSession()
-    setUser(user)
-    setAuthenticated(true)
-  }
-
-  const [blog, setBlog] = useState([])
-
-
-  const getBlog = async() => {
-    const blog = await axios.get('http://localhost:3001/blog/all')
-    setBlog(blog.data)
-  }
-
-  const handleLogOut = () => {
-    setUser(null)
-    setAuthenticated(false)
-    localStorage.clear()
-  }
-
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if(token){
-      checkToken()
+    const checkToken = async() => {
+      const user = await CheckSession()
+      setUser(user)
+      setAuthenticated(true)
     }
-    // getBlog()
-  }, [])
+
+    const [blog, setBlog] = useState([])
+
+
+    const getBlog = async() => {
+      const blog = await axios.get('http://localhost:3001/blog/all')
+      setBlog(blog.data)
+    }
+
+    const handleLogOut = () => {
+      setUser(null)
+      setAuthenticated(false)
+      localStorage.clear()
+    }
+
+    useEffect(() => {
+      const token = localStorage.getItem('token')
+      if(token){
+        checkToken()
+      }
+      // getBlog()
+    }, [])
+
 
     return (
       <div className="App">
@@ -64,7 +65,7 @@ function App() {
           <Routes>
               <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated}/>} />
               <Route path='/blog/all' element={<Home />}/>
-              <Route path='/blog/create' element={<MyPage />}/>
+              <Route path='/blog/create' element={<MyPage user={user}/>}/>
               <Route path='/blog/:blog_id' element={<Article />}/>
               <Route path='/register' element={<Register />}/>
           </Routes>
