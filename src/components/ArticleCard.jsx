@@ -7,7 +7,7 @@ const ArticleCard = (props) => {
     // }
     
     const article = () => {
-        navigate(`/article`)
+        navigate(`/blog/:blog_id`)
     }
     let navigate = useNavigate()
 

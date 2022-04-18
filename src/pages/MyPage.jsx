@@ -19,7 +19,7 @@ const MyPage = () => {
                         style = {{width: '150px'}}
                     />
                 </div>
-                <div>
+                <div className = 'editAndDeleteButton'>
                     <button>Edit</button>
                     <br />
                     <button>Delete</button>
@@ -34,7 +34,7 @@ const MyPage = () => {
                         style = {{width: '150px'}}
                     />
                 </div>
-                <div>
+                <div className = 'editAndDeleteButton'>
                     <button>Edit</button>
                     <br />
                     <button>Delete</button>
