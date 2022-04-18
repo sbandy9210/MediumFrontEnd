@@ -1,28 +1,41 @@
 import { useState } from 'react'
 import { signInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 
 
-const SignIn = () => {
+
+const SignIn = (props) => {
+    let navigate = useNavigate()
     
-    const BASE_URL = 'http://localhost:3000'
+    
 
-    const [form, setForm] = useState({
-        userName: '',
-        passWord: ''
+    const [formValues, setFormValues] = useState({
+        username: '',
+        password: ''
 
 
     })
 
-    const handleForm = (e) => {
-        setForm({...form, [e.target.name]: e.target.value})
+    const handleChange = (e) => {
+        setFormValues({...formValues, [e.target.name]: e.target.value})
         
     }
 
-    const handleCreate = async (e) => {
-        await axios.post(`${BASE_URL}/SignIn`, form)
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        // const payload = await signInUser(formValues)
+        
+
+        // setFormValues({
+        //     username: '',
+        //     password: ''
+        // })
+
+        // props.setUser(payload)
+
+        // props.setAuthenticated(true)
+
+        navigate('/blog/all')
     }
 
    
@@ -35,15 +48,33 @@ const SignIn = () => {
             <h1>Please Sign in!</h1>
 
             
-            <form>
+            <form className='signin' onSubmit={handleSubmit}>
             
-            <label for='userName'> Enter your user name </label>
-            <input type='text' id='userName' placeholder='Enter user name here' name='userName' onChange={handleForm} value={form.userName} /><br/>
+            <label for='username'> Enter your username </label>
+            <input 
+                type='text' 
+                id='username' 
+                placeholder='Enter username here' 
+                name='username' 
+                onChange={handleChange} 
+                value={formValues.username}
+                style={{ textAlign: 'center'}}
+             /> <br/>
             
-            <label for='passWord'> Enter your password </label>
-            <input type='text' id='passWord' placeholder='Enter password here' name='passWord' onChange={handleForm} value={form.passWord}/><br/>
+            <label for='password'> Enter your password </label>
+            <input 
+                type='password' 
+                id='password' 
+                placeholder='Enter password here' 
+                name='password' 
+                onChange={handleChange} 
+                value={formValues.password}
+                style={{ textAlign: 'center'}}
+            /> <br/>
 
-            <button onClick={() => handleCreate()}> Sign In! </button>
+            <button 
+            type='submit'
+            disabled={!formValues.username || !formValues.password}> Sign In! </button>
 
             </form>
 
