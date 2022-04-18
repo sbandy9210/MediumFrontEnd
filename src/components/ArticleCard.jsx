@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom'
 
 const ArticleCard = (props) => {
 
-    // const article = (article) => {
-    //     navigate(`${article._id}`)
+    // const blog = (blog) => {
+    //     navigate(`${blog._id}`)
     // }
     
     const article = () => {
@@ -18,12 +18,20 @@ const ArticleCard = (props) => {
                 return(
                     <div>
                         <img 
-                            src = {article.image} 
+                            src = {blog.image} 
                             onClick={() => showArticle} 
                         />
+                        <br />
+                        {props.blog.title}
+                        <br />
                         <p>
-                            {props.article.content}
+                            {props.blog.article}
                         </p>
+                        <div className = 'editAndDeleteButton'>
+                            <button>Edit</button>
+                            <br />
+                            <button>Delete</button>
+                        </div>
                     </div>
                 )
             })} */}
