@@ -1,28 +1,43 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
 const Register = () => {
+    let navigate = useNavigate()
 
 const BASE_URL = 'http://localhost:3000'    
 
 
-const [form, setForm] = useState({
-    
+const [formValues, setFormValues] = useState({
     email: '',
     userName: '',
-    passWord: '',
-    confirmPassWord: ''
+    password: '',
+    confirmPassword: ''
 })
 
-const handleForm = (e) => {
-    setForm({...form, [e.target.name]: e.target.value})
+const handleChange = (e) => {
+    setFormValues({...formValues, [e.target.name]: e.target.value})
     
 }
 
-const handleCreate = async (e) => {
-    await axios.post(`${BASE_URL}/register`, form)
-    e.preventDefault()
+const handleSubmit = async (e) => {
+   e.preventDefault()
+
+   await RegisterUser({
+       name: formValues.name,
+       email: formValues.email,
+       password: formValues.password
+   })
+
+   setFormValues({
+       name: '',
+       email: '',
+       password: '',
+       confirmPassword: ''
+   })
+
+
 
 }
 
@@ -40,21 +55,22 @@ return(
         <form>
         
         
-        <label htmlFor='email'> Enter your email!: </label>
-        <input type='text' placeholder='Enter email here' onChange={handleForm} id='email' name='email' value={form.email}/><br/>
+        <label htmlFor='email'> Enter your email </label>
+        <input type='text' placeholder='Enter email here' onChange={handleChange} id='email' name='email' value={formValues.email} style={{ textAlign: 'center'}}/><br/>
 
-        <label htmlFor='userName'> Create a username!: </label>
-        <input type='text' placeholder='Enter user name here' id='userName' name='userName' onChange={handleForm} value={form.userName}/><br/>
-
-        <label htmlFor='passWord'> Create a password!: </label>
-        <input type='text' placeholder='Enter password here' id='passWord' name='passWord' onChange={handleForm} value={form.passWord}/><br/>
-
-        <label htmlFor='confirmPassWord'> Confirm password!: </label>
-        <input type='text' placeholder='Confirm password here' id='confirmPassWord' name='confirmPassWord' onChange={handleForm} value={form.confirmPassWord}/><br/>
+        <label htmlFor='userName'> Create a username </label>
+        <input type='text' placeholder='Enter user name here' id='userName' name='userName' onChange={handleChange} value={formValues.userName} style={{ textAlign: 'center'}}/><br/>
 
 
+        <label htmlFor='password'> Create a password </label>
+        <input type='text' placeholder='Enter password here' id='password' name='password' onChange={handleChange} value={formValues.password} style={{ textAlign: 'center'}}/><br/>
 
-        <button onClick={() => handleCreate()}> Register </button>
+        <label htmlFor='confirmPassword'> Confirm password </label>
+        <input type='text' placeholder='Confirm password here' id='confirmPassword' name='confirmPassword' onChange={handleChange} value={formValues.confirmPassword} style={{ textAlign: 'center'}}/><br/>
+
+
+
+        <button onClick={() => handleSubmit()}> Register </button>
 
       
     
