@@ -2,7 +2,7 @@
 import Nav from '../components/Nav'
 import PostArticle from '../components/PostArticle'
 
-const MyPage = () => {
+const MyPage = (props) => {
     return(
         <div>
             <div className = 'myPageLeftDiv'>
@@ -42,7 +42,7 @@ const MyPage = () => {
             </div>
             <br />
             <div className = 'myPageRightDiv'>
-                <PostArticle />
+                <PostArticle user={props.user}/>
             </div>
 
         </div>
