@@ -7,11 +7,11 @@ const Nav = () => {
         <div>
             <h3>Welcome, User</h3>
             <nav>
-                <Link to ='/home'>Home</Link>
+                <Link to ='/blog/all'>Home</Link>
                 <br/>
-                <Link to ='/my-page'>My Page</Link>
+                <Link to ='/blog/create'>My Page</Link>
                 <br/>
-                <Link to ='/home'>Notifications</Link>
+                <Link to ='/blog/all'>Notifications</Link>
                 <br/>
                 <Link to ='/'>Logout</Link>
             </nav>

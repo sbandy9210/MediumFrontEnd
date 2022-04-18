@@ -1,5 +1,22 @@
 
 
+app {
+    
+}
+
+h1 {
+    color: white;
+}
+
+.header {
+    background-color: lightgrey;
+    /* background-image: url('https://media.sproutsocial.com/uploads/2018/04/Facebook-Cover-Photo-Size.png'); */
+    background-size: cover;
+    font-size: 60px;
+    padding: 1px;
+    text-align: center;
+}
+
 .articleContent {
     height: 300px;
     width: 700px;
@@ -34,6 +51,10 @@
 .commentTextBox {
     width: 700px;
     height: 100px;
+}
+
+.editAndDeleteButton {
+    float: ;
 }
 
 .myPageLeftDiv {

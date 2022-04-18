@@ -25,8 +25,10 @@ function App() {
 
     return (
       <div className="App">
-
-        <h1>MyLieu</h1>
+        <div className = 'header'>
+          <h1>MyLieu</h1>
+        </div>
+        <br />
         
           {/* <DataContext.Provider value={{
 
@@ -35,9 +37,9 @@ function App() {
         
           <Routes>
               <Route path="/" element={<SignIn />} />
-              <Route path='/home' element={<Home />}/>
-              <Route path='/my-page' element={<MyPage />}/>
-              <Route path='/article' element={<Article />}/>
+              <Route path='/blog/all' element={<Home />}/>
+              <Route path='/blog/create' element={<MyPage />}/>
+              <Route path='/blog/:blog_id' element={<Article />}/>
           </Routes>
 
        
