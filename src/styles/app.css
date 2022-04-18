@@ -5,7 +5,8 @@ app {
 }
 
 h1 {
-    color: white;
+    
+    color: blue;
 }
 
 .header {
@@ -62,6 +63,15 @@ h1 {
     height: 100%;
     width: 25%;
 }
+
+.register {
+    flex-direction: column ;
+}
+
+.Register {
+   text-align: center;
+}
+
 
 .myPageRightDiv {
     float: left;
