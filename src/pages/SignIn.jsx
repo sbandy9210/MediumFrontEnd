@@ -37,10 +37,10 @@ const SignIn = () => {
             
             <form>
             
-            <label for='userName'> Enter your user name! : </label>
+            <label for='userName'> Enter your user name </label>
             <input type='text' id='userName' placeholder='Enter user name here' name='userName' onChange={handleForm} value={form.userName} /><br/>
             
-            <label for='passWord'> Enter your password! : </label>
+            <label for='passWord'> Enter your password </label>
             <input type='text' id='passWord' placeholder='Enter password here' name='passWord' onChange={handleForm} value={form.passWord}/><br/>
 
             <button onClick={() => handleCreate()}> Sign In! </button>
