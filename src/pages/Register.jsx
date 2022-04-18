@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { RegisterUser } from '../services/Auth'
-import axios from 'axios'
+
 
 
 const Register = () => {
     let navigate = useNavigate()
 
-// const BASE_URL = 'http://localhost:3000'    
+  
 
 
 const [formValues, setFormValues] = useState({
     email: '',
-    userName: '',
+    username: '',
     password: '',
     confirmPassword: ''
 })
@@ -25,7 +25,7 @@ const handleChange = (e) => {
 const handleSubmit = async (e) => {
    e.preventDefault()
 
-//    await RegisterUser({
+//    const RegisterUser({
 //        username: formValues.name,
 //        email: formValues.email,
 //        password: formValues.password
@@ -39,7 +39,7 @@ console.log('register')
        confirmPassword: ''
    })
 
-   navigate('/SignIn')
+   navigate('/Login')
 
 
 
@@ -69,14 +69,14 @@ return(
             required
         /> <br/>
 
-        <label htmlFor='userName'> Create a username </label>
+        <label htmlFor='username'> Create a username </label>
             <input 
             type='text' 
             placeholder='Enter user name here' 
-            id='userName' 
-            name='userName' 
+            id='username' 
+            name='username' 
             onChange={handleChange} 
-            value={formValues.userName} 
+            value={formValues.username} 
             style={{ textAlign: 'center'}}
             required
         /> <br/>
@@ -111,7 +111,7 @@ return(
         <button 
         type='submit'
         disabled={
-            !formValues.email || !formValues.userName || !formValues.password || !formValues.confirmPassword ||
+            !formValues.email || !formValues.username || !formValues.password || !formValues.confirmPassword ||
             !(
                 formValues.confirmPassword === formValues.password)}
                 > Register </button>
