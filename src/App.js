@@ -25,8 +25,6 @@ function App() {
     setAuthenticated(true)
   }
 
-  // const [articles, setArticles] = useState([])
-
   const [blog, setBlog] = useState([])
 
 
@@ -35,8 +33,13 @@ function App() {
     setBlog(blog.data)
   }
 
+  const handleLogOut = () => {
+    setUser(null)
+    setAuthenticated(false)
+    localStorage.clear()
+  }
+
   useEffect(() => {
-    // getArticles()
     const token = localStorage.getItem('token')
     if(token){
       checkToken()
@@ -59,7 +62,7 @@ function App() {
           }} />          
         
           <Routes>
-              <Route path="/login" element={<SignIn />} />
+              <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated}/>} />
               <Route path='/blog/all' element={<Home />}/>
               <Route path='/blog/create' element={<MyPage />}/>
               <Route path='/blog/:blog_id' element={<Article />}/>
