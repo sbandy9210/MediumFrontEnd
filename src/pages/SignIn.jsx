@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { signInUser } from '../services/Auth'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
@@ -23,9 +25,7 @@ const SignIn = () => {
         e.preventDefault()
     }
 
-    useEffect(() => {
-
-    }, [])
+   
 
 
 
