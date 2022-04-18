@@ -42,12 +42,14 @@ return(
     <div className='Register'>
 
         <h1>Register Here!</h1>
+        <br/>
 
         <form className='register' onSubmit={handleSubmit}>
         
         
         <label htmlFor='email'> Enter your email </label>
         <input 
+            className='email'
             type='text' 
             placeholder='Enter email here' 
             onChange={handleChange} 

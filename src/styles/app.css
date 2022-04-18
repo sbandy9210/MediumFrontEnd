@@ -1,11 +1,6 @@
-
-
-app {
-    
-}
-
 h1 {
-    color: white;
+    
+    color: blue;
 }
 
 .header {
@@ -54,13 +49,17 @@ h1 {
 }
 
 .editAndDeleteButton {
-    float: ;
+    /* float: ; */
 }
 
 .myPageLeftDiv {
     float: left;
     height: 100%;
     width: 25%;
+}
+
+.Register {
+    text-align: center;
 }
 
 .myPageRightDiv {
@@ -72,4 +71,3 @@ h1 {
     height: 100%;
     width: 25%;
 }
-
