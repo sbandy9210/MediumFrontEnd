@@ -9,6 +9,7 @@ import MyPage from './pages/MyPage'
 import SignIn from './pages/SignIn'
 import Register from './pages/Register'
 import Article from './pages/Article'
+import Nav from './components/Nav'
 
 
 
@@ -55,7 +56,8 @@ function App() {
         <div className = 'header'>
           <h1>MyLieu</h1>
         </div>
-        <br />
+        <Nav />
+        
         
           <DataContext.Provider value={{
             authenticated, setAuthenticated, user, setUser
