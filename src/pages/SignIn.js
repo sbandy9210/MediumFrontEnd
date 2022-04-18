@@ -1,19 +1,17 @@
-import { useState } from 'react'
-import { signInUser } from '../services/Auth'
+import { useState, useContext } from 'react'
+import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
+import DataContext from '../components/DataContext'
 
 
 
 const SignIn = (props) => {
+    // const { setUser, setAuthenticated } = useContext(DataContext)
     let navigate = useNavigate()
-    
-    
 
     const [formValues, setFormValues] = useState({
         username: '',
         password: ''
-
-
     })
 
     const handleChange = (e) => {
@@ -23,24 +21,17 @@ const SignIn = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // const payload = await signInUser(formValues)
+        const payload = await SignInUser(formValues)
         
+        setFormValues({
+            username: '',
+            password: ''
+        })
 
-        // setFormValues({
-        //     username: '',
-        //     password: ''
-        // })
-
-        // props.setUser(payload)
-
-        // props.setAuthenticated(true)
-
+        props.setUser(payload)
+        props.setAuthenticated(true)
         navigate('/blog/all')
     }
-
-   
-
-
 
     return(
         <div className='SignIn'>
