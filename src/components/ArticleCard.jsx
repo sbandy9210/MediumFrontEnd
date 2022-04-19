@@ -7,41 +7,35 @@ const ArticleCard = ({blog}) => {
 
     // const { blog, setBlog } = useContext(DataContext)
 
-    console.log({blog})
-
-    const navigateToBlog = (blog) => {
-        navigate(`${blog._id}`)
-    }
+    // console.log(blog[0].id)
     
+    const navigateToBlog = (blog) => {
+        navigate(`/blog/${blog.id}`)
+    }
     let navigate = useNavigate()
 
     return(
 
         <div>
-            hello
-            {/* {props.blog.map((blog) => {
+            {blog.map((blog) => {
                 return(
                     <div>
+                        <div onClick={() => {navigateToBlog(blog)}}>
+                            {blog.title}
+                        </div>
+                        <br />
                         <img 
                             src = {blog.image} 
                             alt = ''
-                            onClick={navigateToBlog} 
+                            onClick={() => {navigateToBlog(blog)}} 
                         />
                         <br />
-                        {props.blog.title}
-                        <br />
                         <p>
-                            {props.blog.article}
+                            {blog.article}
                         </p>
-                        <div className = 'editAndDeleteButton'>
-                            <button>Edit</button>
-                            <br />
-                            <button>Delete</button>
-                        </div>
                     </div>
                 )
-            })} */}
-
+            })}
         </div>
     )
 }
