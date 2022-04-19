@@ -18,10 +18,7 @@ const Article = ({ user, authenticated }) => {
 
     const getBlogById = async () => {           
         const currentBlog = await Client.get(`/api/blog/${blog_id}`)
-        // const currentBlog = await Client.get('/api/blog/1')
-        console.log(currentBlog.data)
         setBlog(currentBlog.data)
-        console.log(blog.author_id)
     }
 
     const handleChange = (event) => {
@@ -35,7 +32,6 @@ const Article = ({ user, authenticated }) => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         await Client.post(`/api/comment/new/${user.id}/${blog_id}`, newComment)
-        // await Client.post(`/api/comment/new/${user.id}/1`, newComment)
 
         setNewComment({
             image: '',
@@ -55,7 +51,7 @@ const Article = ({ user, authenticated }) => {
             <div>
             <div className = 'articleDiv'>
                {user.id === blog.author_id && <button onClick={editPost}> Edit</button>}
-                <img src={blog.image} alt='Blog image' />
+                <img src={blog.image} alt='Blog' />
                 <h2>{blog.title}</h2>
                 <p>{blog.article}</p>
             </div>
@@ -74,7 +70,7 @@ const Article = ({ user, authenticated }) => {
                 ))}
             </div>
         </div>
-        ) : (<EditArticle blog={blog} setEditor={setEdit} />)
+        ) : (<EditArticle blog={blog} setEditor={setEdit} getBlogById={getBlogById}/>)
     ) : (
         <div>
             <p>Loading</p>

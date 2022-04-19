@@ -4,9 +4,11 @@ import Client from '../services/api';
 
 function Comment({ user, comment, getBlogById }) {
 
+    const [edit, setEdit] = useState(false)
+
     const [newReply, setNewReply] = useState({
         image: '',
-        text: '',
+        text: ''
     })
 
     const handleChange = (event) => {
@@ -35,13 +37,40 @@ function Comment({ user, comment, getBlogById }) {
         getBlogById()
     }
 
-    return (
+    const [editComment, setEditComment] = useState({
+        image: comment.image,
+        text: comment.text
+    })
+
+    const handleEditChange = (event) => {
+        setEditComment({...editComment, [event.target.name]: event.target.value})
+    }
+
+    const handleEditSubmit = async (event) => {
+        event.preventDefault()
+        await Client.put(`/api/comment/edit/${comment.id}`, editComment)
+        setEdit(false)
+        getBlogById()
+    }
+
+    const deleteComment = async (e) => {
+        e.preventDefault()
+        await Client.delete(`/api/comment/delete/${comment.id}`)
+        getBlogById()
+    }
+
+    const EditPost = () => {
+        setEdit(true)
+    }
+
+    return (!edit) ? (
         <div className='individual-comment'>
-            <img src={comment.image} alt='comment'/>,
+            <img src={comment.image} alt=''/>
             {` ${comment.Author.username}: ${comment.text} `}
             {`Likes: ${comment.likes}`}
             <button className='like' onClick={Like}>Like</button>
             <button className='dislike' onClick={Dislike}>Dislike</button>
+            {user.id === comment.author_id && <button onClick={EditPost}>Edit</button>}
 
             <form onSubmit={handleSubmit}>
                 <input className='comment-reply-image' name='image' value={newReply.image} placeholder='Enter Image URL' onChange={handleChange}/>
@@ -50,11 +79,26 @@ function Comment({ user, comment, getBlogById }) {
             </form>
 
             {comment.Replies.map((reply) => (
-                <Reply key={reply.id} reply={reply} />
+                <Reply key={reply.id} user={user} reply={reply} getBlogById={getBlogById}/>
             ))}
 
         </div>
-    );
+    ) : (
+        <div className='edit-comment'>
+            <form onSubmit={handleEditSubmit}>
+                <input type = 'text' name='text' placeholder = 'Article Title' className = 'articleTitle' onChange={handleEditChange} value={editComment.text}/>
+                <br />
+                <br />
+                <input type = 'text' name='image' placeholder = 'Image Link' className = 'articleTitle' onChange={handleEditChange} value={editComment.image}/>
+                <br />
+                <br />
+                <div className = 'articlePostButton'>
+                    <button type = 'post'>Post</button>
+                    <button onClick={deleteComment}>Delete</button>
+                </div>
+            </form>
+        </div>
+    )
 }
 
 export default Comment;

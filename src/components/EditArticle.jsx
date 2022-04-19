@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import Client from '../services/api'
 import { useNavigate } from 'react-router'
 
-const EditArticle = ({blog, setEditor}) => {
-    const navigate =useNavigate()
+const EditArticle = ({blog, setEditor, getBlogById}) => {
+    const navigate = useNavigate()
+
     const [edit, setEdit] =useState({
         title: blog.title,
         image: blog.image,
@@ -16,15 +17,15 @@ const EditArticle = ({blog, setEditor}) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        const res = await Client.put(`/api/blog/update/${blog.id}`, edit)
+        await Client.put(`/api/blog/update/${blog.id}`, edit)
         setEditor(false)
     }
 
     const deleteArticle = async (e) => {
         e.preventDefault()
-        const res = await Client.delete(`/api/blog/delete/${blog.id}`)
-        window.location='http://localhost:3000/my-page'
-        window.location.refresh(true)
+        await Client.delete(`/api/blog/delete/${blog.id}`)
+        getBlogById()
+        navigate('/my-page')
     }
 
     return(
@@ -41,8 +42,6 @@ const EditArticle = ({blog, setEditor}) => {
                 <br />
                 <div className = 'articlePostButton'>
                     <button type = 'post'>Post</button>
-                </div>
-                <div>
                     <button onClick={deleteArticle}>Delete</button>
                 </div>
             </form>

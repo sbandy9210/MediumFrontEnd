@@ -3,7 +3,7 @@ import DataContext from './DataContext'
 import Client from '../services/api'
 
 
-const PostArticle = ({user}) => {
+const PostArticle = ({user, blogs}) => {
 
     const [blog, setBlog] = useState({
         title: "",
@@ -33,6 +33,8 @@ const PostArticle = ({user}) => {
         setTimeout(() => {
             setResponse("")  
         }, 2000);
+        
+        blogs()
     }
 
     return(
