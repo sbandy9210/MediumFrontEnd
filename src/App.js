@@ -12,6 +12,7 @@ import Register from './pages/Register'
 import Article from './pages/Article'
 import Nav from './components/Nav'
 
+
 function App() {
 
     const [authenticated, setAuthenticated] = useState (false)
@@ -26,10 +27,10 @@ function App() {
     }
 
     const getBlog = async() => {
-      const blog = await Client.get('/blog/all')
+      const blog = await Client.get('/api/blog/all')
       setBlog(blog.data)
     }
-
+    
     const handleLogOut = () => {
       setUser(null)
       setAuthenticated(false)
@@ -43,6 +44,7 @@ function App() {
       }
       getBlog()
     }, [])
+    
 
 
     return (
@@ -55,7 +57,7 @@ function App() {
             <Nav authenticated={authenticated} user={user} handleLogout={handleLogOut}/>          
             
             <Routes>
-              <Route path='/' element={<Home />}/>
+              <Route path='/' element={<Home setBlog={setBlog} blog={blog}/>}/>
               <Route path='/register' element={<Register />}/>
               <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated}/>} />
               <Route path='/my-page' element={<MyPage user={user}/>}/>
