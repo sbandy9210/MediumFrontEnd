@@ -6,18 +6,19 @@ import { Link } from 'react-router-dom'
 const MyPage = ({user}) => {
     const [data, setData] = useState([])
 
-useEffect(() => {
     const blogs = async () => {
         const myBlogs = await Client.get(`/api/blog/author/${user.id}`)
         console.log(myBlogs.data)
         setData(myBlogs.data)
     }
+
+    useEffect(() => {
+        blogs()
+    }, [])
+
     blogs()
-}, [])
 
-   
-
-    return(
+    return (data.length > 0) ? (
         <div className='MyPage'>
             <div className = 'myBlogs'>
             {data && data.map((dat) => (
@@ -39,6 +40,8 @@ useEffect(() => {
             </div>
 
         </div>
+    ) : (
+        <p>Loading</p>
     )
 }
 
