@@ -28,7 +28,7 @@ const EditArticle = ({blog, setEditor}) => {
     }
 
     return(
-        <div>
+        <div className='EditArticle'>
             <form onSubmit={handleSubmit}>
                 <input type = 'text' name='title' placeholder = 'Article Title' className = 'articleTitle' onChange={handleChange} value={edit.title}/>
                 <br />

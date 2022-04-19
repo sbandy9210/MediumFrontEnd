@@ -60,7 +60,7 @@ function App() {
               <Route path='/' element={<Home setBlog={setBlog} blog={blog}/>}/>
               <Route path='/register' element={<Register />}/>
               <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated}/>} />
-              <Route path='/my-page' element={<MyPage user={user} setUser={setUser}/>}/>
+              <Route path='/my-page' element={<MyPage user={user}/>}/>
               <Route path='/blog/:blog_id' element={<Article user={user} authenticated={authenticated}/>}/>
             </Routes>
         </div>

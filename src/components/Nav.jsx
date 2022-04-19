@@ -25,7 +25,7 @@ const Nav = ({authenticated, user, handleLogout}) => {
     )
 
     return(
-        <div>
+        <div className='Nav'>
             {authenticated && user ? authenticatedNav : publicNav}
         </div>
     )
