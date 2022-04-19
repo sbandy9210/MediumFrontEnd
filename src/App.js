@@ -41,6 +41,7 @@ function App() {
       if (token) {
         checkToken()
       }
+      getBlog()
     }, [])
 
 

@@ -8,9 +8,6 @@ const Home = () => {
 
     return(
         <div>
-            <div className = 'navDiv'>
-                <Nav />
-            </div>
             <div className = 'articlesDiv'>
                 <ArticleCard />
             </div>

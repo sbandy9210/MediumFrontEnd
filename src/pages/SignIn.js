@@ -27,7 +27,6 @@ const SignIn = (props) => {
             username: '',
             password: ''
         })
-        console.log(payload)
         props.setUser(payload)
         props.setAuthenticated(true)
         navigate('/blog/create')
@@ -37,8 +36,7 @@ const SignIn = (props) => {
         <div className='SignIn'>
             
             <h1>Please Sign in!</h1>
-
-            
+    
             <form className='signin' onSubmit={handleSubmit}>
             
             <label htmlFor='username'> Enter your username </label>
