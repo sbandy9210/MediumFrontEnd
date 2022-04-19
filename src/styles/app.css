@@ -56,6 +56,15 @@ h1 {
     text-align: center;
 }
 
+
+
+.Register {
+   text-align: center;
+}
+
+
+.myPageRightDiv {
+    float: left;
 .MyPage {
     display: grid;
     grid-template-columns: 1fr 1fr;

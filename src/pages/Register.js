@@ -46,10 +46,14 @@ return(
 
         <form className='register' onSubmit={handleSubmit}>
         
-        
+        <div className='emailContainer'>
         <label htmlFor='email'> Enter your email </label>
         <input 
+<<<<<<< HEAD:src/pages/Register.jsx
+            className='email' 
+=======
             className='email'
+>>>>>>> ac2bd785183ce3cdedefba14bc2d3f53298feb6a:src/pages/Register.js
             type='text' 
             placeholder='Enter email here' 
             onChange={handleChange} 
@@ -59,6 +63,7 @@ return(
             style={{ textAlign: 'center'}}
             required
         /> <br/>
+        </div>
 
         <label htmlFor='username'> Create a username </label>
             <input 
