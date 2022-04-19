@@ -1,13 +1,8 @@
 import { useNavigate } from 'react-router-dom'
-import React, { useContext } from 'react';
-import DataContext from '../components/DataContext'
+import React from 'react';
 
 
 const ArticleCard = ({blog}) => {
-
-    // const { blog, setBlog } = useContext(DataContext)
-
-    // console.log(blog[0].id)
     
     const navigateToBlog = (blog) => {
         navigate(`/blog/${blog.id}`)
@@ -23,16 +18,13 @@ const ArticleCard = ({blog}) => {
                         <div onClick={() => {navigateToBlog(blog)}}>
                             {blog.title}
                         </div>
+                        {blog.createdAt.substring(0,10)}
                         <br />
                         <img 
                             src = {blog.image} 
                             alt = ''
                             onClick={() => {navigateToBlog(blog)}} 
                         />
-                        <br />
-                        <p>
-                            {blog.article}
-                        </p>
                     </div>
                 )
             })}
