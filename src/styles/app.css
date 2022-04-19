@@ -1,3 +1,56 @@
+.ArtCardTitle {
+    text-align: left;
+    margin-top: 0px;
+}
+
+.ArtCardDate {
+    text-align: left;
+}
+
+.Article, .EditArticle, .MyPage, .Nav, .articleDiv, .Home {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.ArticleCard {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    border-top: 1px solid black;
+    padding: 10px 0 10px 0
+}
+
+.ArticleCardImg > img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.App {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    grid-template-rows: repeat(.5fr 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: 0 10px 0 10px;
+}
+
+body {
+    background-color: #ececec;
+}
+
+.button {
+    text-align: center;
+}
+
+.commentDiv {
+    text-align: center;
+}
+
+.confirmpasswordContainer{
+    padding: 10px 16px 9px;
+}
+.emailContainer{
+    padding: 10px 16px 9px;
+}
+
 h1 {
     color: #385170;
 }
@@ -16,59 +69,7 @@ h3 {
     grid-area: 1 / 1 / 2 / 3; 
 }
 
-body {
-    background-color: #ececec;
 
-}
-
-.Article, .EditArticle, .MyPage, .Nav, .articleDiv, .Home {
-    grid-area: 2 / 2 / 3 / 3;
-}
-
-.articlePostButton {
-    text-align: center;
-}
-
-.articleTitle {
-    min-width: 50%;
-    padding-bottom: 10px;
-    padding-top: 10px;
-}
-
-.articlesDiv > div > div> img {
-    height: 150px;
-}
-
-.articleDiv > img {
-    height: 150px;
-}
-
-.App {
-    display: grid;
-    grid-template-columns: .5fr 1fr;
-    grid-template-rows: repeat(.5fr 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-}
-
-.button {
-    text-align: center;
-}
-
-.commentDiv {
-    text-align: center;
-}
-
-.confirmpasswordContainer{
-    padding: 10px 16px 9px;
-}
-.emailContainer{
-    padding: 10px 16px 9px;
-}
-
-.usernameContainer{
-    padding: 10px 16px 9px;
-}
 
 .Nav {
     position: fixed;
@@ -117,6 +118,10 @@ body {
 
 .SignIn {
     text-align: center;
+}
+
+.usernameContainer{
+    padding: 10px 16px 9px;
 }
 
 
