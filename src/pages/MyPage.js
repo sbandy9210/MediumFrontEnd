@@ -28,7 +28,7 @@ useEffect(() => {
                     </Link>
                     <img 
                         src ={dat.image}
-                        alt = ''
+                        alt = ""
                         style = {{width: '150px'}}
                     />
                 </div>
