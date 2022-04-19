@@ -20,6 +20,7 @@ useEffect(() => {
     return(
         <div className='MyPage'>
             <div className = 'myBlogs'>
+                <h2>My Blogs</h2>
             {data && data.map((dat) => (
                 <div key={dat.id}>
                     <Link to={`/blog/${dat.id}`}>

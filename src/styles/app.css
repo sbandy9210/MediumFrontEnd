@@ -1,5 +1,4 @@
 h1 {
-    
     color: #385170;
 }
 
@@ -10,11 +9,11 @@ h3 {
 
 .header {
     background-color: #ececec;
-    /* background-image: url('https://media.sproutsocial.com/uploads/2018/04/Facebook-Cover-Photo-Size.png'); */
     background-size: cover;
     font-size: 60px;
     padding: 1px;
     text-align: center;
+    grid-area: 1 / 1 / 2 / 3; 
 }
 
 body {
@@ -22,27 +21,18 @@ body {
 
 }
 
-.articleContent {
-    height: 300px;
-    width: 700px;
+.Article, .EditArticle, .MyPage, .Nav, .articleDiv, .Home {
+    grid-area: 2 / 2 / 3 / 3;
 }
-
-/* .articleDiv {
-    float: left;
-} */
 
 .articlePostButton {
     text-align: center;
 }
 
 .articleTitle {
-    width: 700px;
+    min-width: 50%;
     padding-bottom: 10px;
     padding-top: 10px;
-}
-
-.articlesDiv {
-    float: left;
 }
 
 .articlesDiv > div > div> img {
@@ -53,6 +43,14 @@ body {
     height: 150px;
 }
 
+.App {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    grid-template-rows: repeat(.5fr 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
 .button {
     text-align: center;
 }
@@ -61,17 +59,6 @@ body {
     text-align: center;
 }
 
-.commentTextBox {
-    width: 700px;
-    height: 100px;
-}
-
-.editAndDeleteButton {
-    /* float: ; */
-}
-
-/* register page */
-
 .confirmpasswordContainer{
     padding: 10px 16px 9px;
 }
@@ -79,9 +66,20 @@ body {
     padding: 10px 16px 9px;
 }
 
-
 .usernameContainer{
     padding: 10px 16px 9px;
+}
+
+.Nav {
+    position: fixed;
+    top: 32%;
+    left: 10px;
+    border: 3px solid #385170;
+    border-radius: 10px;
+    padding: 5px;
+    background: rgb(255, 243, 243);
+    background: radial-gradient(circle, rgba(236,236,236,1) 0%, rgb(218, 216, 216) 53%);
+    min-height: 300px;
 }
 
 .passwordContainer{
@@ -96,6 +94,10 @@ body {
 .Register {
     text-align: center;
     
+}
+
+#root {
+    text-align: center;
 }
 
 /* sign in page */
@@ -118,18 +120,7 @@ body {
 }
 
 
-.myPageRightDiv {
-    float: left;
-}
 
-.MyPage {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    text-align: center;
-}
 
-.navDiv {
-    float: left;
-    height: 100%;
-    width: 25%;
-}
+
+
