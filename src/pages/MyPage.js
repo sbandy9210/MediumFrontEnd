@@ -15,9 +15,7 @@ useEffect(() => {
     blogs()
 }, [])
 
-   
-
-    return(
+    return( 
         <div className='MyPage'>
             <div className = 'myBlogs'>
             {data && data.map((dat) => (
@@ -41,5 +39,4 @@ useEffect(() => {
         </div>
     )
 }
-
 export default MyPage
