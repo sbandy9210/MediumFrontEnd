@@ -20,6 +20,13 @@ const EditArticle = ({blog, setEditor}) => {
         setEditor(false)
     }
 
+    const deleteArticle = async (e) => {
+        e.preventDefault()
+        const res = await Client.delete(`/api/blog/delete/${blog.id}`)
+        window.location='http://localhost:3000/my-page'
+        window.location.refresh(true)
+    }
+
     return(
         <div>
             <form onSubmit={handleSubmit}>
@@ -34,6 +41,9 @@ const EditArticle = ({blog, setEditor}) => {
                 <br />
                 <div className = 'articlePostButton'>
                     <button type = 'post'>Post</button>
+                </div>
+                <div>
+                    <button onClick={deleteArticle}>Delete</button>
                 </div>
             </form>
         </div>
