@@ -15,11 +15,12 @@ const Article = ({ user, authenticated }) => {
 
     const { blog_id } = useParams()
 
-    const getBlogById = async () => {
-        // const currentBlog = await Client.get(`/api/blog/${blog_id}`)
-        const currentBlog = await Client.get('/api/blog/1')
+    const getBlogById = async () => {           
+        const currentBlog = await Client.get(`/api/blog/${blog_id}`)
+        // const currentBlog = await Client.get('/api/blog/1')
         console.log(currentBlog.data)
         setBlog(currentBlog.data)
+        console.log(blog)
     }
 
     const handleChange = (event) => {
@@ -28,8 +29,8 @@ const Article = ({ user, authenticated }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        // await Client.post(`/api/comment/new/${user.id}/${blog_id}`)
-        await Client.post(`/api/comment/new/${user.id}/1`, newComment)
+        await Client.post(`/api/comment/new/${user.id}/${blog_id}`, newComment)
+        // await Client.post(`/api/comment/new/${user.id}/1`, newComment)
 
         setNewComment({
             image: '',
@@ -42,6 +43,7 @@ const Article = ({ user, authenticated }) => {
     useEffect(() => {
          getBlogById()
     }, [])
+
 
     return (blog) ? (
         <div>

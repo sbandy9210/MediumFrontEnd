@@ -3,13 +3,13 @@ import DataContext from './DataContext'
 import Client from '../services/api'
 
 
-const PostArticle = (props) => {
+const PostArticle = ({user}) => {
 
     const [blog, setBlog] = useState({
         title: "",
         image: "",
         article: "",
-        author_id: props.user.id
+        author_id: user.id
     }) 
 
     const [response, setResponse] = useState("")
@@ -26,7 +26,7 @@ const PostArticle = (props) => {
             title: "",
             image: "",
             article: "",
-            author_id: props.user.id
+            author_id: user.id
         })
 
         setResponse(res.data.msg)

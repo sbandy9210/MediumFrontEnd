@@ -29,7 +29,7 @@ const SignIn = (props) => {
         })
         props.setUser(payload)
         props.setAuthenticated(true)
-        navigate('/blog/create')
+        navigate('/')
     }
 
     return(
