@@ -3,12 +3,12 @@ import Client from '../services/api'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const MyPage = (props) => {
+const MyPage = ({user}) => {
     const [data, setData] = useState([])
 
 useEffect(() => {
     const blogs = async () => {
-        const myBlogs = await Client.get(`/api/blog/author/${props.user.id}`)
+        const myBlogs = await Client.get(`/api/blog/author/${user.id}`)
         console.log(myBlogs.data)
         setData(myBlogs.data)
     }
@@ -20,7 +20,6 @@ useEffect(() => {
     return(
         <div className='MyPage'>
             <div className = 'myBlogs'>
-            <h2>{props.user.username}'s Blogs</h2>
             {data && data.map((dat) => (
                 <div key={dat.id}>
                     <Link to={`/blog/${dat.id}`}>
@@ -36,7 +35,7 @@ useEffect(() => {
             </div>
             <div className = 'myPost'>
                 <h2>Post a new Blog!</h2>
-                <PostArticle user={props.user}/>
+                <PostArticle user={user}/>
             </div>
 
         </div>
