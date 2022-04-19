@@ -57,7 +57,7 @@ return(
 
         <form className='register' onSubmit={handleSubmit}>
         
-        
+        <div className='emailContainer'>
         <label htmlFor='email'> Enter your email </label>
         <input 
             className='email' 
@@ -70,6 +70,7 @@ return(
             style={{ textAlign: 'center'}}
             required
         /> <br/>
+        </div>
 
         <label htmlFor='username'> Create a username </label>
             <input 
