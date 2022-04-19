@@ -1,44 +1,33 @@
 import { useNavigate } from 'react-router-dom'
-import React, { useContext } from 'react';
-import DataContext from '../components/DataContext'
+import React from 'react';
 
 
-const ArticleCard = (props) => {
-
-    const blog = useContext(DataContext)
-
-    const navigateToBlog = (blog) => {
-        navigate(`${blog._id}`)
-    }
+const ArticleCard = ({blog}) => {
     
+    const navigateToBlog = (blog) => {
+        navigate(`/blog/${blog.id}`)
+    }
     let navigate = useNavigate()
 
     return(
 
         <div>
-            {props.blogs.map((blog) => {
+            {blog.map((blog) => {
                 return(
                     <div>
+                        <div onClick={() => {navigateToBlog(blog)}}>
+                            {blog.title}
+                        </div>
+                        {blog.createdAt.substring(0,10)}
+                        <br />
                         <img 
                             src = {blog.image} 
                             alt = ''
-                            onClick={navigateToBlog} 
+                            onClick={() => {navigateToBlog(blog)}} 
                         />
-                        <br />
-                        {props.blog.title}
-                        <br />
-                        <p>
-                            {props.blog.article}
-                        </p>
-                        <div className = 'editAndDeleteButton'>
-                            <button>Edit</button>
-                            <br />
-                            <button>Delete</button>
-                        </div>
                     </div>
                 )
             })}
-
         </div>
     )
 }

@@ -1,9 +1,3 @@
-
-
-app {
-    
-}
-
 h1 {
     
     color: blue;
@@ -58,10 +52,8 @@ h1 {
     /* float: ; */
 }
 
-.myPageLeftDiv {
-    float: left;
-    height: 100%;
-    width: 25%;
+.Register {
+    text-align: center;
 }
 
 
@@ -73,6 +65,10 @@ h1 {
 
 .myPageRightDiv {
     float: left;
+.MyPage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
 }
 
 .navDiv {
@@ -80,4 +76,3 @@ h1 {
     height: 100%;
     width: 25%;
 }
-

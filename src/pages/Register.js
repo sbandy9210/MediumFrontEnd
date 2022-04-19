@@ -7,47 +7,36 @@ import { RegisterUser } from '../services/Auth'
 const Register = () => {
     let navigate = useNavigate()
 
-  
+    const [formValues, setFormValues] = useState({
+        email: '',
+        username: '',
+        password: '',
+        confirmPassword: ''
+    })
 
+    const handleChange = (e) => {
+        setFormValues({...formValues, [e.target.name]: e.target.value})
+        
+    }
 
-const [formValues, setFormValues] = useState({
-    email: '',
-    username: '',
-    password: '',
-    confirmPassword: ''
-})
+    const handleSubmit = async (e) => {
+    e.preventDefault()
 
-const handleChange = (e) => {
-    setFormValues({...formValues, [e.target.name]: e.target.value})
-    
-}
+    await RegisterUser({
+        username: formValues.username,
+        email: formValues.email,
+        register_password: formValues.password
+    })
 
-const handleSubmit = async (e) => {
-   e.preventDefault()
-
-//    const RegisterUser({
-//        username: formValues.name,
-//        email: formValues.email,
-//        password: formValues.password
-//    })
-console.log('register')
-
-   setFormValues({
+    setFormValues({
        name: '',
        email: '',
        password: '',
        confirmPassword: ''
-   })
+    })
 
-   navigate('/Login')
-
-
-
+    navigate('/Login')
 }
-
-
-
-
 
 return(
     <div className='Register'>
@@ -60,7 +49,11 @@ return(
         <div className='emailContainer'>
         <label htmlFor='email'> Enter your email </label>
         <input 
+<<<<<<< HEAD:src/pages/Register.jsx
             className='email' 
+=======
+            className='email'
+>>>>>>> ac2bd785183ce3cdedefba14bc2d3f53298feb6a:src/pages/Register.js
             type='text' 
             placeholder='Enter email here' 
             onChange={handleChange} 
