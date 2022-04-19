@@ -11,7 +11,7 @@ const ArticleCard = ({blog}) => {
 
     return(
 
-        <div>
+        <div className = 'articles'>
             {blog.map((blog) => {
                 return(
                     <div>
@@ -23,7 +23,7 @@ const ArticleCard = ({blog}) => {
                         <img 
                             src = {blog.image} 
                             alt = ''
-                            onClick={() => {navigateToBlog(blog)}} 
+                            style={{width: '200px'}}
                         />
                     </div>
                 )
