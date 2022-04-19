@@ -47,70 +47,75 @@ return(
         <form className='register' onSubmit={handleSubmit}>
         
         <div className='emailContainer'>
-        <label htmlFor='email'> Enter your email </label>
-        <input 
-<<<<<<< HEAD:src/pages/Register.jsx
-            className='email' 
-=======
-            className='email'
->>>>>>> ac2bd785183ce3cdedefba14bc2d3f53298feb6a:src/pages/Register.js
-            type='text' 
-            placeholder='Enter email here' 
-            onChange={handleChange} 
-            id='email' 
-            name='email' 
-            value={formValues.email} 
-            style={{ textAlign: 'center'}}
-            required
-        /> <br/>
+            <label htmlFor='email'></label>
+            <input 
+                className='email' 
+                type='text' 
+                placeholder='Enter your email' 
+                onChange={handleChange} 
+                id='email' 
+                name='email' 
+                value={formValues.email} 
+                style={{ textAlign: 'center'}}
+                required
+            /> <br/>
         </div>
 
-        <label htmlFor='username'> Create a username </label>
+        <div className='usernameContainer'>
+            <label htmlFor='username'></label>
+                <input 
+                type='text' 
+                placeholder='Create your username' 
+                id='username' 
+                name='username' 
+                onChange={handleChange} 
+                value={formValues.username} 
+                style={{ textAlign: 'center'}}
+                required
+            /> <br/>
+        </div>
+
+
+
+        <div className='passwordContainer'>
+            <label htmlFor='password'></label>
             <input 
-            type='text' 
-            placeholder='Enter user name here' 
-            id='username' 
-            name='username' 
-            onChange={handleChange} 
-            value={formValues.username} 
-            style={{ textAlign: 'center'}}
-            required
-        /> <br/>
+                type='password' 
+                placeholder='Create a password' 
+                id='password' 
+                name='password' 
+                onChange={handleChange} 
+                value={formValues.password} 
+                style={{ textAlign: 'center'}}
+                required
+            /> <br/>
+        </div>
 
 
-        <label htmlFor='password'> Create a password </label>
-        <input 
-            type='password' 
-            placeholder='Enter password here' 
-            id='password' 
-            name='password' 
-            onChange={handleChange} 
-            value={formValues.password} 
-            style={{ textAlign: 'center'}}
-            required
-        /> <br/>
-
-        <label htmlFor='confirmPassword'> Confirm password </label>
-        <input 
-            type='password' 
-            placeholder='Confirm password here' 
-            id='confirmPassword' 
-            name='confirmPassword' 
-            onChange={handleChange} 
-            value={formValues.confirmPassword} 
-            style={{ textAlign: 'center'}}
-            required
-        /> <br/>
+        <div className='comfirmPasswordContainer'>
+            <label htmlFor='confirmPassword'></label>
+            <input 
+                type='password' 
+                placeholder='Confirm password' 
+                id='confirmPassword' 
+                name='confirmPassword' 
+                onChange={handleChange} 
+                value={formValues.confirmPassword} 
+                style={{ textAlign: 'center'}}
+                required
+            /> <br/>
+        </div>
 
 
 
         <button 
+        className='registerButton'
         type='submit'
         disabled={
             !formValues.email || !formValues.username || !formValues.password || !formValues.confirmPassword ||
             !(
                 formValues.confirmPassword === formValues.password)}
-                > Register </button>
+        > Register </button>
 
       
     

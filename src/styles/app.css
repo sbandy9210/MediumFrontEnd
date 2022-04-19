@@ -52,19 +52,40 @@ h1 {
     /* float: ; */
 }
 
+.emailContainer{
+    padding: 10px 16px 9px;
+}
+
+.usernameContainer{
+    padding: 10px 16px 9px;
+}
+
+.passwordContainer{
+    padding: 10px 16px 9px;
+}
+
+.confirmpasswordContainer{
+    padding: 10px 16px 9px;
+}
+
+.registerButton {
+    margin-top: 20px;
+
+}
+
 .Register {
     text-align: center;
+    background-color: #ececec;
 }
 
 
 
-.Register {
-   text-align: center;
-}
 
 
 .myPageRightDiv {
     float: left;
+}
+
 .MyPage {
     display: grid;
     grid-template-columns: 1fr 1fr;
