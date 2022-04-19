@@ -1,36 +1,56 @@
-
-import React from 'react'
-import Nav from '../components/Nav'
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router'
+import Client from '../services/api'
 import Comment from '../components/Comment'
 
 
 
-const Article = (props) => {
+const Article = (props) => {    
 
+    const [blog, setBlog] = useState()
 
+    const { blog_id } = useParams()
 
-    return(
+    const getBlogById = async () => {
+        // const currentBlog = await Client.get(`/api/blog/${blog_id}`)
+        const currentBlog = await Client.get('/api/blog/1')
+        console.log(currentBlog.data)
+        setBlog(currentBlog.data)
+    }
+
+    useEffect(() => {
+         getBlogById()
+    }, [])
+
+    return(blog) ? (
         <div>
-            <div className = 'navDiv'>
-                <Nav />
-            </div>
             <div className = 'articleDiv'>
-                <div>
-                    <img 
-                        src = 'https://www.dankultura.org/wp-content/uploads/2015/10/Article-Writing-Can-be-a-Sure-Wager.jpg'
-                        alt = ''
-                        style = {{width: '500px'}}
-                    />
-                    <p>
-                        Article information here
-                    </p>
-                </div>
-                <div className = 'commentDiv'>
-                    <Comment />
-                </div>
-
+                <img src={blog.image} alt='Blog image' />
+                <h2>{blog.title}</h2>
+                <p>{blog.article}</p>
             </div>
 
+            <div className='Comments'>
+                <h4>Comments</h4>
+                {blog.Comments.map((comment) => (
+                    <p>
+                        <img src={comment.image} alt='comment'/>,
+                        {`${comment.Author.username}: ${comment.text}`}
+                    </p>,
+                    comment.Replies.map((reply) => (
+                        reply.text
+                    ))
+                    
+                ))}
+            </div>
+            {/* <div className = 'commentDiv'>
+                <Comment />
+            </div> */}
+
+        </div>
+    ) : (
+        <div>
+            <p>Loading</p>
         </div>
     )
 }

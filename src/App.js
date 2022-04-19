@@ -63,7 +63,6 @@ function App() {
               <Route path='/my-page' element={<MyPage user={user}/>}/>
               <Route path='/blog/:blog_id' element={<Article />}/>
             </Routes>
-
         </div>
     )
 }
