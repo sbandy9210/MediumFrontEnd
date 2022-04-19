@@ -27,21 +27,19 @@ const SignIn = (props) => {
             username: '',
             password: ''
         })
-
         props.setUser(payload)
         props.setAuthenticated(true)
-        navigate('/blog/all')
+        navigate('/blog/create')
     }
 
     return(
         <div className='SignIn'>
             
             <h1>Please Sign in!</h1>
-
-            
+    
             <form className='signin' onSubmit={handleSubmit}>
             
-            <label for='username'> Enter your username </label>
+            <label htmlFor='username'> Enter your username </label>
             <input 
                 type='text' 
                 id='username' 

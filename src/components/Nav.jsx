@@ -1,20 +1,32 @@
 import { Link } from 'react-router-dom'
 
-const Nav = () => {
-    
+const Nav = ({authenticated, user, handleLogout}) => {
+    let authenticatedNav
+
+    if(authenticated){
+        authenticatedNav = (
+            <nav>
+                <h3>Welcome, {user.username}</h3>
+                <p><Link to ='/'>Home</Link></p>
+                <p><Link to ='/my-page'>My Page</Link></p>
+                <p><Link to ='/blog/all'>Notifications</Link></p>
+                <p><Link onClick={handleLogout} to ='/login'>Logout</Link></p>
+            </nav>
+        )
+    }
+
+    const publicNav = (
+        <nav>
+            <h3>Welcome</h3>
+            <p><Link to ='/'>Home</Link></p>
+            <p><Link to ='/register'>Register</Link></p>
+            <p><Link to ='/login'>Sign in</Link></p>
+        </nav>
+    )
 
     return(
         <div>
-            <h3>Welcome, User</h3>
-            <nav>
-                <Link to ='/blog/all'>Home</Link>
-                <br/>
-                <Link to ='/blog/create'>My Page</Link>
-                <br/>
-                <Link to ='/blog/all'>Notifications</Link>
-                <br/>
-                <Link to ='/login'>Logout</Link>
-            </nav>
+            {authenticated && user ? authenticatedNav : publicNav}
         </div>
     )
 }
