@@ -45,7 +45,8 @@ const PostArticle = ({user}) => {
                 <input type = 'text' name='image' placeholder = 'Image Link' className = 'articleTitle' onChange={handleChange} value={blog.image}/>
                 <br />
                 <br />
-                <input type = 'text' name='article' placeholder = 'Content' className = 'articleContent' onChange={handleChange} value={blog.article}/>
+                <textarea name='article' placeholder='Type Your Article Here' className='articleTextArea' onChange={handleChange} value={blog.article} />
+                {/* <input type = 'text' name='article' placeholder = 'Content' className = 'articleContent' onChange={handleChange} value={blog.article}/> */}
                 <br />
                 <br />
                 <div className = 'articlePostButton'>
