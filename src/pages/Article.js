@@ -54,8 +54,8 @@ const Article = ({ user, authenticated }) => {
         (!edit) ? ( 
             <div className='Article'>
             <div className = 'articleDiv'>
-               {user.id === blog.author_id && <button onClick={editPost}> Edit</button>}
-                <img src={blog.image} alt='Blog image' />
+               {user.id === blog.author_id && <button onClick={editPost}> Edit Article</button>}<br></br>
+                <img src={blog.image} alt='' />
                 <h2>{blog.title}</h2>
                 <p>{blog.article}</p>
             </div>

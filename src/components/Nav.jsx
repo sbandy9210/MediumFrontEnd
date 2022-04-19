@@ -6,21 +6,21 @@ const Nav = ({authenticated, user, handleLogout}) => {
     if(authenticated){
         authenticatedNav = (
             <nav>
-                <h3>Welcome, {user.username}</h3>
-                <p><Link to ='/'>Home</Link></p>
-                <p><Link to ='/my-page'>My Page</Link></p>
-                <p><Link to ='/blog/all'>Notifications</Link></p>
-                <p><Link onClick={handleLogout} to ='/login'>Logout</Link></p>
+                <h2>Welcome, {user.username}</h2>
+                <p><Link to ='/'  className='navLink'>Home</Link></p>
+                <p><Link to ='/my-page'  className='navLink'>My Page</Link></p>
+                <p><Link to ='/blog/all'  className='navLink'>Notifications</Link></p>
+                <p><Link onClick={handleLogout} to ='/login'  className='navLink'>Logout</Link></p>
             </nav>
         )
     }
 
     const publicNav = (
         <nav>
-            <h3>Welcome</h3>
-            <p><Link to ='/'>Home</Link></p>
-            <p><Link to ='/register'>Register</Link></p>
-            <p><Link to ='/login'>Sign in</Link></p>
+            <h2>Welcome</h2>
+            <p><Link to ='/'  className='navLink'>Home</Link></p>
+            <p><Link to ='/register'  className='navLink'>Register</Link></p>
+            <p><Link to ='/login'  className='navLink'>Sign in</Link></p>
         </nav>
     )
 

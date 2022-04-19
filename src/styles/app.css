@@ -13,27 +13,42 @@
 
 .ArticleCard {
     display: grid;
-    grid-template-columns: .5fr 1fr;
+    grid-template-columns: .3fr 1fr;
     border-top: 1px solid black;
-    padding: 10px 0 10px 0
+    padding: 10px 0 10px 0;
+    cursor: pointer;
 }
 
 .ArticleCardImg > img {
     max-width: 150px;
     max-height: 150px;
 }
+.articleImg {
+    max-height: 250px;
+}
+
+.articleTextArea {
+    max-width: 177px;
+    max-height: 400px;
+}
 
 .App {
     display: grid;
-    grid-template-columns: .5fr 1fr;
+    grid-template-columns: .3fr 1fr;
     grid-template-rows: repeat(.5fr 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     margin: 0 10px 0 10px;
 }
 
+.blogs {
+    border-bottom: #385170 1px solid;
+    padding-bottom: 10px;
+}
+
 body {
     background-color: #ececec;
+    color: #385170;
 }
 
 .button {
@@ -55,9 +70,8 @@ h1 {
     color: #385170;
 }
 
-h3 {
+h2 {
     color: #385170;
-    font-size: 30px;
 }
 
 .header {
@@ -69,7 +83,28 @@ h3 {
     grid-area: 1 / 1 / 2 / 3; 
 }
 
+.myBlogsH2 {
+    border-bottom: #385170 1px solid;
+    padding-bottom: 5px;
+}
 
+.MyPage {
+    grid-template-columns: .7fr .3fr;
+    display: grid;
+}
+
+.myPost {
+        position: fixed;
+        min-width: 250px;
+        top: 32%;
+        right: 10px;
+        border: 3px solid #385170;
+        border-radius: 10px;
+        padding: 5px;
+        background: rgb(255, 243, 243);
+        background: radial-gradient(circle, rgba(236,236,236,1) 0%, rgb(218, 216, 216) 53%);
+        min-height: 300px;
+}
 
 .Nav {
     position: fixed;
@@ -81,6 +116,12 @@ h3 {
     background: rgb(255, 243, 243);
     background: radial-gradient(circle, rgba(236,236,236,1) 0%, rgb(218, 216, 216) 53%);
     min-height: 300px;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #385170;
+
 }
 
 .passwordContainer{
