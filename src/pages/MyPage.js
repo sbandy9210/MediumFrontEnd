@@ -18,8 +18,9 @@ useEffect(() => {
    
 
     return(
-        <div>
+        <div className='MyPage'>
             <div className = 'myBlogs'>
+            <h2>{props.user.username}'s Blogs</h2>
             {data && data.map((dat) => (
                 <div key={dat.id}>
                     <Link to={`/blog/${dat.id}`}>
@@ -33,7 +34,8 @@ useEffect(() => {
                 </div>
             ))}
             </div>
-            <div className = 'myPageRightDiv'>
+            <div className = 'myPost'>
+                <h2>Post a new Blog!</h2>
                 <PostArticle user={props.user}/>
             </div>
 
