@@ -11,12 +11,11 @@ const MyPage = ({user}) => {
         console.log(myBlogs.data)
         setData(myBlogs.data)
     }
-
+    
     useEffect(() => {
         blogs()
     }, [])
 
-    // Delete this comment
     blogs()
 
     return (data.length > 0) ? (
@@ -45,5 +44,4 @@ const MyPage = ({user}) => {
         <p>Loading</p>
     )
 }
-
 export default MyPage
