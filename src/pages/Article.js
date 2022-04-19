@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import Client from '../services/api'
 import Comment from '../components/Comment'
+import EditArticle from '../components/EditArticle'
 
 
 
 const Article = ({ user, authenticated }) => {    
-
+    const [edit, setEdit] = useState(false)
     const [blog, setBlog] = useState()
     const [newComment, setNewComment] = useState({
         image: '',
@@ -20,11 +21,15 @@ const Article = ({ user, authenticated }) => {
         // const currentBlog = await Client.get('/api/blog/1')
         console.log(currentBlog.data)
         setBlog(currentBlog.data)
-        console.log(blog)
+        console.log(blog.author_id)
     }
 
     const handleChange = (event) => {
         setNewComment({...newComment, [event.target.name]: event.target.value})
+    }
+
+    const editPost = () => {
+        setEdit(true)
     }
 
     const handleSubmit = async (event) => {
@@ -46,8 +51,10 @@ const Article = ({ user, authenticated }) => {
 
 
     return (blog) ? (
-        <div>
+        (!edit) ? ( 
+            <div>
             <div className = 'articleDiv'>
+               {user.id === blog.author_id && <button onClick={editPost}> Edit</button>}
                 <img src={blog.image} alt='Blog image' />
                 <h2>{blog.title}</h2>
                 <p>{blog.article}</p>
@@ -67,6 +74,7 @@ const Article = ({ user, authenticated }) => {
                 ))}
             </div>
         </div>
+        ) : (<EditArticle blog={blog} setEditor={setEdit} />)
     ) : (
         <div>
             <p>Loading</p>
