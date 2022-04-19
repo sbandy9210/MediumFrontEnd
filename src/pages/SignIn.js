@@ -41,7 +41,7 @@ const SignIn = (props) => {
             
             <form className='signin' onSubmit={handleSubmit}>
             
-            <label for='username'> Enter your username </label>
+            <label htmlFor='username'> Enter your username </label>
             <input 
                 type='text' 
                 id='username' 
