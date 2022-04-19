@@ -16,6 +16,7 @@ const MyPage = ({user}) => {
         blogs()
     }, [])
 
+    // Delete this comment
     blogs()
 
     return (data.length > 0) ? (
