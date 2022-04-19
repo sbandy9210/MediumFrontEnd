@@ -5,18 +5,21 @@ import { Link } from 'react-router-dom'
 
 const MyPage = ({user}) => {
     const [data, setData] = useState([])
+    const [reload, setReload] = useState(false)
 
     const blogs = async () => {
         const myBlogs = await Client.get(`/api/blog/author/${user.id}`)
-        console.log(myBlogs.data)
         setData(myBlogs.data)
     }
-    
+
+    if(reload && data.length === 0){
+        blogs()
+    }
+
     useEffect(() => {
         blogs()
+        setReload(true)
     }, [])
-
-    blogs()
 
     return (data.length > 0) ? (
         <div className='MyPage'>
@@ -44,4 +47,5 @@ const MyPage = ({user}) => {
         <p>Loading</p>
     )
 }
+
 export default MyPage
