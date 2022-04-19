@@ -57,7 +57,7 @@ function App() {
         <div className = 'header'>
           <h1>MyLieu</h1>
         </div>
-        <Nav />
+        <Nav authenticated={authenticated} user={user}/>
         
         
           <DataContext.Provider value={{
@@ -65,16 +65,16 @@ function App() {
           }} />          
         
           <Routes>
-              <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated}/>} />
-              <Route path='/blog/all' element={<Home />}/>
-              <Route path='/blog/create' element={<MyPage user={user}/>}/>
-              <Route path='/blog/:blog_id' element={<Article />}/>
-              <Route path='/register' element={<Register />}/>
+            <Route path='/' element={<Home />}/>
+            <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated} handleLogout={handleLogOut}/>} />
+            <Route path='/my-page' element={<MyPage user={user}/>}/>
+            <Route path='/blog/:blog_id' element={<Article />}/>
+            <Route path='/register' element={<Register />}/>
           </Routes>
 
         </div>
     )
-    }
+}
   
   
   export default App
