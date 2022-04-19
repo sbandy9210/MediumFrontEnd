@@ -11,8 +11,6 @@ import Register from './pages/Register'
 import Article from './pages/Article'
 
 
-
-
 function App() {
 
 
@@ -27,11 +25,12 @@ function App() {
 
   const [blog, setBlog] = useState([])
 
-
   const getBlog = async() => {
-    const blog = await axios.get('http://localhost:3001/blog/all')
+    const blog = await axios.get('http://localhost:3001/api/blog/all')
     setBlog(blog.data)
   }
+  console.log(blog)
+
 
   const handleLogOut = () => {
     setUser(null)
@@ -44,26 +43,23 @@ function App() {
     if(token){
       checkToken()
     }
-    // getBlog()
+    getBlog()
   }, [])
 
     return (
       <div className="App">
-        <DataContext.Provider value={{
-          blog, setBlog
-        }} />
         <div className = 'header'>
           <h1>MyLieu</h1>
         </div>
         <br />
         
           <DataContext.Provider value={{
-            authenticated, setAuthenticated, user, setUser
+            authenticated, setAuthenticated, user, setUser, blog, setBlog
           }} />          
         
           <Routes>
               <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated}/>} />
-              <Route path='/blog/all' element={<Home />}/>
+              <Route path='/blog/all' element={<Home setBlog={setBlog} blog={blog}/>}/>
               <Route path='/blog/create' element={<MyPage />}/>
               <Route path='/blog/:blog_id' element={<Article />}/>
               <Route path='/register' element={<Register />}/>

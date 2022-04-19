@@ -3,9 +3,11 @@ import React, { useContext } from 'react';
 import DataContext from '../components/DataContext'
 
 
-const ArticleCard = (props) => {
+const ArticleCard = ({blog}) => {
 
-    const blog = useContext(DataContext)
+    // const { blog, setBlog } = useContext(DataContext)
+
+    console.log({blog})
 
     const navigateToBlog = (blog) => {
         navigate(`${blog._id}`)
@@ -16,7 +18,8 @@ const ArticleCard = (props) => {
     return(
 
         <div>
-            {props.blogs.map((blog) => {
+            hello
+            {/* {props.blog.map((blog) => {
                 return(
                     <div>
                         <img 
@@ -37,7 +40,7 @@ const ArticleCard = (props) => {
                         </div>
                     </div>
                 )
-            })}
+            })} */}
 
         </div>
     )

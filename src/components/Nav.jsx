@@ -13,7 +13,7 @@ const Nav = () => {
                 <br/>
                 <Link to ='/blog/all'>Notifications</Link>
                 <br/>
-                <Link to ='/'>Logout</Link>
+                <Link to ='/login'>Logout</Link>
             </nav>
         </div>
     )
