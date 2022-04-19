@@ -35,33 +35,37 @@ const SignIn = (props) => {
     return(
         <div className='SignIn'>
             
-            <h1>Please Sign in!</h1>
+            <h1>Sign in.</h1>
     
             <form className='signin' onSubmit={handleSubmit}>
             
-            <label htmlFor='username'> Enter your username </label>
+            <div className='signInUsername'>
             <input 
                 type='text' 
                 id='username' 
-                placeholder='Enter username here' 
+                placeholder='Enter your username' 
                 name='username' 
                 onChange={handleChange} 
                 value={formValues.username}
                 style={{ textAlign: 'center'}}
              /> <br/>
+             </div>
             
-            <label for='password'> Enter your password </label>
+
+            <div className='signInPassword'>
             <input 
                 type='password' 
                 id='password' 
-                placeholder='Enter password here' 
+                placeholder='Enter your password' 
                 name='password' 
                 onChange={handleChange} 
                 value={formValues.password}
                 style={{ textAlign: 'center'}}
             /> <br/>
+            </div>
 
             <button 
+            className='signInButton'
             type='submit'
             disabled={!formValues.username || !formValues.password}> Sign In! </button>
 

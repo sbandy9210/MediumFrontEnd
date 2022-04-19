@@ -1,15 +1,25 @@
 h1 {
     
-    color: blue;
+    color: #385170;
+}
+
+h3 {
+    color: #385170;
+    font-size: 30px;
 }
 
 .header {
-    background-color: lightgrey;
+    background-color: #ececec;
     /* background-image: url('https://media.sproutsocial.com/uploads/2018/04/Facebook-Cover-Photo-Size.png'); */
     background-size: cover;
     font-size: 60px;
     padding: 1px;
     text-align: center;
+}
+
+body {
+    background-color: #ececec;
+
 }
 
 .articleContent {
@@ -52,19 +62,25 @@ h1 {
     /* float: ; */
 }
 
+.Home {
+    text-align: center;
+}
+
+/* register page */
+
+.confirmpasswordContainer{
+    padding: 10px 16px 9px;
+}
 .emailContainer{
     padding: 10px 16px 9px;
 }
+
 
 .usernameContainer{
     padding: 10px 16px 9px;
 }
 
 .passwordContainer{
-    padding: 10px 16px 9px;
-}
-
-.confirmpasswordContainer{
     padding: 10px 16px 9px;
 }
 
@@ -75,11 +91,27 @@ h1 {
 
 .Register {
     text-align: center;
-    background-color: #ececec;
+    
 }
 
+/* sign in page */
+.signInPassword {
+    padding: 7px 16px 9px;
+    
+}
 
+.signInUsername {
+    padding: 7px 16px 9px;
 
+}
+
+.signInButton {
+    margin-top: 10px;
+}
+
+.SignIn {
+    text-align: center;
+}
 
 
 .myPageRightDiv {
