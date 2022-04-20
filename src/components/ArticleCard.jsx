@@ -27,7 +27,7 @@ const ArticleCard = ({blog, user, authenticated}) => {
                 />
                 </div>
                 <div className='ArticlCardTitle'>
-                    <h4 className='ArtCardTitle'>{blog.title}</h4>
+                    <h3 className='ArtCardTitle'>{blog.title}</h3>
                     <p className='ArtCardDate'>{blog.createdAt.substring(0,10)}</p>
                 </div>
             </div>   

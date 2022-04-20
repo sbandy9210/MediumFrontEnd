@@ -15,7 +15,7 @@ const MyPage = ({ user, authenticated }) => {
         const myBlogs = await Client.get(`/api/blog/author/${user_id}`)
         setData(myBlogs.data)
     }
-
+    console.log(data)
     useEffect(() => {
         blogs()
     }, [])
@@ -29,12 +29,15 @@ const MyPage = ({ user, authenticated }) => {
                     <div className='myBlogTitle' key={dat.id}>
                         <Link to={`/${user_id}/blog/${dat.id}`} className="navLink">
                             <div className='blogs'>
-                                <h3>{dat.title}</h3>
                                 <img 
                                 src ={dat.image}
                                 alt = ""
                                 style = {{width: '150px'}}
                                 />
+                                <div>
+                                <h3 className='ArtCardTitle'>{dat.title}</h3>
+                                <p className='ArtCardDate'>{dat.createdAt.substring(0,10)}</p>
+                                </div>
                             </div>
                         </Link>
                     </div>
