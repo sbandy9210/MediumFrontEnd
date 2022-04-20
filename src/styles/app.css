@@ -10,7 +10,7 @@
     margin-left: 5px;
 }
 
-.Article, .EditArticle, .MyPage, .Nav, .articleDiv, .Home {
+.Article, .EditArticle, .MyPage, .Nav, .articleDiv, .Home, .Register, .SignIn, .Loading {
     grid-area: 2 / 2 / 3 / 3;
 }
 
@@ -37,11 +37,10 @@
 
 .App {
     display: grid;
-    grid-template-columns: .3fr 1fr;
-    grid-template-rows: repeat(.5fr 1fr);
+    grid-template-columns: .2fr .6fr .2fr;
+    grid-template-rows: repeat(2, .2fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    margin: 0 10px 0 10px;
 }
 
 .blogs {
@@ -59,10 +58,8 @@ body {
 }
 
 .commentDiv {
-    text-align: center;
-    
+    text-align: center;  
 }
-
 
 .confirmpasswordContainer{
     padding: 10px 16px 9px;
@@ -85,23 +82,12 @@ h2 {
     font-size: 60px;
     padding: 1px;
     text-align: center;
-    grid-area: 1 / 1 / 2 / 3; 
-}
-
-.Home {
-    grid-template-columns: .7fr .3fr;
-    display: grid;
-    grid-area: 2 / 2 / 3 / 3;
+    grid-area: 1 / 1 / 2 / 4;
 }
 
 .myBlogsH2 {
     border-bottom: #385170 1px solid;
     padding-bottom: 5px;
-}
-
-.MyPage {
-    grid-template-columns: .7fr .3fr;
-    display: grid;
 }
 
 .myPost {
@@ -144,14 +130,6 @@ h2 {
 
 }
 
-.Register {
-    text-align: center;
-    grid-template-columns: .7fr .3fr;
-    display: grid;
-    grid-area: 2 / 2 / 3 / 3;
-
-}
-
 #root {
     text-align: center;
 }
@@ -169,14 +147,6 @@ h2 {
 
 .signInButton {
     margin-top: 10px;
-}
-
-.SignIn {
-    text-align: center;
-    display: grid;
-    grid-template-columns: .7fr .3fr;
-    grid-area: 2 / 2 / 3 / 3;
-
 }
 
 .usernameContainer{

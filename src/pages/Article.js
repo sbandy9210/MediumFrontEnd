@@ -72,7 +72,7 @@ const Article = ({ user, authenticated }) => {
         </div>
         ) : (<EditArticle blog={blog} setEditor={setEdit} getBlogById={getBlogById}/>)
     ) : (
-        <div>
+        <div className='Loading'>
             <p>Loading</p>
         </div>
     )
