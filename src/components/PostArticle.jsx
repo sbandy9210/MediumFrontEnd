@@ -1,15 +1,18 @@
 import React, { useState, useContext } from 'react'
 import DataContext from './DataContext'
 import Client from '../services/api'
+import { useParams } from 'react-router'
 
 
-const PostArticle = ({user, blogs}) => {
+const PostArticle = ({ blogs }) => {
+
+    const { user_id } = useParams()
 
     const [blog, setBlog] = useState({
         title: "",
         image: "",
         article: "",
-        author_id: user.id
+        author_id: user_id
     }) 
 
     const [response, setResponse] = useState("")
@@ -20,13 +23,14 @@ const PostArticle = ({user, blogs}) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+        // setBlog(blog => ({...blog, author_id: user.id}))
         const res = await Client.post('/api/blog/create', blog)
 
         setBlog({
             title: "",
             image: "",
             article: "",
-            author_id: user.id
+            author_id: user_id
         })
 
         setResponse(res.data.msg)

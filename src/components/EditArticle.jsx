@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import Client from '../services/api'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 
 const EditArticle = ({blog, setEditor, getBlogById}) => {
+    const { user_id } = useParams()
     const navigate = useNavigate()
 
     const [edit, setEdit] =useState({
@@ -25,7 +26,7 @@ const EditArticle = ({blog, setEditor, getBlogById}) => {
         e.preventDefault()
         await Client.delete(`/api/blog/delete/${blog.id}`)
         getBlogById()
-        navigate('/my-page')
+        navigate(`/${user_id}/my-page`)
     }
 
     return(

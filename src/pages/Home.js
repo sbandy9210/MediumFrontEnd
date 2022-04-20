@@ -1,15 +1,18 @@
 import ArticleCard from '../components/ArticleCard'
 import React from 'react'
 
-const Home = ({blog}) => {
+const Home = ({blog, user, authenticated}) => {
 
-    return(
+    return (
         <div className='Home'>
             <div className = 'articlesDiv'>
             <h2>Recently Posted Blogs</h2>
-                <ArticleCard blog={blog}/>
+                {/* <ArticleCard  blog={blog}/> */}
+                {blog.map((blogs) => (
+                    <ArticleCard  key={blogs.id} blog={blogs}/>
+                ))}
             </div>
-        </div>
+        </div> 
     )
 }
 
