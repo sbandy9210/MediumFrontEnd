@@ -47,30 +47,45 @@ const Article = ({ user, authenticated }) => {
 
 
     return (blog) ? (
-        (!edit) ? ( 
+        (user && authenticated) ? (
+            (!edit) ? ( 
+                <div className='Article'>
+                <div className = 'articleDiv'>
+                   {user.id === blog.author_id && <button onClick={editPost}> Edit Article</button>}<br></br>
+                    <img src={blog.image} alt='' className='articleImg'/>
+                    <h2>{blog.title}</h2>
+                    <p>{blog.article}</p>
+                </div>
+    
+                <div className='Comments'>
+                    <h4>Comments</h4>
+                    <form onSubmit={handleSubmit}>
+                        <input className='add-comment-image' name='image' value={newComment.image} placeholder='add image URL' onChange={handleChange}/>
+                        <input className='add-comment-text' name='text' value={newComment.text} placeholder='Comment' onChange={handleChange} />
+                        <button className='add-comment-button'>Add Comment</button>
+                    </form>
+                    {blog.Comments.map((comment) => (
+                        <Comment key={comment.id} user={user} authenticated={authenticated} comment={comment} getBlogById={getBlogById}/>
+                    ))}
+                </div>
+            </div>
+            ) : (<EditArticle blog={blog} setEditor={setEdit} getBlogById={getBlogById}/>)
+        ) : (
             <div className='Article'>
-            <div className = 'articleDiv'>
-               {user.id === blog.author_id && <button onClick={editPost}> Edit Article</button>}<br></br>
-                <img src={blog.image} alt='' className='articleImg'/>
-                <h2>{blog.title}</h2>
-                <p>{blog.article}</p>
+                <div className = 'articleDiv'>
+                    <img src={blog.image} alt='' className='articleImg'/>
+                    <h2>{blog.title}</h2>
+                    <p>{blog.article}</p>
+                </div>
+    
+                <div className='Comments'>
+                    <h4>Comments</h4>
+                    {blog.Comments.map((comment) => (
+                        <Comment key={comment.id} user={user} authenticated={authenticated} comment={comment} getBlogById={getBlogById}/>
+                    ))}
+                </div>
             </div>
-
-            <div className='Comments'>
-                <h4>Comments</h4>
-                <form onSubmit={handleSubmit}>
-                    <input className='add-comment-image' name='image' value={newComment.image} placeholder='add image URL' onChange={handleChange}/>
-                    <input className='add-comment-text' name='text' value={newComment.text} placeholder='Comment' onChange={handleChange} />
-                    <button className='add-comment-button'>Add Comment</button>
-                </form>
-                {blog.Comments.map((comment) => (
-                    <div className = 'commentDiv'>
-                        <Comment key={comment.id} user={user} comment={comment} getBlogById={getBlogById}/>
-                    </div> 
-                ))}
-            </div>
-        </div>
-        ) : (<EditArticle blog={blog} setEditor={setEdit} getBlogById={getBlogById}/>)
+        )
     ) : (
         <div>
             <p>Loading</p>

@@ -18,23 +18,6 @@ const ArticleCard = ({blog, user, authenticated}) => {
     return(
 
         <div className = 'articles'>
-            {/* {blog.map((blog) => {
-                return( 
-                    <div onClick={() => {navigateToBlog(blog)}} className="ArticleCard">
-                         <div className='ArticleCardImg'>
-                         <img 
-                            src = {blog.image} 
-                            alt = ''
-                            style={{width: '200px'}}
-                        />
-                        </div>
-                        <div className='ArticlCardTitle'>
-                            <h4 className='ArtCardTitle'>{blog.title}</h4>
-                            <p className='ArtCardDate'>{blog.createdAt.substring(0,10)}</p>
-                        </div>
-                    </div>
-                )
-            })} */}
             <div onClick={() => {navigateToBlog(blog)}} className="ArticleCard">
                     <div className='ArticleCardImg'>
                     <img 
