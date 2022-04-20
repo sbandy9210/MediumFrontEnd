@@ -78,8 +78,9 @@ function Comment({ user, authenticated, comment, getBlogById }) {
     
                 <form onSubmit={handleSubmit}>
                     <input className='comment-reply-image' name='image' value={newReply.image} placeholder='Enter Image URL' onChange={handleChange}/>
-                    <input className='comment-reply-name' name='text' value={newReply.text} placeholder='Enter your Reply' onChange={handleChange}/>
-                    <button className='button'>Reply</button>
+                    <input className='comment-reply-name' name='text' value={newReply.text} placeholder='Reply' onChange={handleChange}/>
+                    <button>Reply</button>
+
                 </form>
     
                 {comment.Replies.map((reply) => (
@@ -90,7 +91,7 @@ function Comment({ user, authenticated, comment, getBlogById }) {
         ) : (
             <div className='edit-comment'>
                 <form onSubmit={handleEditSubmit}>
-                    <input type = 'text' name='text' placeholder = 'Article Title' className = 'articleTitle' onChange={handleEditChange} value={editComment.text}/>
+                    <input type = 'text' name='text' placeholder = 'Comment' className = 'articleTitle' onChange={handleEditChange} value={editComment.text}/>
                     <br />
                     <br />
                     <input type = 'text' name='image' placeholder = 'Image Link' className = 'articleTitle' onChange={handleEditChange} value={editComment.image}/>
