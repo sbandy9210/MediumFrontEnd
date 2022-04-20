@@ -51,8 +51,20 @@
     max-width: 150px;
     max-height: 150px;
 }
+
+.articleDiv{
+    /* Piero Added the code below */
+    text-align: left; 
+    /* ************************* */
+}
+
 .articleImg {
     max-height: 250px;
+    /* Piero Added the code below */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* ************************* */
 }
 
 .articleTextArea {
