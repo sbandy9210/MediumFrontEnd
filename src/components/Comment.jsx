@@ -79,7 +79,7 @@ function Comment({ user, authenticated, comment, getBlogById }) {
                 <form onSubmit={handleSubmit}>
                     <input className='comment-reply-image' name='image' value={newReply.image} placeholder='Enter Image URL' onChange={handleChange}/>
                     <input className='comment-reply-name' name='text' value={newReply.text} placeholder='Reply' onChange={handleChange}/>
-                    <button>Reply</button>
+                    <button className='reply'>Reply</button>
 
                 </form>
     
