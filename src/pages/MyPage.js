@@ -52,7 +52,7 @@ const MyPage = ({ user, authenticated }) => {
             </div>
         )
     ) : (
-        <div className="protected">
+        <div className="SignIn">
             <h3>Oops! You must be signed in to access this page!</h3>
             <button onClick={()=> navigate('/login')}>Sign In</button>
         </div>
