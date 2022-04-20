@@ -15,7 +15,7 @@ const MyPage = ({ user, authenticated }) => {
         const myBlogs = await Client.get(`/api/blog/author/${user_id}`)
         setData(myBlogs.data)
     }
-    console.log(data)
+    
     useEffect(() => {
         blogs()
     }, [])
