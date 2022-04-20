@@ -44,6 +44,7 @@ const EditArticle = ({blog, setEditor, getBlogById}) => {
                 <div className = 'articlePostButton'>
                     <button type = 'post'>Post</button>
                     <button onClick={deleteArticle}>Delete</button>
+                    <button onClick={() => setEditor(false)}>Cancel</button>
                 </div>
             </form>
         </div>

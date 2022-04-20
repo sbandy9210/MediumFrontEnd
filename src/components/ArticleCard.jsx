@@ -2,12 +2,16 @@ import { useNavigate } from 'react-router-dom'
 import React from 'react';
 
 
-const ArticleCard = ({blog}) => {
+const ArticleCard = ({blog, user, authenticated}) => {
     
     let navigate = useNavigate()
 
     const navigateToBlog = (blog) => {
-        navigate(`/blog/${blog.id}`)
+        if(user && authenticated){
+            navigate(`/${user.id}/blog/${blog.id}`)
+        }else{
+            navigate(`/blog/${blog.id}`)
+        }
     }
     
 
