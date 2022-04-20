@@ -9,7 +9,7 @@ const Home = ({blog, user, authenticated}) => {
             <h2>Recently Posted Blogs</h2>
                 {/* <ArticleCard  blog={blog}/> */}
                 {blog.map((blogs) => (
-                    <ArticleCard  key={blogs.id} blog={blogs}/>
+                    <ArticleCard  key={blogs.id} blog={blogs} user={user} authenticated={authenticated} />
                 ))}
             </div>
         </div> 
