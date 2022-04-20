@@ -67,35 +67,44 @@ function Comment({ user, authenticated, comment, getBlogById }) {
         (!edit) ? (
             <div className='individual-comment'>
                 <img src={comment.image} alt=''/>
+                <br/>
                 {` ${comment.Author.username}: ${comment.text} `}
+                <br/>
                 {`Likes: ${comment.likes}`}
+                <br/>
                 <button className='like' onClick={Like}>Like</button>
                 <button className='dislike' onClick={Dislike}>Dislike</button>
                 {user.id === comment.author_id && <button className='editButton' onClick={EditPost}>Edit</button>}
     
                 <form onSubmit={handleSubmit}>
                     <input className='comment-reply-image' name='image' value={newReply.image} placeholder='Enter Image URL' onChange={handleChange}/>
-                    <input className='comment-reply-name' name='text' value={newReply.text} placeholder='Enter your Reply' onChange={handleChange}/>
+                    <input className='comment-reply-name' name='text' value={newReply.text} placeholder='Reply' onChange={handleChange}/>
                     <button className='reply'>Reply</button>
+
                 </form>
     
                 {comment.Replies.map((reply) => (
-                    <Reply key={reply.id} user={user} reply={reply} getBlogById={getBlogById}/>
+                    <Reply key={reply.id} user={user} authenticated={authenticated} reply={reply} getBlogById={getBlogById}/>
                 ))}
     
             </div>
         ) : (
             <div className='edit-comment'>
                 <form onSubmit={handleEditSubmit}>
-                    <input type = 'text' name='text' placeholder = 'Article Title' className = 'articleTitle' onChange={handleEditChange} value={editComment.text}/>
+                    <input type = 'text' name='text' placeholder = 'Comment' className = 'articleTitle' onChange={handleEditChange} value={editComment.text}/>
                     <br />
                     <br />
                     <input type = 'text' name='image' placeholder = 'Image Link' className = 'articleTitle' onChange={handleEditChange} value={editComment.image}/>
                     <br />
                     <br />
                     <div className = 'articlePostButton'>
+
+            
+
                         <button className='button' type = 'post'>Post</button>
                         <button className='button' onClick={deleteComment}>Delete</button>
+                        <button className='button' onClick={() => setEdit(false)}>Cancel</button>
+
                     </div>
                 </form>
             </div>
@@ -103,19 +112,11 @@ function Comment({ user, authenticated, comment, getBlogById }) {
     ) : (
         <div className='individual-comment'>
             <img src={comment.image} alt=''/>
+            <br/>
             {` ${comment.Author.username}: ${comment.text} `}
+            <br/>
             {`Likes: ${comment.likes}`}
-
-            <button className='like' onClick={Like}>Like</button>
-            <button className='dislike' onClick={Dislike}>Dislike</button>
-            {user.id === comment.author_id && <button onClick={EditPost}>Edit</button>}
-
-            <form onSubmit={handleSubmit}>
-                <input className='comment-reply-image' name='image' value={newReply.image} placeholder='Enter Image URL' onChange={handleChange}/>
-                <input className='comment-reply-name' name='text' value={newReply.text} placeholder='Enter your Reply' onChange={handleChange}/>
-                <button className='reply'>Reply</button>
-            </form>
-
+            <br/>
 
             {comment.Replies.map((reply) => (
                 <Reply key={reply.id} user={user} authenticated={authenticated} reply={reply} getBlogById={getBlogById}/>
