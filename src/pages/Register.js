@@ -104,8 +104,12 @@ const Register = () => {
                 </div>
                 <button className='registerButton' type='submit'
                     disabled={
-                        !formValues.email || !formValues.username || !formValues.password || !formValues.confirmPassword ||
-                        !(formValues.confirmPassword === formValues.password) || response.length > 0}
+                        !formValues.email || 
+                        !formValues.username || 
+                        !formValues.password || 
+                        !formValues.confirmPassword ||
+                        !(formValues.confirmPassword === formValues.password) ||
+                        response.length > 0}
                     > Register </button>
             </form>
         </div>
