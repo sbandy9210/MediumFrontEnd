@@ -52,7 +52,7 @@ function App() {
           <DataContext.Provider value={{ authenticated, setAuthenticated, user, setUser }} />
 
           <div className = 'header'>
-            <h1><span className='headerTitleSpan'>My</span>Lieu</h1>
+            <h1><span className='headerTitleSpan'>My</span>Lieu<span className='dot'>.</span></h1>
           </div>
             <Nav authenticated={authenticated} user={user} handleLogout={handleLogOut}/>          
             

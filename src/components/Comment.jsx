@@ -71,12 +71,12 @@ function Comment({ user, authenticated, comment, getBlogById }) {
                 {`Likes: ${comment.likes}`}
                 <button className='like' onClick={Like}>Like</button>
                 <button className='dislike' onClick={Dislike}>Dislike</button>
-                {user.id === comment.author_id && <button onClick={EditPost}>Edit</button>}
+                {user.id === comment.author_id && <button className='editButton' onClick={EditPost}>Edit</button>}
     
                 <form onSubmit={handleSubmit}>
                     <input className='comment-reply-image' name='image' value={newReply.image} placeholder='Enter Image URL' onChange={handleChange}/>
                     <input className='comment-reply-name' name='text' value={newReply.text} placeholder='Enter your Reply' onChange={handleChange}/>
-                    <button>Reply</button>
+                    <button className='button'>Reply</button>
                 </form>
     
                 {comment.Replies.map((reply) => (
@@ -94,8 +94,8 @@ function Comment({ user, authenticated, comment, getBlogById }) {
                     <br />
                     <br />
                     <div className = 'articlePostButton'>
-                        <button type = 'post'>Post</button>
-                        <button onClick={deleteComment}>Delete</button>
+                        <button className='button' type = 'post'>Post</button>
+                        <button className='button' onClick={deleteComment}>Delete</button>
                     </div>
                 </form>
             </div>
