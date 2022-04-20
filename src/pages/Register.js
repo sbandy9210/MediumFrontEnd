@@ -13,35 +13,40 @@ const Register = () => {
         password: '',
         confirmPassword: ''
     })
+    const [response, setResponse] = useState("")
 
     const handleChange = (e) => {
-        setFormValues({...formValues, [e.target.name]: e.target.value})   
+        setFormValues({...formValues, [e.target.name]: e.target.value}) 
+        setResponse("")  
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        await RegisterUser({
+        const serverResponse = await RegisterUser({
             username: formValues.username,
             email: formValues.email,
             register_password: formValues.password
         })
 
-        setFormValues({
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-        })
-
-        navigate('/Login')
+        if(serverResponse.message){
+            setResponse(serverResponse.message)
+        }else{
+            setFormValues({
+                name: '',
+                email: '',
+                password: '',
+                confirmPassword: ''
+                })
+        
+                navigate('/Login')
+        }
     }
 
     return(
         <div className='Register'>
             <h1>Sign Up.</h1>
             <br/>
-
             <form className='register' onSubmit={handleSubmit}>
                 <div className='emailContainer'>
                     <input 
@@ -54,7 +59,8 @@ const Register = () => {
                         value={formValues.email} 
                         style={{ textAlign: 'center'}}
                         required
-                    /> <br/>
+                    /> 
+                    <br/>
                 </div>
                 <div className='usernameContainer'>
                     <input 
@@ -66,7 +72,9 @@ const Register = () => {
                         value={formValues.username} 
                         style={{ textAlign: 'center'}}
                         required
-                    /> <br/>
+                    />
+                    <br/>
+                    {response}
                 </div>
                 <div className='passwordContainer'>
                     <input 
@@ -78,9 +86,10 @@ const Register = () => {
                         value={formValues.password} 
                         style={{ textAlign: 'center'}}
                         required
-                    /> <br/>
+                    /> 
+                    <br/>
                 </div>
-                <div className='comfirmPasswordContainer'>
+                <div className='confirmPasswordContainer'>
                     <input 
                         type='password' 
                         placeholder='Confirm password' 
@@ -90,13 +99,13 @@ const Register = () => {
                         value={formValues.confirmPassword} 
                         style={{ textAlign: 'center'}}
                         required
-                    /> <br/>
+                    /> 
+                    <br/>
                 </div>
                 <button className='registerButton' type='submit'
                     disabled={
                         !formValues.email || !formValues.username || !formValues.password || !formValues.confirmPassword ||
-                        !(
-                            formValues.confirmPassword === formValues.password)}
+                        !(formValues.confirmPassword === formValues.password) || response.length > 0}
                     > Register </button>
             </form>
         </div>
