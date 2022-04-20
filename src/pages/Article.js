@@ -87,7 +87,7 @@ const Article = ({ user, authenticated }) => {
             </div>
         )
     ) : (
-        <div>
+        <div className='Loading'>
             <p>Loading</p>
         </div>
     )
