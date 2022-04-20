@@ -15,7 +15,7 @@
 ***
 
 ## ***Component Hierarchy Diagram*** 
-<center><img src="https://i.imgur.com/HfaaHh5.png"></center>
+<center><img src="https://i.imgur.com/xB5BSUi.png"></center>
 
 
 ***
