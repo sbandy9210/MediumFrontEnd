@@ -51,9 +51,16 @@ const Article = ({ user, authenticated }) => {
             (!edit) ? ( 
                 <div className='Article'>
                     <div className = 'articleDiv'>
-                    {user.id === blog.author_id && <button className='editArticleButton' onClick={editPost}> Edit Article</button>}<br></br>
-                        <img src={blog.image} alt='' className='articleImg'/>
+                        {user.id === blog.author_id && <button className='editArticleButton' onClick={editPost}> Edit Article</button>}
+                        <br/>
                         <h2>{blog.title}</h2>
+                        <div className='article-author-info'>
+                            {/* Might need to change the profilepic into an <img> tag */}
+                            {blog.Author.profilepic}
+                            {blog.Author.username} | {blog.createdAt.substring(0,10)}
+                        </div>
+                        <br/>
+                        <img src={blog.image} alt='' className='articleImg'/>
                         <p>{blog.article}</p>
                     </div>
     
