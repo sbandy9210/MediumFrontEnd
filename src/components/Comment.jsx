@@ -106,6 +106,17 @@ function Comment({ user, authenticated, comment, getBlogById }) {
             {` ${comment.Author.username}: ${comment.text} `}
             {`Likes: ${comment.likes}`}
 
+            <button className='like' onClick={Like}>Like</button>
+            <button className='dislike' onClick={Dislike}>Dislike</button>
+            {user.id === comment.author_id && <button onClick={EditPost}>Edit</button>}
+
+            <form onSubmit={handleSubmit}>
+                <input className='comment-reply-image' name='image' value={newReply.image} placeholder='Enter Image URL' onChange={handleChange}/>
+                <input className='comment-reply-name' name='text' value={newReply.text} placeholder='Enter your Reply' onChange={handleChange}/>
+                <button className='reply'>Reply</button>
+            </form>
+
+
             {comment.Replies.map((reply) => (
                 <Reply key={reply.id} user={user} authenticated={authenticated} reply={reply} getBlogById={getBlogById}/>
             ))}

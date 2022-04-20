@@ -1,3 +1,13 @@
+.add-comment-image {
+    margin-right: 20px;
+    margin-bottom: 10px;
+
+}
+
+.add-comment-button {
+    margin-left: 20px;
+}
+
 .ArtCardTitle {
     text-align: left;
     margin-top: 0px;
@@ -55,18 +65,31 @@ body {
 
 .button {
     text-align: center;
+
+    
 }
+
+
+
 
 .commentDiv {
     text-align: center;  
 }
 
+
 .confirmpasswordContainer{
     padding: 10px 16px 9px;
+}
+
+.comment-reply-image {
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .emailContainer{
     padding: 10px 16px 9px;
 }
+
 
 h1 {
     color: #385170;
@@ -83,6 +106,21 @@ h2 {
     padding: 1px;
     text-align: center;
     grid-area: 1 / 1 / 2 / 4;
+}
+
+.individual-comment {
+    padding: 20px 16px 20px;
+    border: solid #385170;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    
+    
+    
+}
+
+.like {
+    margin-right: 10px;
+    margin-left: 5px;
 }
 
 .myBlogsH2 {
@@ -129,6 +167,20 @@ h2 {
     margin-top: 20px;
 
 }
+
+
+.Register {
+    text-align: center;
+    grid-template-columns: .7fr .3fr;
+    display: grid;
+    grid-area: 2 / 2 / 3 / 3;
+
+}
+
+.reply {
+    margin-left: 20px;
+}
+
 
 #root {
     text-align: center;
