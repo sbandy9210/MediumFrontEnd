@@ -83,6 +83,10 @@ h2 {
     grid-area: 1 / 1 / 2 / 3; 
 }
 
+.Home {
+    margin-left: 10px;
+}
+
 .myBlogsH2 {
     border-bottom: #385170 1px solid;
     padding-bottom: 5px;
@@ -116,6 +120,7 @@ h2 {
     background: rgb(255, 243, 243);
     background: radial-gradient(circle, rgba(236,236,236,1) 0%, rgb(218, 216, 216) 53%);
     min-height: 300px;
+    min-width: 150px;
 }
 
 .navLink {
@@ -135,7 +140,10 @@ h2 {
 
 .Register {
     text-align: center;
-    
+    grid-template-columns: .7fr .3fr;
+    display: grid;
+    grid-area: 2 / 2 / 3 / 3;
+
 }
 
 #root {
@@ -159,7 +167,10 @@ h2 {
 
 .SignIn {
     text-align: center;
-   
+    display: grid;
+    grid-template-columns: .7fr .3fr;
+    grid-area: 2 / 2 / 3 / 3;
+
 }
 
 .usernameContainer{
