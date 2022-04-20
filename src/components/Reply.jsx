@@ -13,7 +13,7 @@ function Reply({ user, authenticated, reply, getBlogById }) {
         <div>
             <img src={reply.image} alt=''/>
             {`${reply.Author.username}: ${reply.text}`}
-            {user.id === reply.author_id && <button onClick={deleteReply}>Delete</button>}
+            {user.id === reply.author_id && <button className='button' onClick={deleteReply}>Delete</button>}
         </div>
     ) : (
         <div>

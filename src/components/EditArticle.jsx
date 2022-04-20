@@ -41,10 +41,10 @@ const EditArticle = ({blog, setEditor, getBlogById}) => {
                 <input type = 'text' name='article' placeholder = 'Content' className = 'articleContent' onChange={handleChange} value={edit.article}/>
                 <br />
                 <br />
-                <div className = 'articlePostButton'>
-                    <button type = 'post'>Post</button>
-                    <button onClick={deleteArticle}>Delete</button>
-                    <button onClick={() => setEditor(false)}>Cancel</button>
+                <div className='articlePostButton'>
+                    <button className='button' type='post'>Post</button>
+                    <button className='button' onClick={deleteArticle}>Delete</button>
+                    <button className='button' onClick={() => setEditor(false)}>Cancel</button>
                 </div>
             </form>
         </div>
