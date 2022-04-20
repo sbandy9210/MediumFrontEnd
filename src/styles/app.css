@@ -1,10 +1,13 @@
 .ArtCardTitle {
     text-align: left;
     margin-top: 0px;
+    margin-left: 5px;
+
 }
 
 .ArtCardDate {
     text-align: left;
+    margin-left: 5px;
 }
 
 .Article, .EditArticle, .MyPage, .Nav, .articleDiv, .Home {
@@ -84,7 +87,9 @@ h2 {
 }
 
 .Home {
-    margin-left: 10px;
+    grid-template-columns: .7fr .3fr;
+    display: grid;
+    grid-area: 2 / 2 / 3 / 3;
 }
 
 .myBlogsH2 {
@@ -120,13 +125,12 @@ h2 {
     background: rgb(255, 243, 243);
     background: radial-gradient(circle, rgba(236,236,236,1) 0%, rgb(218, 216, 216) 53%);
     min-height: 300px;
-    min-width: 150px;
+    min-width: 200px;
 }
 
 .navLink {
     text-decoration: none;
     color: #385170;
-
 }
 
 .passwordContainer{

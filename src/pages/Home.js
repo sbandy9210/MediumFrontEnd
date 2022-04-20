@@ -5,8 +5,8 @@ const Home = ({blog}) => {
 
     return(
         <div className='Home'>
-            <h2>Recently Posted Blogs</h2>
             <div className = 'articlesDiv'>
+            <h2>Recently Posted Blogs</h2>
                 <ArticleCard blog={blog}/>
             </div>
         </div>
