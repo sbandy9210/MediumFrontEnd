@@ -1,10 +1,7 @@
 import React from 'react';
 import Client from '../services/api';
-import { useParams } from 'react-router'
 
 function Reply({ user, authenticated, reply, getBlogById }) {
-
-    // const { user_id } = useParams()
 
     const deleteReply = async (e) => {
         e.preventDefault()

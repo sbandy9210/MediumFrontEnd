@@ -58,10 +58,7 @@ const SignIn = (props) => {
                     /> 
                     <br/>
                 </div>
-                <button 
-                className='signInButton'
-                type='submit'
-                disabled={!formValues.username || !formValues.password}> Sign In </button>
+                <button className='signInButton'type='submit' disabled={!formValues.username || !formValues.password}> Sign In </button>
             </form>
         </div>
     )
