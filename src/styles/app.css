@@ -54,24 +54,23 @@
 }
 
 .blogs {
-    border-bottom: #385170 1px solid;
-    padding-bottom: 10px;
+        display: grid;
+        grid-template-columns: .3fr 1fr;
+        border-top: 1px solid black;
+        padding: 10px 0 10px 0;
+        cursor: pointer;
 }
 
 body {
     background-color: #ececec;
     color: #385170;
     margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .button {
     text-align: center;
-
-    
 }
-
-
-
 
 .commentDiv {
     text-align: center;  
@@ -105,6 +104,7 @@ h2 {
     text-align: center;
     grid-area: 1 / 1 / 2 / 4;
     border-bottom: #000000 solid 3px;
+    font-family: 'Archivo Black', sans-serif;
 }
 
 .headerTitleSpan {
@@ -124,11 +124,6 @@ h2 {
 .like {
     margin-right: 10px;
     margin-left: 5px;
-}
-
-.myBlogsH2 {
-    border-bottom: #385170 1px solid;
-    padding-bottom: 5px;
 }
 
 .myPost {
@@ -168,16 +163,6 @@ h2 {
 
 .registerButton {
     margin-top: 20px;
-
-}
-
-
-.Register {
-    text-align: center;
-    grid-template-columns: .7fr .3fr;
-    display: grid;
-    grid-area: 2 / 2 / 3 / 3;
-
 }
 
 .reply {
