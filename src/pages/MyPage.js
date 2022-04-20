@@ -42,7 +42,7 @@ const MyPage = ({user}) => {
             </div>
             <div className = 'myPost'>
                 <h2>Post a new Blog!</h2>
-                <PostArticle user={user}/>
+                <PostArticle user={user} blogs={blogs}/>
             </div>
 
         </div>
