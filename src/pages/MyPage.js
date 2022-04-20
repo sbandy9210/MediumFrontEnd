@@ -24,16 +24,19 @@ const MyPage = ({user}) => {
     return (data.length > 0) ? (
         <div className='MyPage'>
             <div className = 'myBlogs'>
+                <h2 className='myBlogsH2'>My Blogs</h2>
             {data && data.map((dat) => (
-                <div key={dat.id}>
-                    <Link to={`/blog/${dat.id}`}>
-                    <h3>{dat.title}</h3>
+                <div className='myBlogTitle' key={dat.id}>
+                    <Link to={`/blog/${dat.id}`} className="navLink">
+                        <div className='blogs'>
+                            <h3>{dat.title}</h3>
+                            <img 
+                            src ={dat.image}
+                            alt = ""
+                            style = {{width: '150px'}}
+                            />
+                        </div>
                     </Link>
-                    <img 
-                        src ={dat.image}
-                        alt = ""
-                        style = {{width: '150px'}}
-                    />
                 </div>
             ))}
             </div>

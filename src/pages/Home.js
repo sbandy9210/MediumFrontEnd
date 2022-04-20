@@ -3,10 +3,9 @@ import React from 'react'
 
 const Home = ({blog}) => {
 
-
     return(
         <div className='Home'>
-            <h1>Recently Posted Blogs</h1>
+            <h2>Recently Posted Blogs</h2>
             <div className = 'articlesDiv'>
                 <ArticleCard blog={blog}/>
             </div>
