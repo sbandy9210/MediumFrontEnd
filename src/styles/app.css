@@ -158,6 +158,28 @@ h2 {
     margin-bottom: 5px;
 }
 
+input[type=text], .add-comment-image {
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    border-bottom: 1px solid #000000;
+    width: 255px;
+    font-family: 'Source Sans Pro', sans-serif;
+
+  }
+
+  input[type=password] {
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    border-bottom: 1px solid #000000;
+    width: 255px;
+  }
+
 .like {
     margin-right: 10px;
     margin-left: 5px;
