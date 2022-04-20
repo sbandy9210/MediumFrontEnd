@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Reply from './Reply';
 import Client from '../services/api';
 
-function Comment({ user, comment, getBlogById }) {
+function Comment({ user, authenticated, comment, getBlogById }) {
 
     const [edit, setEdit] = useState(false)
 
@@ -63,11 +63,49 @@ function Comment({ user, comment, getBlogById }) {
         setEdit(true)
     }
 
-    return (!edit) ? (
+    return (user && authenticated) ? (
+        (!edit) ? (
+            <div className='individual-comment'>
+                <img src={comment.image} alt=''/>
+                {` ${comment.Author.username}: ${comment.text} `}
+                {`Likes: ${comment.likes}`}
+                <button className='like' onClick={Like}>Like</button>
+                <button className='dislike' onClick={Dislike}>Dislike</button>
+                {user.id === comment.author_id && <button onClick={EditPost}>Edit</button>}
+    
+                <form onSubmit={handleSubmit}>
+                    <input className='comment-reply-image' name='image' value={newReply.image} placeholder='Enter Image URL' onChange={handleChange}/>
+                    <input className='comment-reply-name' name='text' value={newReply.text} placeholder='Enter your Reply' onChange={handleChange}/>
+                    <button>Reply</button>
+                </form>
+    
+                {comment.Replies.map((reply) => (
+                    <Reply key={reply.id} user={user} reply={reply} getBlogById={getBlogById}/>
+                ))}
+    
+            </div>
+        ) : (
+            <div className='edit-comment'>
+                <form onSubmit={handleEditSubmit}>
+                    <input type = 'text' name='text' placeholder = 'Article Title' className = 'articleTitle' onChange={handleEditChange} value={editComment.text}/>
+                    <br />
+                    <br />
+                    <input type = 'text' name='image' placeholder = 'Image Link' className = 'articleTitle' onChange={handleEditChange} value={editComment.image}/>
+                    <br />
+                    <br />
+                    <div className = 'articlePostButton'>
+                        <button type = 'post'>Post</button>
+                        <button onClick={deleteComment}>Delete</button>
+                    </div>
+                </form>
+            </div>
+        )
+    ) : (
         <div className='individual-comment'>
             <img src={comment.image} alt=''/>
             {` ${comment.Author.username}: ${comment.text} `}
             {`Likes: ${comment.likes}`}
+
             <button className='like' onClick={Like}>Like</button>
             <button className='dislike' onClick={Dislike}>Dislike</button>
             {user.id === comment.author_id && <button onClick={EditPost}>Edit</button>}
@@ -78,25 +116,10 @@ function Comment({ user, comment, getBlogById }) {
                 <button className='reply'>Reply</button>
             </form>
 
-            {comment.Replies.map((reply) => (
-                <Reply key={reply.id} user={user} reply={reply} getBlogById={getBlogById}/>
-            ))}
 
-        </div>
-    ) : (
-        <div className='edit-comment'>
-            <form onSubmit={handleEditSubmit}>
-                <input type = 'text' name='text' placeholder = 'Article Title' className = 'articleTitle' onChange={handleEditChange} value={editComment.text}/>
-                <br />
-                <br />
-                <input type = 'text' name='image' placeholder = 'Image Link' className = 'articleTitle' onChange={handleEditChange} value={editComment.image}/>
-                <br />
-                <br />
-                <div className = 'articlePostButton'>
-                    <button type = 'post'>Post</button>
-                    <button onClick={deleteComment}>Delete</button>
-                </div>
-            </form>
+            {comment.Replies.map((reply) => (
+                <Reply key={reply.id} user={user} authenticated={authenticated} reply={reply} getBlogById={getBlogById}/>
+            ))}
         </div>
     )
 }
