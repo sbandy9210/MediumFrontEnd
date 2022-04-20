@@ -57,10 +57,12 @@ function App() {
             <Nav authenticated={authenticated} user={user} handleLogout={handleLogOut}/>          
             
             <Routes>
-              <Route path='/' element={<Home setBlog={setBlog} blog={blog}/>}/>
+              <Route path='/' element={<Home setUser={setUser} setAuthenticated={setAuthenticated} setBlog={setBlog} blog={blog} />}/>
               <Route path='/register' element={<Register />}/>
               <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated}/>} />
-              <Route path='/my-page' element={<MyPage user={user}/>}/>
+              <Route path='/:user_id/my-page' element={<MyPage user={user} authenticated={authenticated}/>}/>
+              <Route path='/:user_id/blog/:blog_id' element={<Article user={user} authenticated={authenticated}/>}/>
+              {/* Public view of article */}
               <Route path='/blog/:blog_id' element={<Article user={user} authenticated={authenticated}/>}/>
             </Routes>
         </div>

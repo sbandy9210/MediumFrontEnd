@@ -2,23 +2,21 @@ import PostArticle from '../components/PostArticle'
 import Client from '../services/api'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useParams } from 'react-router'
 
 const MyPage = ({user}) => {
+
+    const { user_id } = useParams()
+
     const [data, setData] = useState([])
-    const [reload, setReload] = useState(false)
 
     const blogs = async () => {
-        const myBlogs = await Client.get(`/api/blog/author/${user.id}`)
+        const myBlogs = await Client.get(`/api/blog/author/${user_id}`)
         setData(myBlogs.data)
-    }
-
-    if(reload && data.length === 0){
-        blogs()
     }
 
     useEffect(() => {
         blogs()
-        setReload(true)
     }, [])
 
     return (data.length > 0) ? (
@@ -27,7 +25,7 @@ const MyPage = ({user}) => {
                 <h2 className='myBlogsH2'>My Blogs</h2>
             {data && data.map((dat) => (
                 <div className='myBlogTitle' key={dat.id}>
-                    <Link to={`/blog/${dat.id}`} className="navLink">
+                    <Link to={`/${user_id}/blog/${dat.id}`} className="navLink">
                         <div className='blogs'>
                             <h3>{dat.title}</h3>
                             <img 
@@ -42,12 +40,15 @@ const MyPage = ({user}) => {
             </div>
             <div className = 'myPost'>
                 <h2>Post a new Blog!</h2>
-                <PostArticle user={user} blogs={blogs}/>
+                <PostArticle blogs={blogs}/>
             </div>
 
         </div>
     ) : (
-        <p>Loading</p>
+        <div className = 'myPost'>
+            <h2>Post a new Blog!</h2>
+            <PostArticle blogs={blogs}/>
+        </div>
     )
 }
 
