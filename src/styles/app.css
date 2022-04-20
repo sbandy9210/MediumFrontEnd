@@ -10,7 +10,7 @@
     margin-left: 5px;
 }
 
-.Article, .EditArticle, .MyPage, .Nav, .articleDiv, .Home, .Register, .SignIn, .Loading {
+.Article, .EditArticle, .MyPage, .Nav, .articleDiv, .Home, .Register, .SignIn, .Loading, .protected {
     grid-area: 2 / 2 / 3 / 3;
 }
 
