@@ -32,10 +32,9 @@ const SignIn = (props) => {
 
     return(
         <div className='SignIn'>
-            <div>
-                <h1>Sign in.</h1>
-                <form className='signin' onSubmit={handleSubmit}>
-                    <div className='signInUsername'>
+            <h1>Sign In.</h1>
+            <form className='signin' onSubmit={handleSubmit}>
+                <div className='signInUsername'>
                     <input 
                         type='text' 
                         id='username' 
@@ -46,8 +45,8 @@ const SignIn = (props) => {
                         style={{ textAlign: 'center'}}
                     /> 
                     <br/>
-                    </div>
-                    <div className='signInPassword'>
+                </div>
+                <div className='signInPassword'>
                     <input 
                         type='password' 
                         id='password' 
@@ -58,13 +57,12 @@ const SignIn = (props) => {
                         style={{ textAlign: 'center'}}
                     /> 
                     <br/>
-                    </div>
-                    <button 
-                    className='signInButton'
-                    type='submit'
-                    disabled={!formValues.username || !formValues.password}> Sign In </button>
-                </form>
-            </div>
+                </div>
+                <button 
+                className='signInButton'
+                type='submit'
+                disabled={!formValues.username || !formValues.password}> Sign In </button>
+            </form>
         </div>
     )
 }
