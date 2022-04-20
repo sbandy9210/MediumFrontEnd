@@ -66,7 +66,7 @@ const SignIn = (props) => {
             <button 
             className='signInButton'
             type='submit'
-            disabled={!formValues.username || !formValues.password}> Sign In! </button>
+            disabled={!formValues.username || !formValues.password}> Sign In </button>
 
             </form>
             </div>
