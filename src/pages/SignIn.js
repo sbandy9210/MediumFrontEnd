@@ -1,7 +1,6 @@
 import { useState, useContext } from 'react'
 import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
-import DataContext from '../components/DataContext'
 
 
 
@@ -34,7 +33,7 @@ const SignIn = (props) => {
 
     return(
         <div className='SignIn'>
-            
+            <div>
             <h1>Sign in.</h1>
     
             <form className='signin' onSubmit={handleSubmit}>
@@ -70,7 +69,7 @@ const SignIn = (props) => {
             disabled={!formValues.username || !formValues.password}> Sign In! </button>
 
             </form>
-
+            </div>
         </div>
     )
 }
