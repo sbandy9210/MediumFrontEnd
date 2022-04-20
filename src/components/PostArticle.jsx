@@ -56,7 +56,7 @@ const PostArticle = ({ blogs }) => {
                 <br />
                 <br />
                 <div className = 'articlePostButton'>
-                    <button type = 'post'>Post</button>
+                    <button className='button' type = 'post'>Post</button>
                 </div>
             </form>
         </div>
