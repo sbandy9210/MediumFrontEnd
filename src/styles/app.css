@@ -170,6 +170,7 @@ h2 {
     display: grid;
     grid-template-columns: .7fr .3fr;
     grid-area: 2 / 2 / 3 / 3;
+
 }
 
 .usernameContainer{
