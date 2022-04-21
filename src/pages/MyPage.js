@@ -1,4 +1,3 @@
-import PostArticle from '../components/PostArticle'
 import Client from '../services/api'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'

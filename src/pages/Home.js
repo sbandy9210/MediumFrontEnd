@@ -1,7 +1,11 @@
 import ArticleCard from '../components/ArticleCard'
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const Home = ({blog, user, authenticated}) => {
+const Home = ({ getBlog, blog, user, authenticated}) => {
+
+    useEffect(() => {
+        getBlog()
+    }, [])
 
     return (
         <div className='Home'>

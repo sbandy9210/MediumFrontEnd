@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import DataContext from './DataContext'
+import React, { useState } from 'react'
 import Client from '../services/api'
-import { useParams } from 'react-router'
 
 
 const PostArticle = ({ userID }) => {
@@ -38,8 +36,9 @@ const PostArticle = ({ userID }) => {
         setResponse(res.data.msg)
         setTimeout(() => {
             setResponse("")  
-        }, 2000);
+        }, 3000);
         
+        window.location.reload(true)
     }
 
     return(
