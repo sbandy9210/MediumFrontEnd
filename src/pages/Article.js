@@ -55,7 +55,6 @@ const Article = ({ user, authenticated }) => {
                     <div className = 'articleDiv'>
                         <h2>{blog.title}</h2>
                         <div className='article-author-info'>
-                            {/* Might need to change the profilepic into an <img> tag */}
                             {/* {blog.Author.profilepic} */}
                             <img src={blog.Author.profilepic} alt='profile' className="blogAuthorImage"/>
                             <h3 className='blogAuthor'>{blog.Author.username} | {blog.createdAt.substring(0,10)}</h3>

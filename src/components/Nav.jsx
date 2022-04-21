@@ -1,7 +1,12 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import PostArticle from './PostArticle'
+import Modal from './Modal'
 
 const Nav = ({authenticated, user, handleLogout}) => {
     let authenticatedNav
+
+    const [show, setShow] = useState(false)
 
     if(authenticated){
         authenticatedNav = (
@@ -11,6 +16,10 @@ const Nav = ({authenticated, user, handleLogout}) => {
                 <p><Link to ={`/${user.id}/my-page`}  className='navLink'>My Page</Link></p>
                 <p><Link to ='/blog/all'  className='navLink'>Notifications</Link></p>
                 <p><Link onClick={handleLogout} to ='/login'  className='navLink'>Logout</Link></p>
+                <br/>
+                <div className = 'articlePostButton'>
+                    <button className='button' type='post' onClick={() => setShow(true)}>Create Post</button>
+                </div>
             </nav>
         )
     }
@@ -27,6 +36,9 @@ const Nav = ({authenticated, user, handleLogout}) => {
     return(
         <div className='Nav'>
             {authenticated && user ? authenticatedNav : publicNav}
+            <Modal onClose={() => setShow(false)} show={show} title='Post a new Blog!'>
+                <PostArticle />
+            </Modal>
         </div>
     )
 }
