@@ -74,8 +74,8 @@ function Comment({ user, authenticated, comment, getBlogById }) {
                 {` ${comment.Author.username}: ${comment.text} `}
                 <br/>
                 {`Likes: ${comment.likes}`}
-                <FontAwesomeIcon icon={faThumbsUp} onClick={Like} />
-                <FontAwesomeIcon icon={faThumbsDown} onClick={Dislike} />
+                <FontAwesomeIcon icon={faThumbsUp} onClick={Like} className="thumbUp" />
+                <FontAwesomeIcon icon={faThumbsDown} onClick={Dislike} className="thumbDown" />
                 <br/>
 
                 <button className='like' onClick={Like}>Like</button>
