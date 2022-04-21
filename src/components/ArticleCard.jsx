@@ -13,8 +13,6 @@ const ArticleCard = ({blog, user, authenticated, author}) => {
             navigate(`/blog/${blog.id}`)
         }
     }
-    console.log(blog)
-    console.log(author.username)
 
     return(
 
