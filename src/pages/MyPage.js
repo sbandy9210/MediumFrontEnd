@@ -3,6 +3,7 @@ import Client from '../services/api'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router'
+import ArticleCard from '../components/ArticleCard'
 
 const MyPage = ({ user, authenticated }) => {
 
@@ -28,7 +29,8 @@ const MyPage = ({ user, authenticated }) => {
                 {data && data.map((dat) => (
                     <div className='myBlogTitle' key={dat.id}>
                         <Link to={`/${user_id}/blog/${dat.id}`} className="navLink">
-                            <div className='blogs'>
+                            <ArticleCard key={dat.id} blog={dat} user={user} authenticated={authenticated} author={dat.Author}/>
+                            {/* <div className='blogs'>
                                 <img 
                                 src ={dat.image}
                                 alt = ""
@@ -37,8 +39,8 @@ const MyPage = ({ user, authenticated }) => {
                                 <div>
                                 <h3 className='ArtCardTitle'>{dat.title}</h3>
                                 <p className='ArtCardDate'>{dat.createdAt.substring(0,10)}</p>
-                                </div>
-                            </div>
+                                </div> */}
+                            {/* </div> */}
                         </Link>
                     </div>
                 ))}

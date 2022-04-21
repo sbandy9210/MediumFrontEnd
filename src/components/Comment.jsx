@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Reply from './Reply';
 import Client from '../services/api';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp, faThumbsDown, fa } from "@fortawesome/free-regular-svg-icons"
+import { faThumbsUp, faThumbsDown, } from "@fortawesome/free-regular-svg-icons"
 
 
 function Comment({ user, authenticated, comment, getBlogById }) {
