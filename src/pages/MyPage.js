@@ -45,10 +45,10 @@ const MyPage = ({ user, authenticated }) => {
                     </div>
                 ))}
                 </div>
-                <div className = 'myPost'>
+                {/* <div className = 'myPost'>
                     <h2>Post a new Blog!</h2>
                     <PostArticle blogs={blogs}/>
-                </div>
+                </div> */}
             </div>
         ) : (
             <div className = 'myPost'>

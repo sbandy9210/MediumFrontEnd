@@ -256,6 +256,41 @@ input[type=password] {
     margin-left: 5px;
 }
 
+.modal {
+	background-color: rgba(0,0,0,0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.modal-content {
+	background-color: white;
+	height: 350px;
+	width: 550px;
+	border-radius: 2px;
+	margin: 150px auto;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    transform: translateY(-200px);
+    transition: all 0.3s ease-in-out;
+}
+
+.modal.show {
+    opacity: 1;
+    pointer-events: visible;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
 .myPost {
     position: fixed;
     min-width: 250px;
