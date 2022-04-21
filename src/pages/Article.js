@@ -56,8 +56,8 @@ const Article = ({ user, authenticated }) => {
                         <h2>{blog.title}</h2>
                         <div className='article-author-info'>
                             {/* Might need to change the profilepic into an <img> tag */}
-                            {blog.Author.profilepic}
-                            {/* {blog.Author.profilepic.charAt(0) === 'h' ? <img src={blog.Author.profilepic} alt='profile' /> : blog.Author.profilepic} */}
+                            {/* {blog.Author.profilepic} */}
+                            <img src={blog.Author.profilepic} alt='profile' style={{height: '70px'}}/>
                             {blog.Author.username} | {blog.createdAt.substring(0,10)}
                         </div>
                         <br/>
@@ -83,8 +83,8 @@ const Article = ({ user, authenticated }) => {
                 <div className = 'articleDiv'>
                 <h2>{blog.title}</h2>
                     <div className='article-author-info'>
-                        {blog.Author.profilepic}
-                        {blog.Author.username} | {blog.createdAt.substring(0,10)}
+                        <img src={blog.Author.profilepic} alt='profile' style={{height: '70px'}}/>
+                            {blog.Author.username} | {blog.createdAt.substring(0,10)}
                     </div>
                     <br/>
                     <img src={blog.image} alt='' className='articleImg'/>
