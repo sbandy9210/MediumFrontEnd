@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Reply from './Reply';
 import Client from '../services/api';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThumbsUp, faThumbsDown, fa } from "@fortawesome/free-regular-svg-icons"
+
 
 function Comment({ user, authenticated, comment, getBlogById }) {
 
@@ -71,9 +74,11 @@ function Comment({ user, authenticated, comment, getBlogById }) {
                 {` ${comment.Author.username}: ${comment.text} `}
                 <br/>
                 {`Likes: ${comment.likes}`}
+                <FontAwesomeIcon icon={faThumbsUp} onClick={Like} />
+                <FontAwesomeIcon icon={faThumbsDown} onClick={Dislike} />
                 <br/>
-                <button className='like' onClick={Like}>Like</button>
-                <button className='dislike' onClick={Dislike}>Dislike</button>
+                {/* <button className='like' onClick={Like}>Like</button> */}
+                {/* <button className='dislike' onClick={Dislike}>Dislike</button> */}
                 {user.id === comment.author_id && <button className='editButton' onClick={EditPost}>Edit</button>}
     
                 <form onSubmit={handleSubmit}>
