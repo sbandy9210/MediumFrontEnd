@@ -73,6 +73,7 @@ function Comment({ user, authenticated, comment, getBlogById }) {
                 {`Likes: ${comment.likes}`}
                 <br/>
                 <button className='like' onClick={Like}>Like</button>
+                
                 <button className='dislike' onClick={Dislike}>Dislike</button>
                 {user.id === comment.author_id && <button className='editButton' onClick={EditPost}>Edit</button>}
     
