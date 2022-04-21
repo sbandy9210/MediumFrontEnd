@@ -44,8 +44,6 @@ function App() {
       }
       getBlog()
     }, [])
-    
-
 
     return (
         <div className="App">

@@ -19,5 +19,4 @@ const Home = ({ getBlog, blog, user, authenticated}) => {
     )
 }
 
-
 export default Home;
