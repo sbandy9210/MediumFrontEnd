@@ -14,7 +14,7 @@ const Nav = ({authenticated, user, handleLogout}) => {
                 <h2>Welcome, {user.username}</h2>
                 <p><Link to ='/'  className='navLink'>Home</Link></p>
                 <p><Link to ={`/${user.id}/my-page`}  className='navLink'>My Page</Link></p>
-                <p><Link to ='/blog/all'  className='navLink'>Notifications</Link></p>
+                {/* <p><Link to ='/blog/all'  className='navLink'>Notifications</Link></p> */}
                 <p><Link onClick={handleLogout} to ='/login'  className='navLink'>Logout</Link></p>
                 <br/>
                 <div className = 'articlePostButton'>

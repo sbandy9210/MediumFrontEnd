@@ -30,25 +30,10 @@ const MyPage = ({ user, authenticated }) => {
                     <div className='myBlogTitle' key={dat.id}>
                         <Link to={`/${user_id}/blog/${dat.id}`} className="navLink">
                             <ArticleCard key={dat.id} blog={dat} user={user} authenticated={authenticated} author={dat.Author}/>
-                            {/* <div className='blogs'>
-                                <img 
-                                src ={dat.image}
-                                alt = ""
-                                style = {{width: '150px'}}
-                                />
-                                <div>
-                                <h3 className='ArtCardTitle'>{dat.title}</h3>
-                                <p className='ArtCardDate'>{dat.createdAt.substring(0,10)}</p>
-                                </div> */}
-                            {/* </div> */}
                         </Link>
                     </div>
                 ))}
                 </div>
-                {/* <div className = 'myPost'>
-                    <h2>Post a new Blog!</h2>
-                    <PostArticle blogs={blogs}/>
-                </div> */}
             </div>
         ) : (
             <div className = 'myPost'>
