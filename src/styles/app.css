@@ -72,6 +72,10 @@
     max-height: 400px;
 }
 
+.articleTitle {
+    margin-left: 16px;
+}
+
 .App {
     display: grid;
     grid-template-columns: .2fr .6fr .2fr;
