@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import PostArticle from './PostArticle'
 import Modal from './Modal'
 
-const Nav = ({authenticated, user, handleLogout}) => {
+const Nav = ({authenticated, user, handleLogout, userID}) => {
     let authenticatedNav
 
     const [show, setShow] = useState(false)
@@ -37,8 +37,9 @@ const Nav = ({authenticated, user, handleLogout}) => {
         <div className='Nav'>
             {authenticated && user ? authenticatedNav : publicNav}
             <Modal onClose={() => setShow(false)} show={show} title='Post a new Blog!'>
-                <PostArticle />
+                <PostArticle userID={userID}/>
             </Modal>
+            {console.log(userID)}
         </div>
     )
 }

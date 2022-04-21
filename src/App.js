@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import DataContext from './components/DataContext'
 import './styles/app.css'
 import { Route, Routes } from 'react-router-dom'
 import { CheckSession } from './services/Auth'
@@ -17,12 +15,14 @@ function App() {
 
     const [authenticated, setAuthenticated] = useState (false)
     const [user, setUser] = useState(null)
+    const [userID, setUserID] = useState()
 
     const [blog, setBlog] = useState([])
 
     const checkToken = async() => {
       const user = await CheckSession()
       setUser(user)
+      setUserID(user.id)
       setAuthenticated(true)
     }
 
@@ -49,17 +49,15 @@ function App() {
 
     return (
         <div className="App">
-          <DataContext.Provider value={{ authenticated, setAuthenticated, user, setUser }} />
-
           <div className = 'header'>
             <h1><span className='headerTitleSpan'>My</span>Lieu<span className='dot'>.</span></h1>
           </div>
-            <Nav authenticated={authenticated} user={user} handleLogout={handleLogOut}/>          
+            <Nav authenticated={authenticated} user={user} handleLogout={handleLogOut} userID={userID}/>          
             
             <Routes>
               <Route path='/' element={<Home setBlog={setBlog} blog={blog} user={user} authenticated={authenticated} />}/>
               <Route path='/register' element={<Register />}/>
-              <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated}/>} />
+              <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated} setUserID={setUserID}/>}/>
               <Route path='/:user_id/my-page' element={<MyPage user={user} authenticated={authenticated}/>}/>
               <Route path='/:user_id/blog/:blog_id' element={<Article user={user} authenticated={authenticated}/>}/>
               {/* Public view of article */}
