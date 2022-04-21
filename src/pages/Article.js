@@ -50,12 +50,13 @@ const Article = ({ user, authenticated }) => {
         (user && authenticated) ? (
             (!edit) ? ( 
                 <div className='Article'>
-                    <div className = 'articleDiv'>
-                        {user.id === blog.author_id && <button className='editArticleButton' onClick={editPost}> Edit Article</button>}
+                    {user.id === blog.author_id && <button className='editArticleButton' onClick={editPost}> Edit Article</button>}
                         <br/>
+                    <div className = 'articleDiv'>
                         <h2>{blog.title}</h2>
                         <div className='article-author-info'>
                             {/* Might need to change the profilepic into an <img> tag */}
+                            {console.log(blog.Author.profilepic)}
                             {blog.Author.profilepic}
                             {blog.Author.username} | {blog.createdAt.substring(0,10)}
                         </div>
@@ -80,8 +81,13 @@ const Article = ({ user, authenticated }) => {
         ) : (
             <div className='Article'>
                 <div className = 'articleDiv'>
+                <h2>{blog.title}</h2>
+                    <div className='article-author-info'>
+                        {blog.Author.profilepic}
+                        {blog.Author.username} | {blog.createdAt.substring(0,10)}
+                    </div>
+                    <br/>
                     <img src={blog.image} alt='' className='articleImg'/>
-                    <h2>{blog.title}</h2>
                     <p>{blog.article}</p>
                 </div>
     
