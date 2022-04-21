@@ -275,7 +275,7 @@ input[type=text] {
     margin-top: 10px;
 }
 
-.usernameContainer{
+.usernameContainer, .profilepicContainer{
     padding: 10px 16px 9px;
 }
 
