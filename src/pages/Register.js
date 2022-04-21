@@ -128,7 +128,7 @@ const Register = () => {
             </form>
             <br/>
 
-            {formValues.profilepic.length > 0 && <img src={formValues.profilepic} alt='user profile'style={{width: '100px'}}/>}
+            {formValues.profilepic && formValues.profilepic.length > 0 ? <img src={formValues.profilepic} alt='user profile'style={{width: '100px'}}/> : ''}
         </div>
     )
 }
