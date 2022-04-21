@@ -4,15 +4,13 @@ import Client from '../services/api'
 import { useParams } from 'react-router'
 
 
-const PostArticle = ({ blogs, userID }) => {
-
-    // const { user_id } = useParams()
+const PostArticle = ({ userID }) => {
     
     const [blog, setBlog] = useState({
         title: "",
         image: "",
         article: "",
-        author_id: 5
+        author_id: userID
     }) 
 
     const [response, setResponse] = useState("")
@@ -28,10 +26,6 @@ const PostArticle = ({ blogs, userID }) => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         setId()
-        console.log(blog)
-        console.log(userID)
-        setBlog({...blog, author_id: userID})
-        // console.log(blog)
         const res = await Client.post('/api/blog/create', blog)
 
         setBlog({
@@ -46,12 +40,10 @@ const PostArticle = ({ blogs, userID }) => {
             setResponse("")  
         }, 2000);
         
-        // blogs()
     }
 
     return(
         <div>
-            {console.log(blog)}
             <p>{response}</p>
             <form onSubmit={handleSubmit}>
                 <input type = 'text' name='title' placeholder = 'Article Title' className = 'articleTitle' onChange={handleChange} value={blog.title}/>

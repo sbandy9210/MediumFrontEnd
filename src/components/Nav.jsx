@@ -39,7 +39,6 @@ const Nav = ({authenticated, user, handleLogout, userID}) => {
             <Modal onClose={() => setShow(false)} show={show} title='Post a new Blog!'>
                 <PostArticle userID={userID}/>
             </Modal>
-            {console.log(userID)}
         </div>
     )
 }

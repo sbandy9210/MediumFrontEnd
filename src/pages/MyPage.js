@@ -36,9 +36,8 @@ const MyPage = ({ user, authenticated }) => {
                 </div>
             </div>
         ) : (
-            <div className = 'myPost'>
-                <h2>Post a new Blog!</h2>
-                <PostArticle blogs={blogs}/>
+            <div className = 'MyPage'>
+                <h2 className='myBlogsH2'>You have no blog post. Create your First!</h2>
             </div>
         )
     ) : (
