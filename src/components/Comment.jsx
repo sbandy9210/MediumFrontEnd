@@ -69,25 +69,31 @@ function Comment({ user, authenticated, comment, getBlogById }) {
     return (user && authenticated) ? (
         (!edit) ? (
             <div className='individual-comment'>
-                <img src={comment.image} alt=''/>
-                <br/>
-                <img src={comment.Author.profilepic} alt='profile' style={{height: '40px'}}/> {`${comment.Author.username}: ${comment.text} `}
-                <br/>
-                {`Likes: ${comment.likes}`}
-                <FontAwesomeIcon icon={faThumbsUp} onClick={Like} className="thumbUp" />
-                <FontAwesomeIcon icon={faThumbsDown} onClick={Dislike} className="thumbDown" />
-                <br/>
+                <div className='commentInitial'>
+                    <div className='commentUser'>
+                        <img src={comment.Author.profilepic} alt='profile' className='commentUserPic'/> <br></br> 
+                        {comment.Author.username} <br></br> 
+                        {user.id === comment.author_id && <button className='editButton' onClick={EditPost}>Edit Comment</button>}
+                    </div>
+                    <div className='commentText'>
+                        <img className='commentTextPic' src={comment.image} alt=''/>
+                        <p>{comment.text}</p>
+                    </div>
+                    <div className='commentLikes'>
+                        <FontAwesomeIcon icon={faThumbsUp} onClick={Like} className="thumbUp" /> 
+                            <br/>
+                        {`Likes: ${comment.likes}`} 
+                            <br/>
+                        <FontAwesomeIcon icon={faThumbsDown} onClick={Dislike} className="thumbDown" />
+                    </div>
+                </div>
 
-                {/* <button className='like' onClick={Like}>Like</button> */}
-                {/* <button className='dislike' onClick={Dislike}>Dislike</button> */}
-
-                {user.id === comment.author_id && <button className='editButton' onClick={EditPost}>Edit</button>}
+                {/* {user.id === comment.author_id && <button className='editButton' onClick={EditPost}>Edit</button>} */}
     
                 <form onSubmit={handleSubmit}>
                     <input className='comment-reply-image' name='image' value={newReply.image} placeholder='Enter Image URL' onChange={handleChange}/>
                     <input className='comment-reply-name' name='text' value={newReply.text} placeholder='Reply' onChange={handleChange}/>
                     <button className='reply'>Reply</button>
-
                 </form>
     
                 {comment.Replies.map((reply) => (
@@ -118,13 +124,29 @@ function Comment({ user, authenticated, comment, getBlogById }) {
         )
     ) : (
         <div className='individual-comment'>
-            <img src={comment.image} alt=''/>
+            {/* <img src={comment.image} alt=''/>
             <br/>
             <img src={comment.Author.profilepic} alt='profile' style={{height: '40px'}}/> {`${comment.Author.username}: ${comment.text} `}
             <br/>
             {`Likes: ${comment.likes}`}
-            <br/>
-
+            <br/> */}
+            <div className='commentInitial'>
+                <div className='commentUser'>
+                    <img src={comment.Author.profilepic} alt='profile' className='commentUserPic'/> <br></br> 
+                    {comment.Author.username} <br></br> 
+                </div>
+                <div className='commentText'>
+                    <img className='commentTextPic' src={comment.image} alt=''/>
+                    <p>{comment.text}</p>
+                </div>
+                <div className='commentLikes'>
+                    <FontAwesomeIcon icon={faThumbsUp} onClick={Like} className="thumbUp" /> 
+                        <br/>
+                    {`Likes: ${comment.likes}`} 
+                        <br/>
+                    <FontAwesomeIcon icon={faThumbsDown} onClick={Dislike} className="thumbDown" />
+                </div>
+            </div>
             {comment.Replies.map((reply) => (
                 <Reply key={reply.id} user={user} authenticated={authenticated} reply={reply} getBlogById={getBlogById}/>
             ))}

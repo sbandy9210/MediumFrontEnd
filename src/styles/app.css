@@ -23,6 +23,10 @@
     margin-top: 10px;
 }
 
+.article-author-info {
+    display: inline-flex;
+}
+
 .ArtCardTitle {
     text-align: left;
     margin-top: 0px;
@@ -80,6 +84,16 @@
     grid-row-gap: 0px;
 }
 
+.blogAuthor {
+    margin-left: 5px;
+}
+
+.blogAuthorImage {
+    border-radius: 10px;
+    height: 70px;
+    border: #385170 solid 3px;
+}
+
 .blogs {
         display: grid;
         grid-template-columns: .3fr 1fr;
@@ -131,6 +145,19 @@ button:disabled {
     text-align: center;  
 }
 
+.commentLikes {
+    margin: auto;
+}
+
+.commentInitial {
+    display: grid;
+    grid-template-columns: .5fr 1fr .5fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+    border-bottom: #385170 solid 3px;
+    padding: 10px;
+}
 
 .confirmPasswordContainer{
     padding: 10px 16px 9px;
@@ -142,12 +169,31 @@ button:disabled {
     margin-bottom: 10px;
 }
 
-.dot {
-    color: #9FD3C7;
+.commentTextPic {
+    border-radius: 10px;
+    max-width: 100px;
+    max-width: 100px;
 }
 
-.editButton {
-    margin-left: 10px;
+.replyImage {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 10px;
+}
+
+.commentUserPic {
+    height: 60px;
+    width: 60px;
+    border-radius: 10px;
+    border: #385170 solid 3px;
+}
+
+.commentUser {
+    margin: auto;
+}
+
+.dot {
+    color: #9FD3C7;
 }
 
 .editArticleButton {
@@ -180,10 +226,9 @@ h2 {
 }
 
 .individual-comment {
-    padding: 20px 16px 20px;
     border: solid #385170;
     border-radius: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 input[type=text] {
@@ -195,16 +240,16 @@ input[type=text] {
     width: 255px;
     font-family: 'Source Sans Pro', sans-serif;
 
-  }
+}
 
-  input[type=password] {
+input[type=password] {
     padding: 6px;
     border: none;
     margin-top: 8px;
     font-size: 17px;
     border-bottom: 1px solid #000000;
     width: 255px;
-  }
+}
 
 .like {
     margin-right: 10px;
@@ -212,16 +257,16 @@ input[type=text] {
 }
 
 .myPost {
-        position: fixed;
-        min-width: 250px;
-        top: 40%;
-        right: 10px;
-        border: 3px solid #385170;
-        border-radius: 10px;
-        padding: 5px;
-        background: rgb(255, 243, 243);
-        background: radial-gradient(circle, rgba(236,236,236,1) 0%, rgb(218, 216, 216) 53%);
-        min-height: 300px;
+    position: fixed;
+    min-width: 250px;
+    top: 40%;
+    right: 10px;
+    border: 3px solid #385170;
+    border-radius: 10px;
+    padding: 5px;
+    background: rgb(255, 243, 243);
+    background: radial-gradient(circle, rgba(236,236,236,1) 0%, rgb(218, 216, 216) 53%);
+    min-height: 300px;
 }
 
 .Nav {
@@ -254,6 +299,13 @@ input[type=text] {
     margin-left: 20px;
 }
 
+.replyComment {
+    display: grid;
+    grid-template-columns: .1fr .3fr 1fr;
+    grid-template-rows: 1fr;
+    grid-row-gap: 0px;
+    padding: 10px;
+}
 
 #root {
     text-align: center;
