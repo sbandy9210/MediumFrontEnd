@@ -55,7 +55,7 @@ function App() {
             <Nav authenticated={authenticated} user={user} handleLogout={handleLogOut} userID={userID}/>          
             
             <Routes>
-              <Route path='/' element={<Home setBlog={setBlog} blog={blog} user={user} authenticated={authenticated} />}/>
+              <Route path='/' element={<Home getBlog={getBlog} setBlog={setBlog} blog={blog} user={user} authenticated={authenticated} />}/>
               <Route path='/register' element={<Register />}/>
               <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated} setUserID={setUserID}/>}/>
               <Route path='/:user_id/my-page' element={<MyPage user={user} authenticated={authenticated}/>}/>

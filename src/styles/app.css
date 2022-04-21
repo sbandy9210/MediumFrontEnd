@@ -72,8 +72,8 @@
 }
 
 .articleTextArea {
-    max-width: 177px;
-    max-height: 400px;
+    max-width: 255px;
+    max-height: 90px;
 }
 
 .App {
