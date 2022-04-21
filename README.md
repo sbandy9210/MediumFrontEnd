@@ -56,3 +56,4 @@ Shubhro Bandyopadhyay [LinkedIn](https://www.linkedin.com/in/shubhro-bandyopadhy
 ## Credit
 
 [Modal Design](https://medium.com/tinyso/how-to-create-a-modal-component-in-react-from-basic-to-advanced-a3357a2a716a)
+[Stick Navigation](https://dev.to/dalalrohit/sticky-navbar-from-scratch-using-react-37d5)

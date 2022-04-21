@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import PostArticle from './PostArticle'
 import Modal from './Modal'
@@ -7,6 +7,28 @@ const Nav = ({authenticated, user, handleLogout, userID}) => {
     let authenticatedNav
 
     const [show, setShow] = useState(false)
+
+    const [scrolled,setScrolled]= useState(false)
+
+    const handleScroll=() => {
+        const offset=window.scrollY;
+        if(offset > 328 ){
+            setScrolled(true);
+        }
+        else{
+            setScrolled(false);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll',handleScroll)
+    }) 
+
+    let navbarClasses=['navbar']
+    
+    if(scrolled){
+        navbarClasses.push('scrolled')
+    }
 
     if(authenticated){
         authenticatedNav = (
@@ -34,7 +56,8 @@ const Nav = ({authenticated, user, handleLogout, userID}) => {
     )
 
     return(
-        <div className='Nav'>
+        // <div className='Nav'>
+        <div className={navbarClasses.join(" ")}>
             {authenticated && user ? authenticatedNav : publicNav}
             <Modal onClose={() => setShow(false)} show={show} title='Post a new Blog!'>
                 <PostArticle userID={userID}/>
