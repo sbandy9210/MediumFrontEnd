@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import React from 'react';
 
 
-const ArticleCard = ({blog, user, authenticated}) => {
+const ArticleCard = ({blog, user, authenticated, author}) => {
     
     let navigate = useNavigate()
 
@@ -14,6 +14,7 @@ const ArticleCard = ({blog, user, authenticated}) => {
         }
     }
     console.log(blog)
+    console.log(author.username)
 
     return(
 
@@ -28,7 +29,7 @@ const ArticleCard = ({blog, user, authenticated}) => {
                 </div>
                 <div className='ArticlCardTitle'>
                     <h3 className='ArtCardTitle'>{blog.title}</h3>
-                    {/* {blog.Author.username} */}
+                    <p className='ArtCardDate'>{author.username}</p>
                     <p className='ArtCardDate'>{blog.createdAt.substring(0,10)}</p>
                 </div>
             </div>   
