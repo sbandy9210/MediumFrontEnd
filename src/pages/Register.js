@@ -10,6 +10,7 @@ const Register = () => {
     const [formValues, setFormValues] = useState({
         email: '',
         username: '',
+        profilepic: '',
         password: '',
         confirmPassword: ''
     })
@@ -25,6 +26,7 @@ const Register = () => {
 
         const serverResponse = await RegisterUser({
             username: formValues.username,
+            profilepic: formValues.profilepic,
             email: formValues.email,
             register_password: formValues.password
         })
@@ -75,6 +77,19 @@ const Register = () => {
                     <br/>
                     {response}
                 </div>
+                <div>
+                    <input className='profilepicContainer'
+                        type='text' 
+                        placeholder='Profile Picture URL' 
+                        id='profilepic' 
+                        name='profilepic' 
+                        onChange={handleChange} 
+                        value={formValues.profilepic} 
+                        style={{ textAlign: 'center'}}
+                        required
+                    />
+                    <br/>
+                </div>
                 <div className='passwordContainer'>
                     <input 
                         type='password' 
@@ -111,6 +126,9 @@ const Register = () => {
                         response.length > 0}
                     > Register </button>
             </form>
+            <br/>
+
+            {formValues.profilepic.length > 0 && <img src={formValues.profilepic} alt='user profile'style={{width: '100px'}}/>}
         </div>
     )
 }
