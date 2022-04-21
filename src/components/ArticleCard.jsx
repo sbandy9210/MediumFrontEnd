@@ -13,7 +13,7 @@ const ArticleCard = ({blog, user, authenticated}) => {
             navigate(`/blog/${blog.id}`)
         }
     }
-    
+    console.log(blog)
 
     return(
 
@@ -28,6 +28,7 @@ const ArticleCard = ({blog, user, authenticated}) => {
                 </div>
                 <div className='ArticlCardTitle'>
                     <h3 className='ArtCardTitle'>{blog.title}</h3>
+                    {/* {blog.Author.username} */}
                     <p className='ArtCardDate'>{blog.createdAt.substring(0,10)}</p>
                 </div>
             </div>   
