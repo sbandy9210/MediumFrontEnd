@@ -1,18 +1,18 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import DataContext from './DataContext'
 import Client from '../services/api'
 import { useParams } from 'react-router'
 
 
-const PostArticle = ({ blogs }) => {
+const PostArticle = ({ blogs, userID }) => {
 
-    const { user_id } = useParams()
-
+    // const { user_id } = useParams()
+    
     const [blog, setBlog] = useState({
         title: "",
         image: "",
         article: "",
-        author_id: user_id
+        author_id: 5
     }) 
 
     const [response, setResponse] = useState("")
@@ -21,16 +21,24 @@ const PostArticle = ({ blogs }) => {
         setBlog({...blog, [event.target.name]: event.target.value})
     }
 
+    const setId = () => {
+        setBlog({...blog, author_id: userID})
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault()
-        // setBlog(blog => ({...blog, author_id: user.id}))
+        setId()
+        console.log(blog)
+        console.log(userID)
+        setBlog({...blog, author_id: userID})
+        // console.log(blog)
         const res = await Client.post('/api/blog/create', blog)
 
         setBlog({
             title: "",
             image: "",
             article: "",
-            author_id: user_id
+            author_id: userID
         })
 
         setResponse(res.data.msg)
@@ -38,11 +46,12 @@ const PostArticle = ({ blogs }) => {
             setResponse("")  
         }, 2000);
         
-        blogs()
+        // blogs()
     }
 
     return(
         <div>
+            {console.log(blog)}
             <p>{response}</p>
             <form onSubmit={handleSubmit}>
                 <input type = 'text' name='title' placeholder = 'Article Title' className = 'articleTitle' onChange={handleChange} value={blog.title}/>
@@ -52,11 +61,10 @@ const PostArticle = ({ blogs }) => {
                 <br />
                 <br />
                 <textarea name='article' placeholder='Type Your Article Here' className='articleTextArea' onChange={handleChange} value={blog.article} />
-                {/* <input type = 'text' name='article' placeholder = 'Content' className = 'articleContent' onChange={handleChange} value={blog.article}/> */}
                 <br />
                 <br />
                 <div className = 'articlePostButton'>
-                    <button className='button' type='post'>Post</button>
+                    <button className='button' type='post' onClick={setId}>Post</button>
                 </div>
             </form>
         </div>

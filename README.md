@@ -52,3 +52,7 @@ Shubhro Bandyopadhyay [LinkedIn](https://www.linkedin.com/in/shubhro-bandyopadhy
 [Figma](https://www.figma.com/file/pESfXpcMigEUmsyMkLv8no/P3-Milieu?node-id=0%3A1)
 
 [Google Slides](https://docs.google.com/presentation/d/1e5hPQGSh_qkH83grIi-yDLJ1wwJsiVBWJzHhvYnmBX0/edit?usp=sharing)
+
+## Credit
+
+[Modal Design](https://medium.com/tinyso/how-to-create-a-modal-component-in-react-from-basic-to-advanced-a3357a2a716a)
