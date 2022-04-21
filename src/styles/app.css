@@ -126,6 +126,7 @@ body {
     transition-duration: .2s;
     transition-property: background-color,border-color,color,fill,stroke;
     width: auto;
+    margin-left: 7px;
 }
 
 button:hover {
