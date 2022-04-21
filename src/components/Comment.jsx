@@ -71,16 +71,12 @@ function Comment({ user, authenticated, comment, getBlogById }) {
             <div className='individual-comment'>
                 <img src={comment.image} alt=''/>
                 <br/>
-                {` ${comment.Author.username}: ${comment.text} `}
+                {`${comment.Author.profilepic} ${comment.Author.username}: ${comment.text} `}
                 <br/>
                 {`Likes: ${comment.likes}`}
                 <FontAwesomeIcon icon={faThumbsUp} onClick={Like} />
                 <FontAwesomeIcon icon={faThumbsDown} onClick={Dislike} />
                 <br/>
-
-                <button className='like' onClick={Like}>Like</button>
-                
-                <button className='dislike' onClick={Dislike}>Dislike</button>
 
                 {/* <button className='like' onClick={Like}>Like</button> */}
                 {/* <button className='dislike' onClick={Dislike}>Dislike</button> */}
@@ -124,7 +120,7 @@ function Comment({ user, authenticated, comment, getBlogById }) {
         <div className='individual-comment'>
             <img src={comment.image} alt=''/>
             <br/>
-            {` ${comment.Author.username}: ${comment.text} `}
+            {`${comment.Author.profilepic} ${comment.Author.username}: ${comment.text} `}
             <br/>
             {`Likes: ${comment.likes}`}
             <br/>
