@@ -12,13 +12,13 @@ function Reply({ user, authenticated, reply, getBlogById }) {
     return (user && authenticated) ? (
         <div>
             <img src={reply.image} alt=''/>
-            {`${reply.Author.profilepic} ${reply.Author.username}: ${reply.text}`}
+            <img src={reply.Author.profilepic} alt='profile' style={{height: '40px'}}/>{`${reply.Author.username}: ${reply.text}`}
             {user.id === reply.author_id && <button className='button' onClick={deleteReply}>Delete</button>}
         </div>
     ) : (
         <div>
             <img src={reply.image} alt=''/>
-            {`${reply.Author.profilepic} ${reply.Author.username}: ${reply.text}`}
+            <img src={reply.Author.profilepic} alt='profile' style={{height: '40px'}}/>{`${reply.Author.username}: ${reply.text}`}
         </div>
     );
 }
