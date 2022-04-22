@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import PostArticle from './PostArticle'
 import Modal from './Modal'
 
-const Nav = ({authenticated, user, handleLogout, userID}) => {
+const Nav = ({authenticated, user, handleLogout, userID, notifications}) => {
     let authenticatedNav
 
     const [show, setShow] = useState(false)
@@ -36,7 +36,7 @@ const Nav = ({authenticated, user, handleLogout, userID}) => {
                 <h2>Welcome, {user.username}</h2>
                 <p><Link to ='/'  className='navLink'>Home</Link></p>
                 <p><Link to ={`/${user.id}/my-page`}  className='navLink'>My Page</Link></p>
-                {/* <p><Link to ={`/${user.id}/notifications`}className='navLink'>Notifications</Link></p> */}
+                {notifications && <p><Link to ={`/${user.id}/notifications`}className='navLink'>Notifications <span className='notification-number'>{notifications[1].notifications}</span></Link></p>}
                 <p><Link onClick={handleLogout} to ='/login'  className='navLink'>Logout</Link></p>
                 <br/>
                 <div className = 'articlePostButton'>
