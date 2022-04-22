@@ -21,12 +21,14 @@ function App() {
       lastlogin: new Date()
     })
     const [blog, setBlog] = useState([])
+    const [notifications, setNotifications] = useState()
 
     const checkToken = async() => {
       const user = await CheckSession()
       setUser(user)
       setUserID(user.id)
       setAuthenticated(true)
+      getNotification(user.id)
     }
 
     const getBlog = async() => {
@@ -34,14 +36,27 @@ function App() {
       setBlog(blog.data)
     }
 
-    const handleLogOut = async () => {
+    const getNotification = async (id) => {
+      const notification = await Client.get(`/api/notifications/${id}`)
+      if(notification){
+        setNotifications(notification.data)
+        console.log(notifications)
+      }
+    }
+
+    const setDateOnLogout = () => {
       setData({
-        id: user.id,
+        id: userID,
         lastlogout: new Date()
       })
+    }
+
+    const handleLogOut = async () => {
+      setDateOnLogout()
       setUser(null)
       setAuthenticated(false)
       localStorage.clear()
+      console.log(data)
       await Client.put('/api/logout', data)
     }
 
@@ -58,7 +73,7 @@ function App() {
           <div className = 'header'>
             <h1><span className='headerTitleSpan'>My</span>Lieu<span className='dot'>.</span></h1>
           </div>
-            <Nav authenticated={authenticated} user={user} handleLogout={handleLogOut} userID={userID}/>          
+            <Nav authenticated={authenticated} user={user} handleLogout={handleLogOut} userID={userID} notifications={notifications}/>          
             
             <Routes>
               <Route path='/' element={<Home getBlog={getBlog} setBlog={setBlog} blog={blog} user={user} authenticated={authenticated} />}/>
