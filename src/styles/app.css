@@ -397,13 +397,13 @@ input[type=password] {
 }
 
 
-.thumbUp, .thumbDown {
+.thumbUp, .thumbDown, .editIcon, .postIcon, .deleteIcon, .cancelIcon {
     height: 20px;
     margin-left: 5px;
     cursor: pointer;
 }
 
-.thumbUp:hover, .thumbDown:hover{
+.thumbUp:hover, .thumbDown:hover, .editIcon:hover, .postIcon:hover, .deleteIcon:hover, .cancelIcon:hover{
    color: #9FD3C7;
 }
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Client from '../services/api'
 import { useNavigate, useParams } from 'react-router'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle, faTrashCan, faXmarkCircle } from "@fortawesome/free-regular-svg-icons"
 
 const EditArticle = ({blog, setEditor, getBlogById}) => {
     const { user_id } = useParams()
@@ -20,6 +22,7 @@ const EditArticle = ({blog, setEditor, getBlogById}) => {
         event.preventDefault()
         await Client.put(`/api/blog/update/${blog.id}`, edit)
         setEditor(false)
+        window.location.reload(true)
     }
 
     const deleteArticle = async (e) => {
@@ -42,9 +45,9 @@ const EditArticle = ({blog, setEditor, getBlogById}) => {
                 <br />
                 <br />
                 <div className='articlePostButton'>
-                    <button className='button' type='post'>Post</button>
-                    <button className='button' onClick={deleteArticle}>Delete</button>
-                    <button className='button' onClick={() => setEditor(false)}>Cancel</button>
+                    <FontAwesomeIcon icon={faCheckCircle} onClick={handleSubmit} className="postIcon" />
+                    <FontAwesomeIcon icon={faTrashCan} onClick={deleteArticle} className="deleteIcon" />
+                    <FontAwesomeIcon icon={faXmarkCircle} onClick={() => setEditor(false)} className="cancelIcon" />
                 </div>
             </form>
         </div>

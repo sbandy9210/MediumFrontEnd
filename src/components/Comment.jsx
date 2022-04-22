@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Reply from './Reply';
 import Client from '../services/api';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp, faThumbsDown, } from "@fortawesome/free-regular-svg-icons"
+import { faThumbsUp, faThumbsDown, faPenToSquare, faCheckCircle, faTrashCan, faXmarkCircle } from "@fortawesome/free-regular-svg-icons"
 
 
 function Comment({ user, authenticated, comment, getBlogById }) {
@@ -73,7 +73,7 @@ function Comment({ user, authenticated, comment, getBlogById }) {
                     <div className='commentUser'>
                         <img src={comment.Author.profilepic} alt='profile' className='commentUserPic'/> <br></br> 
                         {comment.Author.username} <br></br> 
-                        {user.id === comment.author_id && <button className='editButton' onClick={EditPost}>Edit Comment</button>}
+                        {user.id === comment.author_id && <FontAwesomeIcon icon={faPenToSquare} onClick={EditPost} className="editIcon" />}
                     </div>
                     <div className='commentText'>
                         <img className='commentTextPic' src={comment.image} alt=''/>
@@ -87,8 +87,6 @@ function Comment({ user, authenticated, comment, getBlogById }) {
                         <FontAwesomeIcon icon={faThumbsDown} onClick={Dislike} className="thumbDown" />
                     </div>
                 </div>
-
-                {/* {user.id === comment.author_id && <button className='editButton' onClick={EditPost}>Edit</button>} */}
     
                 <form onSubmit={handleSubmit}>
                     <input className='comment-reply-image' name='image' value={newReply.image} placeholder='Enter Image URL' onChange={handleChange}/>
@@ -111,25 +109,15 @@ function Comment({ user, authenticated, comment, getBlogById }) {
                     <br />
                     <br />
                     <div className = 'articlePostButton'>
-
-            
-
-                        <button className='button' type = 'post'>Post</button>
-                        <button className='button' onClick={deleteComment}>Delete</button>
-                        <button className='button' onClick={() => setEdit(false)}>Cancel</button>
-
+                        <FontAwesomeIcon icon={faCheckCircle} onClick={handleEditSubmit} className="postIcon" />
+                        <FontAwesomeIcon icon={faTrashCan} onClick={deleteComment} className="deleteIcon" />
+                        <FontAwesomeIcon icon={faXmarkCircle} onClick={() => setEdit(false)} className="cancelIcon" />
                     </div>
                 </form>
             </div>
         )
     ) : (
         <div className='individual-comment'>
-            {/* <img src={comment.image} alt=''/>
-            <br/>
-            <img src={comment.Author.profilepic} alt='profile' style={{height: '40px'}}/> {`${comment.Author.username}: ${comment.text} `}
-            <br/>
-            {`Likes: ${comment.likes}`}
-            <br/> */}
             <div className='commentInitial'>
                 <div className='commentUser'>
                     <img src={comment.Author.profilepic} alt='profile' className='commentUserPic'/> <br></br> 
