@@ -10,6 +10,17 @@ MyLieu (derived from milieu) is a social publishing platform that enables users 
 
 ![Homepage](./Assets/Homepage.JPG)
 
+## Getting Started
+
+Deployed Backend: [Click Here](https://mylieu-backend.herokuapp.com/)
+
+Backend Repo: [Click Here](https://github.com/Haubaustin/MyLieu_Backend)
+
+Frontend Repo: [Click Here](https://github.com/Haubaustin/MyLieu_Backend)
+
+[Trello](https://trello.com/b/2vSWUIo0/mylieu)
+
+
 ## Features
  
 ### Create Post
@@ -37,13 +48,17 @@ MyLieu (derived from milieu) is a social publishing platform that enables users 
 - Figma
 - Lucid 
 
+## Future Updates
+
+[ ] Have a counter for Dislike
+[ ] Have a hamburger menu for smaller screens
+[ ] Have a dynamic notification system
+
 ## Links
 
 [MyLieu ERD](https://lucid.app/lucidchart/9c3d9e18-783a-4ce5-9f99-86bb6155ca54/edit?invitationId=inv_ff498189-fb9a-4553-8767-7f836a537941)
 
-[MyLieu Component Heirarchy](https://lucid.app/lucidchart/cdc01586-ef27-4dad-9373-ed18c2d15c3a/edit?invitationId=inv_64e3ad50-98cc-401a-a879-c5e3af42af11)
-
-[Trello](https://trello.com/b/2vSWUIo0/mylieu) 
+[MyLieu Component Heirarchy](https://lucid.app/lucidchart/cdc01586-ef27-4dad-9373-ed18c2d15c3a/edit?invitationId=inv_64e3ad50-98cc-401a-a879-c5e3af42af11) 
 
 [Figma](https://www.figma.com/file/pESfXpcMigEUmsyMkLv8no/P3-Milieu?node-id=0%3A1)
 
