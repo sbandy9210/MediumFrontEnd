@@ -342,6 +342,14 @@ input[type=password] {
 .navLink {
     text-decoration: none;
     color: #385170;
+        font-weight: bold;
+}
+
+.notification-number {
+    padding-left: 4px;
+    padding-right: 4px;
+    color: red;
+    font-weight: bold;
 }
 
 .passwordContainer{
@@ -390,7 +398,7 @@ input[type=password] {
     cursor: pointer;
 }
 
-.thumbUp:hover, .thumbDown:hover, .editIcon:hover, .postIcon:hover, .deleteIcon:hover, .cancelIcon:hover{
+.thumbUp:hover, .thumbDown:hover, .editIcon:hover, .postIcon:hover, .deleteIcon:hover, .cancelIcon:hover, .notification-number:hover {
    color: #9FD3C7;
 }
 
