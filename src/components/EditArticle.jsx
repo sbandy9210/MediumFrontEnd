@@ -41,7 +41,8 @@ const EditArticle = ({blog, setEditor, getBlogById}) => {
                 <input type = 'text' name='image' placeholder = 'Image Link' className = 'articleTitle' onChange={handleChange} value={edit.image}/>
                 <br />
                 <br />
-                <input type = 'text' name='article' placeholder = 'Content' className = 'articleContent' onChange={handleChange} value={edit.article}/>
+                <textarea name='article' placeholder='Content' className = 'articleContent' onChange={handleChange} value={edit.article}/>
+                {/* <input type = 'text' name='article' placeholder='Content' className='articleContent' onChange={handleChange} value={edit.article}/> */}
                 <br />
                 <br />
                 <div className='articlePostButton'>
