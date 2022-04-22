@@ -44,17 +44,20 @@ function App() {
         setNotifications(notification.data)
         console.log(notifications)
       }
+      console.log(data)
     }
 
     const setDateOnLogout = () => {
-      setData({
-        id: userID,
-        lastlogout: new Date()
+      setData({...data, lastlogout: new Date()
       })
+    }
+    const setUserOnLogout = () => {
+      setData({...data, id: userID})
     }
 
     const handleLogOut = async () => {
       setDateOnLogout()
+      setUserOnLogout()
       setUser(null)
       setAuthenticated(false)
       localStorage.clear()
@@ -80,7 +83,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home getBlog={getBlog} setBlog={setBlog} blog={blog} user={user} authenticated={authenticated} />}/>
               <Route path='/register' element={<Register />}/>
-              <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated} setUserID={setUserID}/>}/>
+              <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated} setUserID={setUserID} data={data} setData={setData} />}/>
               <Route path='/:user_id/my-page' element={<MyPage user={user} authenticated={authenticated}/>}/>
               <Route path={`/${userID}/notifications`} element={<Notification user={user} authenticated={authenticated} notifications={notifications} />} />
               <Route path='/:user_id/blog/:blog_id' element={<Article user={user} authenticated={authenticated}/>}/>

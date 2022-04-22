@@ -26,6 +26,7 @@ const SignIn = (props) => {
         props.setUser(payload)
         props.setUserID(payload.id)
         props.setAuthenticated(true)
+        props.setData({...props.data, id:payload.id})
         navigate('/')
     }
 
