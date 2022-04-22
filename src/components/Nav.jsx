@@ -56,7 +56,6 @@ const Nav = ({authenticated, user, handleLogout, userID, notifications}) => {
     )
 
     return(
-        // <div className='Nav'>
         <div className={navbarClasses.join(" ")}>
             {authenticated && user ? authenticatedNav : publicNav}
             <Modal onClose={() => setShow(false)} show={show} title='Post a new Blog!'>

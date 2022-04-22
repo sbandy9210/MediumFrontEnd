@@ -1,3 +1,9 @@
+.notify-title{
+    font-weight: bold;
+    display: inline;
+    cursor: pointer;
+}
+
 /* ***** Sticky Nav ***** */
 .navbar{
     display: flex;
