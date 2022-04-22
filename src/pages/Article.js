@@ -3,6 +3,8 @@ import { useParams } from 'react-router'
 import Client from '../services/api'
 import Comment from '../components/Comment'
 import EditArticle from '../components/EditArticle'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare, faCheckCircle, faTrashCan, faXmarkCircle } from "@fortawesome/free-regular-svg-icons"
 
 
 
@@ -50,12 +52,11 @@ const Article = ({ user, authenticated }) => {
         (user && authenticated) ? (
             (!edit) ? ( 
                 <div className='Article'>
-                    {user.id === blog.author_id && <button className='editArticleButton' onClick={editPost}> Edit Article</button>}
+                    {user.id === blog.author_id && <FontAwesomeIcon icon={faPenToSquare} onClick={editPost} className="editIcon" />}
                         <br/>
                     <div className = 'articleDiv'>
                         <h2>{blog.title}</h2>
                         <div className='article-author-info'>
-                            {/* {blog.Author.profilepic} */}
                             <img src={blog.Author.profilepic} alt='profile' className="blogAuthorImage"/>
                             <h3 className='blogAuthor'>{blog.Author.username} | {blog.createdAt.substring(0,10)}</h3>
                         </div>
