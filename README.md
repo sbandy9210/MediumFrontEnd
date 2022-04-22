@@ -1,22 +1,23 @@
 # MyLieu
 
-##### Created By: Austin Haubenschild | Piero Caceres | Michelle Yang | Shubhro Bandyopadhyay
+![Title](./Assets/MyLieu.jpg)
+
+##### Created By: Austin Haubenschild [![LinkedIn](./Assets/linkedin.jpg)](https://www.linkedin.com/in/austin-haubenschild-211472169/) [Github](https://github.com/Haubaustin)| Piero Caceres [LinkedIn](https://www.linkedin.com/in/pcace/) [Github](https://github.com/pierocaceres) | Michelle Yang [LinkedIn](https://www.linkedin.com/in/myang292/) [Github](https://github.com/myang292) | Shubhro Bandyopadhyay [LinkedIn](https://www.linkedin.com/in/shubhro-bandyopadhyay-8420a321b/) [Github](https://github.com/sbandy9210)
 
 ## Desprciption
 
 MyLieu (derived from milieu) is a social publishing platform that enables users to create, read, and share diverse stories and insights that takes inspiration from popular blog sites such as medium and reddit. MyLieu is a full stack app that features popular articles and blog posts on a wide variety of topics and allows registered users to like posts, leave comments or even create their own blog post on whatever they like!
 
-***Backend:*** 
+![Homepage](./Assets/Homepage.JPG)
 
-Austin Haubenschild [LinkedIn](https://www.linkedin.com/in/austin-haubenschild-211472169/) [Github](https://github.com/Haubaustin)
+## Features
+ 
+### Create Post
 
-Piero Caceres [LinkedIn](https://www.linkedin.com/in/pcace/) [Github](https://github.com/pierocaceres)
+![Create post demonstration](./Assets/create-post.gif)
 
-***Frontend:*** 
-
-Michelle Yang [LinkedIn](https://www.linkedin.com/in/myang292/) [Github](https://github.com/myang292)
-
-Shubhro Bandyopadhyay [LinkedIn](https://www.linkedin.com/in/shubhro-bandyopadhyay-8420a321b/) [Github](https://github.com/sbandy9210) 
+### Leave comment on post or reply to comment.
+![Leaving a comment demonstartion](./Assets/comment.gif)
  
 
 ## Entity Relationship Diagram (ERD)
