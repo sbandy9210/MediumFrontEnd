@@ -50,9 +50,9 @@ Frontend Repo: [Click Here](https://github.com/Haubaustin/MyLieu_Backend)
 
 ## Future Updates
 
-[ ] Have a counter for Dislike
-[ ] Have a hamburger menu for smaller screens
-[ ] Have a dynamic notification system
+- [ ] Have a counter for Dislike
+- [ ] Have a hamburger menu for smaller screens
+- [ ] Have a dynamic notification system
 
 ## Links
 
