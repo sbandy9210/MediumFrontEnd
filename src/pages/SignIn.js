@@ -9,21 +9,19 @@ const SignIn = (props) => {
 
     const [formValues, setFormValues] = useState({
         username: '',
-        password: ''
+        password: '',
     })
 
     const handleChange = (e) => {
         setFormValues({...formValues, [e.target.name]: e.target.value})
-        
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         const payload = await SignInUser(formValues)
-        
         setFormValues({
             username: '',
-            password: ''
+            password: '',
         })
         props.setUser(payload)
         props.setUserID(payload.id)

@@ -15,7 +15,6 @@ const PostArticle = ({ userID }) => {
 
     const handleChange = (event) => {
         setBlog({...blog, [event.target.name]: event.target.value})
-        setBlog({...blog, author_id: userID})
     }
 
     const setId = () => {

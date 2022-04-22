@@ -16,7 +16,10 @@ function App() {
     const [authenticated, setAuthenticated] = useState (false)
     const [user, setUser] = useState(null)
     const [userID, setUserID] = useState()
-
+    const [data, setData] = useState({
+      id: "",
+      lastlogin: new Date()
+    })
     const [blog, setBlog] = useState([])
 
     const checkToken = async() => {
@@ -30,11 +33,16 @@ function App() {
       const blog = await Client.get('/api/blog/all')
       setBlog(blog.data)
     }
-    
-    const handleLogOut = () => {
+
+    const handleLogOut = async () => {
+      setData({
+        id: user.id,
+        lastlogout: new Date()
+      })
       setUser(null)
       setAuthenticated(false)
       localStorage.clear()
+      await Client.put('/api/logout', data)
     }
 
     useEffect(() => {
