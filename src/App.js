@@ -8,6 +8,7 @@ import MyPage from './pages/MyPage'
 import SignIn from './pages/SignIn'
 import Register from './pages/Register'
 import Article from './pages/Article'
+import Notification from './pages/Notification'
 import Nav from './components/Nav'
 
 
@@ -17,7 +18,7 @@ function App() {
     const [user, setUser] = useState(null)
     const [userID, setUserID] = useState()
     const [data, setData] = useState({
-      id: "",
+      id: userID,
       lastlogin: new Date()
     })
     const [blog, setBlog] = useState([])
@@ -29,6 +30,7 @@ function App() {
       setUserID(user.id)
       setAuthenticated(true)
       getNotification(user.id)
+      setData({...data, id: user.id})
     }
 
     const getBlog = async() => {
@@ -80,6 +82,7 @@ function App() {
               <Route path='/register' element={<Register />}/>
               <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated} setUserID={setUserID}/>}/>
               <Route path='/:user_id/my-page' element={<MyPage user={user} authenticated={authenticated}/>}/>
+              <Route path={`/${userID}/notifications`} element={<Notification user={user} authenticated={authenticated} notifications={notifications} />} />
               <Route path='/:user_id/blog/:blog_id' element={<Article user={user} authenticated={authenticated}/>}/>
               {/* Public view of article */}
               <Route path='/blog/:blog_id' element={<Article user={user} authenticated={authenticated}/>}/>
