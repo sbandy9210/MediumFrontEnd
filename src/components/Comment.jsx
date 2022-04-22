@@ -8,6 +8,8 @@ import { faThumbsUp, faThumbsDown, faPenToSquare, faCheckCircle, faTrashCan, faX
 function Comment({ user, authenticated, comment, getBlogById }) {
 
     const [edit, setEdit] = useState(false)
+    const [clickLike, setClickLike] = useState(false)
+    const [clickDislike, setClickDislike] = useState(false)
 
     const [newReply, setNewReply] = useState({
         image: '',
@@ -31,11 +33,15 @@ function Comment({ user, authenticated, comment, getBlogById }) {
     }
 
     const Like = async () => {
+        setClickLike(true)
+        setClickDislike(false)
         await Client.put(`/api/comment/like/${comment.id}`)
         getBlogById()
     }
 
     const Dislike = async () => {
+        setClickLike(false)
+        setClickDislike(true)
         await Client.put(`/api/comment/dislike/${comment.id}`)
         getBlogById()
     }
@@ -80,11 +86,11 @@ function Comment({ user, authenticated, comment, getBlogById }) {
                         <p>{comment.text}</p>
                     </div>
                     <div className='commentLikes'>
-                        <FontAwesomeIcon icon={faThumbsUp} onClick={Like} className="thumbUp" /> 
+                        {!clickLike && <FontAwesomeIcon icon={faThumbsUp} onClick={Like} className="thumbUp" />}
                             <br/>
                         {`Likes: ${comment.likes}`} 
                             <br/>
-                        <FontAwesomeIcon icon={faThumbsDown} onClick={Dislike} className="thumbDown" />
+                        {!clickDislike && <FontAwesomeIcon icon={faThumbsDown} onClick={Dislike} className="thumbDown" />}
                     </div>
                 </div>
     
@@ -127,12 +133,10 @@ function Comment({ user, authenticated, comment, getBlogById }) {
                     <img className='commentTextPic' src={comment.image} alt=''/>
                     <p>{comment.text}</p>
                 </div>
-                <div className='commentLikes'>
-                    <FontAwesomeIcon icon={faThumbsUp} onClick={Like} className="thumbUp" /> 
-                        <br/>
-                    {`Likes: ${comment.likes}`} 
-                        <br/>
-                    <FontAwesomeIcon icon={faThumbsDown} onClick={Dislike} className="thumbDown" />
+                <div className='commentLikes'> 
+                    <br/>
+                        {`Likes: ${comment.likes}`} 
+                    <br/>
                 </div>
             </div>
             {comment.Replies.map((reply) => (
