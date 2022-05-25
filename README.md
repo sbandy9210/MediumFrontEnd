@@ -4,7 +4,7 @@
 
 ##### Created By: Austin Haubenschild [LinkedIn](https://www.linkedin.com/in/austin-haubenschild-211472169/) [Github](https://github.com/Haubaustin)| Piero Caceres [LinkedIn](https://www.linkedin.com/in/pcace/) [Github](https://github.com/pierocaceres) | Michelle Yang [LinkedIn](https://www.linkedin.com/in/myang292/) [Github](https://github.com/myang292) | Shubhro Bandyopadhyay [LinkedIn](https://www.linkedin.com/in/shubhro-bandyopadhyay-8420a321b/) [Github](https://github.com/sbandy9210)
 
-## Desprciption
+## Description
 
 MyLieu (derived from milieu) is a social publishing platform that enables users to create, read, and share diverse stories and insights that takes inspiration from popular blog sites such as medium and reddit. MyLieu is a full stack app that features popular articles and blog posts on a wide variety of topics and allows registered users to like posts, leave comments or even create their own blog post on whatever they like!
 
@@ -42,7 +42,7 @@ Deployed Backend: [Click Here](https://mylieu-backend.herokuapp.com/)
 ![Component Hierarchy Diagram](./Assets/Flowchart.jpeg)
 
 ## Technologies Used
-- Postresql
+- PostgreSQL
 - Express
 - React 
 - Node
