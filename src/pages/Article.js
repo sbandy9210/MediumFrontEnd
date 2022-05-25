@@ -62,7 +62,7 @@ const Article = ({ user, authenticated }) => {
                         </div>
                         <br/>
                         <img src={blog.image} alt='' className='articleImg'/>
-                        <p>{blog.article}</p>
+                        <div className="blogArticle" dangerouslySetInnerHTML={{__html: blog.article}}></div>
                     </div>
     
                     <div className='Comments'>

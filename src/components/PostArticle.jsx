@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Client from '../services/api'
-
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css'
 
 const PostArticle = ({ userID }) => {
     
@@ -11,6 +12,8 @@ const PostArticle = ({ userID }) => {
         author_id: userID
     }) 
 
+    const [text, setText] = useState('')
+
     const [response, setResponse] = useState("")
 
     const handleChange = (event) => {
@@ -19,11 +22,17 @@ const PostArticle = ({ userID }) => {
 
     const setId = () => {
         setBlog({...blog, author_id: userID})
+        setArticle()
+    }
+
+    const setArticle = () => {
+        setBlog({...blog, article: text})
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault()
         setId()
+        
         const res = await Client.post('/api/blog/create', blog)
 
         setBlog({
@@ -51,7 +60,7 @@ const PostArticle = ({ userID }) => {
                 <input type = 'text' name='image' placeholder = 'Image Link' className = 'articleTitle' onChange={handleChange} value={blog.image}/>
                 <br />
                 <br />
-                <textarea name='article' placeholder='Type Your Article Here' className='articleTextArea' onChange={handleChange} value={blog.article} />
+                <ReactQuill theme='snow' value={text} onChange={setText}/>
                 <br />
                 <br />
                 <div className = 'articlePostButton'>

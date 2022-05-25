@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=http://localhost:8080/
+HostUrl=https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css
