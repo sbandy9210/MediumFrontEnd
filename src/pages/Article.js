@@ -106,13 +106,13 @@ const Article = ({ user, authenticated, subscribedTo, checkSubscribe }) => {
             <div className='Article'>
                 <div className = 'articleDiv'>
                 <h2>{blog.title}</h2>
-                    <div className='article-author-info'>
+                    <div className='article-author-section'>
                         <img src={blog.Author.profilepic} alt='profile' className="blogAuthorImage"/>
                         <h3 className='blogAuthor'>{blog.Author.username} | {blog.createdAt.substring(0,10)}</h3>
                     </div>
                     <br/>
                     <img src={blog.image} alt='' className='articleImg'/>
-                    <p>{blog.article}</p>
+                    <div className="blogArticle" dangerouslySetInnerHTML={{__html: blog.article}}></div>
                 </div>
     
                 <div className='Comments'>
