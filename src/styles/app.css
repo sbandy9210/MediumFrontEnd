@@ -63,15 +63,26 @@
     margin-top: 10px;
 }
 
+
+.article-author-section {
+    display: inline-flex
+    
+}
+
 .article-author-info {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
 }
 
 .ArtCardTitle {
     text-align: left;
     margin-top: 0px;
     margin-left: 5px;
+}
 
+.subscribeButton {
+    justify-content: flex-end;
+    align-self: center;
 }
 
 .ArtCardDate {
@@ -125,7 +136,7 @@
 }
 
 .blogAuthor {
-    margin-left: 5px;
+    margin: 5px;
 }
 
 .blogAuthorImage {
@@ -395,6 +406,10 @@ input[type=password] {
 
 .signInButton {
     margin-top: 10px;
+}
+
+.subscribeIcon {
+    align-self: center;
 }
 
 
