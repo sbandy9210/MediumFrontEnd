@@ -5,12 +5,12 @@ import Comment from '../components/Comment'
 import EditArticle from '../components/EditArticle'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faCheckCircle, faTrashCan, faXmarkCircle } from "@fortawesome/free-regular-svg-icons"
-import { faUserPlus } from "@fortawesome/free-solid-svg-icons"
+import { faUserPlus, faUserAltSlash } from "@fortawesome/free-solid-svg-icons"
 
 
 
 
-const Article = ({ user, authenticated }) => {    
+const Article = ({ user, authenticated, subscribedTo }) => {    
     const [edit, setEdit] = useState(false)
     const [blog, setBlog] = useState()
     const [newComment, setNewComment] = useState({
@@ -49,19 +49,23 @@ const Article = ({ user, authenticated }) => {
         await Client.post(`/api/follow/${user.id}/${blog.author_id}`)
     }
 
-    // const checkSubscribe = async () => {
-    //     const res = await Client.get(`/api/following/${user.id}`)
-    //     console.log(res.data)
-    //     console.log(res.data.map((ele) => ele.Following))
-    // }
+    const handleUnSubscribe = async () => {
+        // await Client.post(`/api/follow/${user.id}/${blog.author_id}`)
+    }
+
+    const subscribeButton = () => {
+        if (user.id !== blog.author_id && subscribedTo && subscribedTo.includes(blog.author_id)) {
+            return <button className='subscribeButton add-comment-button' onClick={handleUnSubscribe}>Unsubscribe <FontAwesomeIcon icon={faUserAltSlash} className="subscribeIcon"/></button>
+        }
+        else if (user.id !== blog.author_id) {
+            return <button className='subscribeButton add-comment-button' onClick={handleSubscribe}>Subscribe <FontAwesomeIcon icon={faUserPlus} className="subscribeIcon"/></button>
+        }
+    }
+
 
     useEffect(() => {
          getBlogById()
-        //  checkSubscribe()
     }, [])
-
-
-
 
     return (blog) ? (
         (user && authenticated) ? (
@@ -75,7 +79,8 @@ const Article = ({ user, authenticated }) => {
                             <img src={blog.Author.profilepic} alt='profile' className="blogAuthorImage"/>    
                             <div className='article-author-info'>
                                 <h3 className='blogAuthor'>{blog.Author.username} | {blog.createdAt.substring(0,10)} </h3> 
-                                {user.id !== blog.author_id && <button className='subscribeButton add-comment-button' onClick={handleSubscribe}>Subscribe <FontAwesomeIcon icon={faUserPlus} className="subscribeIcon"/></button>}
+                                {subscribeButton()}
+                                {/* {user.id !== blog.author_id && <button className='subscribeButton add-comment-button' onClick={handleSubscribe}>Subscribe <FontAwesomeIcon icon={faUserPlus} className="subscribeIcon"/></button>} */}
                             </div>
                         </div>
                         <br/>
