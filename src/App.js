@@ -94,7 +94,7 @@ function App() {
               <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated} setUserID={setUserID} data={data} setData={setData} />}/>
               <Route path='/:user_id/my-page' element={<MyPage user={user} authenticated={authenticated}/>}/>
               <Route path={`/${userID}/notifications`} element={<Notification user={user} authenticated={authenticated} notifications={notifications} />} />
-              <Route path='/:user_id/blog/:blog_id' element={<Article user={user} authenticated={authenticated} subscribedTo={subscribedTo}/>}/>
+              <Route path='/:user_id/blog/:blog_id' element={<Article user={user} authenticated={authenticated} subscribedTo={subscribedTo} checkSubscribe={checkSubscribe}/>}/>
               {/* Public view of article */}
               <Route path='/blog/:blog_id' element={<Article user={user} authenticated={authenticated}/>}/>
             </Routes>

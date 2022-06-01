@@ -10,7 +10,7 @@ import { faUserPlus, faUserAltSlash } from "@fortawesome/free-solid-svg-icons"
 
 
 
-const Article = ({ user, authenticated, subscribedTo }) => {    
+const Article = ({ user, authenticated, subscribedTo, checkSubscribe }) => {    
     const [edit, setEdit] = useState(false)
     const [blog, setBlog] = useState()
     const [newComment, setNewComment] = useState({
@@ -47,10 +47,12 @@ const Article = ({ user, authenticated, subscribedTo }) => {
 
     const handleSubscribe = async () => {
         await Client.post(`/api/follow/${user.id}/${blog.author_id}`)
+        checkSubscribe(user.id)
     }
 
     const handleUnSubscribe = async () => {
-        // await Client.post(`/api/follow/${user.id}/${blog.author_id}`)
+        await Client.delete(`/api/unsubscribe/${user.id}/${blog.author_id}`)
+        checkSubscribe(user.id)
     }
 
     const subscribeButton = () => {
@@ -61,7 +63,6 @@ const Article = ({ user, authenticated, subscribedTo }) => {
             return <button className='subscribeButton add-comment-button' onClick={handleSubscribe}>Subscribe <FontAwesomeIcon icon={faUserPlus} className="subscribeIcon"/></button>
         }
     }
-
 
     useEffect(() => {
          getBlogById()
