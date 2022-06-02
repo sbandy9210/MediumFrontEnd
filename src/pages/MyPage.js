@@ -12,10 +12,17 @@ const MyPage = ({ user, authenticated }) => {
     const [data, setData] = useState([])
     const [subscribedT0, setSubscribedTo] = useState([])
     const [myBlog, setMyBlog] = useState(true)
+    const [author, setBlogAuthor] = useState("")
 
     const blogs = async () => {
         const myBlogs = await Client.get(`/api/blog/author/${user_id}`)
         setData(myBlogs.data)
+    }
+
+    const setAuthor = (x) => {
+        setMyBlog(false)
+        setBlogAuthor(x)
+
     }
 
     const showMyBlog = () => {
@@ -36,13 +43,15 @@ const MyPage = ({ user, authenticated }) => {
     const showSubscrtibeTo = () => {
         return (
             <div className='container'>
-                <h2 className='myBlogsH2'>{} Blogs</h2>
+                <h2 className='myBlogsH2'>{author} Blogs</h2>
                  {subscribedT0 && subscribedT0.map((data) => (
-                     <div className='myBlogTitle' key={data.id}>
-                         <Link to={`/${user_id}/blog/${data.id}`} className="navLink">
-                             
-                         </Link>
-                     </div>
+                     data.Blogs.map((follo) => (
+                        <div className='myBlogTitle' key={follo.id}>
+                        <Link to={`/${user_id}/blog/${follo.id}`} className="navLink">
+                           <ArticleCard key={follo.id} blog={follo} user={user} authenticated={authenticated} author={data}/>
+                        </Link>
+                    </div>
+                     ))
                  ))}
             </div> 
          )
@@ -57,6 +66,7 @@ const MyPage = ({ user, authenticated }) => {
     useEffect(() => {
         blogs()
         displaySubcribedTo()
+        console.log(subscribedT0)
     }, [])
 
     return (user && authenticated ) ? (
@@ -70,7 +80,12 @@ const MyPage = ({ user, authenticated }) => {
                 </div>
                 <div className='SubscribedTo'>
                     <h2 className='myBlogsH2'>Subscribed to:</h2>
-                    {/* {showSubscrtibeTo()} */}
+                    {subscribedT0 && subscribedT0.map((sub) => (
+                        <div className='subscribeCard' onClick={()=>{setAuthor(sub.username)}}>
+                            <img className='subscribeCardIMG' src={sub.profilepic} alt="" />
+                            <h3 className='subscribeCardUsername'>{sub.username}</h3>
+                        </div>
+                    ))}
                 </div>
             </div>
         ) : (

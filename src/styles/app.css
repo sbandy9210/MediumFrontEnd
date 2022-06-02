@@ -424,8 +424,29 @@ input[type=password] {
     margin-top: 10px;
 }
 
+.subscribeCard {
+    display: inline-flex;
+    border-top: 1px solid black;
+    width: 100%;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.subscribeCardIMG {
+    height: 70px;
+}
+
+.subscribeCardUsername {
+    margin-left: 10px;
+}
+
 .subscribeIcon {
     align-self: center;
+}
+
+.SubscribedTo {
+    border-left: #000000 1px solid;
+    cursor: pointer;
 }
 
 
