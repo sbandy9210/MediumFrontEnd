@@ -19,6 +19,12 @@ const MyPage = ({ user, authenticated }) => {
         setData(myBlogs.data)
     }
 
+    const displaySubcribedTo = async () => {
+        const subscribed = await Client.get(`api/following/${user_id}`)
+        console.log(subscribed.data.Following)
+        setSubscribedTo(subscribed.data.Following)
+    }
+
     const setAuthor = (x) => {
         setMyBlog(false)
         setBlogAuthor(x)
@@ -44,29 +50,23 @@ const MyPage = ({ user, authenticated }) => {
         return (
             <div className='container'>
                 <h2 className='myBlogsH2'>{author} Blogs</h2>
-                 {subscribedT0 && subscribedT0.map((data) => (
-                     data.Blogs.map((follo) => (
-                        <div className='myBlogTitle' key={follo.id}>
-                        <Link to={`/${user_id}/blog/${follo.id}`} className="navLink">
-                           <ArticleCard key={follo.id} blog={follo} user={user} authenticated={authenticated} author={data}/>
-                        </Link>
-                    </div>
-                     ))
-                 ))}
+                <button className='add-comment-button' onClick={() => setMyBlog(true)}>Close</button>
+                {subscribedT0 && subscribedT0.map((data) => (
+                    data.Blogs.map((follo) => (
+                    <div className='myBlogTitle' key={follo.id}>
+                    <Link to={`/${user_id}/blog/${follo.id}`} className="navLink">
+                        <ArticleCard key={follo.id} blog={follo} user={user} authenticated={authenticated} author={data}/>
+                    </Link>
+                </div>
+                    ))
+                ))}
             </div> 
          )
-    }
-
-    const displaySubcribedTo = async () => {
-        const subscribed = await Client.get(`api/following/${user_id}`)
-        console.log(subscribed.data.Following)
-        setSubscribedTo(subscribed.data.Following)
     }
     
     useEffect(() => {
         blogs()
         displaySubcribedTo()
-        console.log(subscribedT0)
     }, [])
 
     return (user && authenticated ) ? (
