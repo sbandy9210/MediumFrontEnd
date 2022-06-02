@@ -53,9 +53,11 @@ const EditArticle = ({blog, setEditor, getBlogById}) => {
                 <br />
                 <br />
                 <input type = 'text' name='image' placeholder = 'Image Link' className = 'articleTitle' onChange={handleChange} value={edit.image}/>
+                <br/>
+                <br/>
+                {edit.image.length > 0 && <img src={edit.image} alt='blog' style={{width: '200px'}}/>}
                 <br />
                 <br />
-                {/* <textarea name='article' placeholder='Content' className = 'articleContent' onChange={handleChange} value={edit.article}/> */}
                 <ReactQuill theme='snow' value={text} onChange={setText}/>
                 <br />
                 <br />

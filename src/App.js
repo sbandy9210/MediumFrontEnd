@@ -38,6 +38,7 @@ function App() {
     const getBlog = async() => {
       const blog = await Client.get('/api/blog/all')
       setBlog(blog.data)
+      console.log(blog)
     }
 
     const getNotification = async (id) => {
