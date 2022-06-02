@@ -90,8 +90,23 @@
     margin-left: 5px;
 }
 
-.Article, .EditArticle, .MyPage, .Nav, .articleDiv, .Home, .Register, .SignIn, .Loading {
+.Article, .EditArticle, .Nav, .articleDiv, .Home, .Register, .SignIn, .Loading {
     grid-area: 2 / 2 / 3 / 3;
+}
+
+.ParentDiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-area: 2 / 2 / 3 / 4;
+}
+
+.MyPage {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.SubscribedTo {
+    grid-area: 1 / 2 / 2 / 3;
+    /* background-color: #000000; */
 }
 
 .ArticleCard {
