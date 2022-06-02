@@ -90,8 +90,23 @@
     margin-left: 5px;
 }
 
-.Article, .EditArticle, .MyPage, .Nav, .articleDiv, .Home, .Register, .SignIn, .Loading {
+.Article, .EditArticle, .Nav, .articleDiv, .Home, .Register, .SignIn, .Loading {
     grid-area: 2 / 2 / 3 / 3;
+}
+
+.ParentDiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-area: 2 / 2 / 3 / 4;
+}
+
+.MyPage {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.SubscribedTo {
+    grid-area: 1 / 2 / 2 / 3;
+    /* background-color: #000000; */
 }
 
 .ArticleCard {
@@ -325,10 +340,11 @@ input[type=password] {
 
 .modal-content {
 	background-color: white;
-	height: 350px;
+	height: fit-content;
 	width: 550px;
 	border-radius: 2px;
 	margin: 150px auto;
+    padding: 0 15px 10px 15px;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     transform: translateY(-200px);
     transition: all 0.3s ease-in-out;
@@ -408,8 +424,29 @@ input[type=password] {
     margin-top: 10px;
 }
 
+.subscribeCard {
+    display: inline-flex;
+    border-top: 1px solid black;
+    width: 100%;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.subscribeCardIMG {
+    height: 70px;
+}
+
+.subscribeCardUsername {
+    margin-left: 10px;
+}
+
 .subscribeIcon {
     align-self: center;
+}
+
+.SubscribedTo {
+    border-left: #000000 1px solid;
+    cursor: pointer;
 }
 
 

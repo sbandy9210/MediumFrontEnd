@@ -23,6 +23,7 @@ function App() {
     })
     const [blog, setBlog] = useState([])
     const [notifications, setNotifications] = useState()
+    const [subscribedTo, setSubscribedTo] = useState()
 
     const checkToken = async() => {
       const user = await CheckSession()
@@ -31,20 +32,22 @@ function App() {
       setAuthenticated(true)
       getNotification(user.id)
       setData({...data, id: user.id})
+      checkSubscribe(user.id)
     }
 
     const getBlog = async() => {
       const blog = await Client.get('/api/blog/all')
       setBlog(blog.data)
+      console.log(blog)
     }
 
     const getNotification = async (id) => {
       const notification = await Client.get(`/api/notifications/${id}`)
       if(notification){
         setNotifications(notification.data)
-        console.log(notifications)
+        // console.log(notifications)
       }
-      console.log(data)
+      // console.log(data)
     }
 
     const setDateOnLogout = () => {
@@ -61,9 +64,15 @@ function App() {
       setUser(null)
       setAuthenticated(false)
       localStorage.clear()
-      console.log(data)
+      // console.log(data)
       await Client.put('/api/logout', data)
     }
+
+    const checkSubscribe = async (id) => {
+      const res = await Client.get(`/api/following/${id}`)
+      console.log(res.data.Following.map((ele) => ele.id))
+      setSubscribedTo(res.data.Following.map((ele) => ele.id))
+  }
 
     useEffect(() => {
       const token = localStorage.getItem('token')
@@ -86,7 +95,7 @@ function App() {
               <Route path="/login" element={<SignIn setUser={setUser} setAuthenticated={setAuthenticated} setUserID={setUserID} data={data} setData={setData} />}/>
               <Route path='/:user_id/my-page' element={<MyPage user={user} authenticated={authenticated}/>}/>
               <Route path={`/${userID}/notifications`} element={<Notification user={user} authenticated={authenticated} notifications={notifications} />} />
-              <Route path='/:user_id/blog/:blog_id' element={<Article user={user} authenticated={authenticated}/>}/>
+              <Route path='/:user_id/blog/:blog_id' element={<Article user={user} authenticated={authenticated} subscribedTo={subscribedTo} checkSubscribe={checkSubscribe}/>}/>
               {/* Public view of article */}
               <Route path='/blog/:blog_id' element={<Article user={user} authenticated={authenticated}/>}/>
             </Routes>

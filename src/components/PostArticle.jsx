@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Client from '../services/api'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
@@ -32,7 +32,7 @@ const PostArticle = ({ userID }) => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         setId()
-        
+
         const res = await Client.post('/api/blog/create', blog)
 
         setBlog({
@@ -50,6 +50,10 @@ const PostArticle = ({ userID }) => {
         window.location.reload(true)
     }
 
+    useEffect(() => {
+        setBlog({...blog, author_id: userID})
+   }, [text])
+
     return(
         <div>
             <p>{response}</p>
@@ -58,6 +62,9 @@ const PostArticle = ({ userID }) => {
                 <br />
                 <br />
                 <input type = 'text' name='image' placeholder = 'Image Link' className = 'articleTitle' onChange={handleChange} value={blog.image}/>
+                <br/>
+                <br/>
+                {blog.image.length > 0 && <img src={blog.image} alt='blog' style={{width: '200px'}}/>}
                 <br />
                 <br />
                 <ReactQuill theme='snow' value={text} onChange={setText}/>
